@@ -1,0 +1,300 @@
+# Copyright (C) 2017 to-specials
+# This file is distributed under the same license as the to-specials package.
+msgid ""
+msgstr ""
+"Project-Id-Version: to-specials\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: LightSpeed <webmaster@lsdev.biz>\n"
+"Report-Msgid-Bugs-To: https://bitbucket.org/feedmycode/to-specials\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: classes/class-to-specials-admin.php:96, classes/class-to-specials-admin.php:97
+msgctxt "to-specials"
+msgid "Special Type"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:98
+msgid "Search Special Types"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:99, classes/class-to-specials-admin.php:106, classes/class-to-specials.php:113
+msgid "Special Types"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:100
+msgid "Parent Special Type"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:101
+msgid "Parent Special Type:"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:102
+msgid "Edit Special Type"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:103
+msgid "Update Special Type"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:104
+msgid "Add New Special Type"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:105
+msgid "New Special Type"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:127
+msgid "Off"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:183, classes/class-to-specials-frontend.php:375
+msgid "Map"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:197, classes/class-to-specials-frontend.php:202, classes/class-to-specials-frontend.php:206, classes/class-to-specials-frontend.php:386, includes/metaboxes/config-special.php:159, includes/metaboxes/config-special.php:165
+msgid "Gallery"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:228, classes/class-to-specials-frontend.php:389, classes/class-to-specials-frontend.php:391
+msgid "Videos"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:251, includes/metaboxes/config-special.php:212
+msgid "Posts"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:263, classes/class-to-specials-frontend.php:398
+msgid "Terms and Conditions"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:279, classes/class-to-specials-frontend.php:311, templates/content-widget-special.php:48
+msgid "From price"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:280, classes/class-to-specials-frontend.php:312, classes/class-to-specials-frontend.php:354, templates/content-widget-special.php:49, includes/metaboxes/config-special.php:215
+msgid "Tours"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:281, classes/class-to-specials-frontend.php:313, classes/class-to-specials-frontend.php:355, templates/content-widget-special.php:50, includes/metaboxes/config-special.php:213
+msgid "Accommodation"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:282, classes/class-to-specials-frontend.php:314, classes/class-to-specials-frontend.php:352, templates/content-widget-special.php:51
+msgid "Travel Style"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:283, classes/class-to-specials-frontend.php:315, classes/class-to-specials-frontend.php:353, templates/content-widget-special.php:52
+msgid "Type"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:284, classes/class-to-specials-frontend.php:316, classes/class-to-specials-frontend.php:356, templates/content-widget-special.php:53, includes/metaboxes/config-special.php:214
+msgid "Destinations"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:285, classes/class-to-specials-frontend.php:317, classes/class-to-specials-frontend.php:350, templates/content-widget-special.php:54
+msgid "Booking Validity"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:286, classes/class-to-specials-frontend.php:318, classes/class-to-specials-frontend.php:351, includes/metaboxes/config-special.php:117
+msgid "Travel Dates"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:289, classes/class-to-specials-frontend.php:321, classes/class-to-specials-frontend.php:359, templates/content-widget-special.php:57
+msgid "Activites"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:331, templates/content-widget-special.php:72
+msgid "View more"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:343
+msgid "Special Summary"
+msgstr ""
+
+#: classes/class-to-specials.php:103, includes/post-types/config-special.php:16, includes/post-types/config-special.php:22, includes/post-types/config-special.php:28
+msgid "Specials"
+msgstr ""
+
+#: classes/class-to-specials.php:106
+msgid "Special"
+msgstr ""
+
+#: classes/class-to-specials.php:110
+msgid "Special Type"
+msgstr ""
+
+#: includes/template-tags.php:24
+msgid "Featured Posts"
+msgstr ""
+
+#: includes/template-tags.php:199, includes/template-tags.php:222, includes/template-tags.php:245
+msgstr ""
+
+#: templates/single-special.php:24
+msgid "Summary"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:13
+msgid "Tour Operator Plugin"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:20
+msgid "Featured"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:26
+msgid "Disable Single"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:33
+msgid "Tagline"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:40
+msgid "Terms & Conditions"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:50
+msgid "Team Member"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:66
+msgid "Booking"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:72
+msgid "Price"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:78
+msgid "Price Type"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:81
+msgid "Select a type"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:82
+msgid "Per Person"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:83
+msgid "Per Person Per Night"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:84
+msgid "Per Person Sharing"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:85
+msgid "Per Person Sharing Per Night"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:86
+msgid "Percentage Off Your Price."
+msgstr ""
+
+#: includes/metaboxes/config-special.php:92
+msgid "Duration"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:98
+msgid "Booking Validity (start)"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:104
+msgid "Booking Validity (end)"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:110
+msgid "Expire this special automatically"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:124
+msgid "Start"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:129
+msgid "End"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:145, includes/metaboxes/config-special.php:151
+msgid "Location"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:174, includes/metaboxes/config-special.php:180
+msgid "Envira Gallery"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:196
+msgid "Envira Video Gallery"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:227
+msgid " related with this special"
+msgstr ""
+
+#: includes/partials/special.php:4
+msgid "General"
+msgstr ""
+
+#: includes/partials/special.php:6
+msgid "Search"
+msgstr ""
+
+#: includes/partials/special.php:8
+msgid "Placeholders"
+msgstr ""
+
+#: includes/partials/special.php:9
+msgid "Archives"
+msgstr ""
+
+#: includes/partials/special.php:10
+msgid "Single"
+msgstr ""
+
+#: includes/post-types/config-special.php:17
+msgid "Activity"
+msgstr ""
+
+#: includes/post-types/config-special.php:18
+msgid "Add New"
+msgstr ""
+
+#: includes/post-types/config-special.php:19
+msgid "Add New Special"
+msgstr ""
+
+#: includes/post-types/config-special.php:20
+msgid "Edit Special"
+msgstr ""
+
+#: includes/post-types/config-special.php:21
+msgid "New Specials"
+msgstr ""
+
+#: includes/post-types/config-special.php:23
+msgid "View Special"
+msgstr ""
+
+#: includes/post-types/config-special.php:24
+msgid "Search Specials"
+msgstr ""
+
+#: includes/post-types/config-special.php:25
+msgid "No specials found"
+msgstr ""
+
+#: includes/post-types/config-special.php:26
+msgid "No specials found in Trash"
+msgstr ""
