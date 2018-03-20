@@ -18,7 +18,7 @@ With the Tour Operator Specials Offers extension you’re able to set up time-se
 We've also made a fantastic [theme](https://www.lsdev.biz/product/lsx-wordpress-theme/) that work well with the Tour Operation - Specials plugin.
 
 = It's free, and always will be. =
-We’re firm believers in open source - that’s why we’re releasing the Tour Operator Specials plugin for free, forever. We offer free support on the [LSX Mega Menus support forums](https://wordpress.org/support/plugin/to-specials).
+We’re firm believers in open source - that’s why we’re releasing the Tour Operator Specials plugin for free, forever. We offer free support on the [Tour Operator Specials support forums](https://wordpress.org/support/plugin/to-specials).
 
 = Support =
 We offer premium support for this plugin. Premium support that can be purchased via [lsdev.biz](https://www.lsdev.biz/).
