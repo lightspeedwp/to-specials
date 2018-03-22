@@ -6,7 +6,7 @@
  * @author    LightSpeed
  * @license   GPL-3.0+
  * @link
- * @copyright 2016 LightSpeedDevelopment
+ * @copyright 2018 LightSpeedDevelopment
  */
 if (!class_exists( 'LSX_TO_Specials' ) ) {
 	/**

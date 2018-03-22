@@ -4,7 +4,7 @@
  * @author    LightSpeed
  * @license   GPL3
  * @link      
- * @copyright 2016 LightSpeed
+ * @copyright 2018 LightSpeed
  *
  **/
 
