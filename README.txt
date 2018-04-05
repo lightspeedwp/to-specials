@@ -12,10 +12,10 @@ With Tour Operator Specials, add deals to your website – a great way to entice
 
 == Description ==
 
-With the Tour Operator Specials Offers extension you’re able to set up time-sensitive prices that you can use to price your accommodations, activities and tours. Set up booking validity dates, specials per person sharing/per person sharing/per person sharing per night, team members per special and more.
+With the Tour Operator Specials extension you’re able to set up time-sensitive prices that you can use to price your accommodations, activities and tours. Set up booking validity dates, specials per person sharing/per person sharing/per person sharing per night, team members per special and more.
 
 = Works with the LSX Theme =
-We've also made a fantastic [theme](https://www.lsdev.biz/product/lsx-wordpress-theme/) that work well with the Tour Operation - Specials plugin.
+We've also made a fantastic [theme](https://www.lsdev.biz/product/lsx-wordpress-theme/) that work well with the Tour Operator Specials plugin.
 
 = It's free, and always will be. =
 We’re firm believers in open source - that’s why we’re releasing the Tour Operator Specials plugin for free, forever. We offer free support on the [Tour Operator Specials support forums](https://wordpress.org/support/plugin/to-specials).
