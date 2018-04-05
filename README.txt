@@ -1,7 +1,7 @@
 === Tour Operator - Specials ===
 Contributors: feedmymedia
 Donate link: https://www.lsdev.biz/product/tour-operator-specials/
-Tags: banner
+Tags: tour operator, lsx theme, specials, accomodation, prices 
 Requires at least: 4.3
 Tested up to: 4.9.4
 Requires PHP: 7.0
