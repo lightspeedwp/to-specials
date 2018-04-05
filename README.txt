@@ -1,4 +1,4 @@
-=== Tour Operator - Specials ===
+=== Tour Operator Specials ===
 Contributors: feedmymedia
 Donate link: https://www.lsdev.biz/product/tour-operator-specials/
 Tags: tour operator, lsx theme, specials, accomodation, prices 
@@ -46,5 +46,6 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 == Screenshots ==
 
 1. Website Showcase
-2. Customizer View
-3. Widget View
+2. Backend View
+3. Backend View 2
+4. Settings
