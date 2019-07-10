@@ -11,6 +11,7 @@ global $disable_placeholder, $disable_text, $post;
 
 $has_single = ! lsx_to_is_single_disabled();
 $permalink = '';
+$tour_operator = tour_operator();
 
 if ( $has_single ) {
 	$permalink = get_the_permalink();
@@ -60,17 +61,19 @@ if ( $has_single ) {
 		</div>
 
 		<?php
-			ob_start();
-			lsx_to_widget_entry_content_top();
-			//the_excerpt();
-			lsx_to_widget_entry_content_bottom();
-			$excerpt = ob_get_clean();
+		ob_start();
+		lsx_to_widget_entry_content_top();
+		the_excerpt();
+		lsx_to_widget_entry_content_bottom();
+		$excerpt = ob_get_clean();
 
-			if ( empty( $disable_text ) && ! empty( $excerpt ) ) {
-				echo wp_kses_post( $excerpt );
-			} elseif ( $has_single ) { ?>
-				<p><a href="<?php echo esc_url( $permalink ); ?>" class="moretag"><?php esc_html_e( 'View more', 'to-specials' ); ?></a></p>
-			<?php }
+		if ( ( isset( $tour_operator->options[ get_post_type() ] ) && isset( $tour_operator->options[ get_post_type() ]['disable_widget_excerpt'] ) && '' !== $tour_operator->options[ get_post_type() ]['disable_widget_excerpt'] ) && ! empty( $excerpt ) ) {
+			echo wp_kses_post( $excerpt );
+		} elseif ( $has_single ) {
+			?>
+			<p><a href="<?php echo esc_url( $permalink ); ?>" class="moretag"><?php esc_html_e( 'View more', 'to-specials' ); ?></a></p>
+		<?php
+		}
 		?>
 	</div>
 </article>

@@ -174,6 +174,15 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 		?>
 		<tr class="form-field-wrap">
 			<th scope="row">
+				<label for="disable_widget_excerpt"> <?php esc_html_e( 'Disable Widget Excerpt', 'tour-operator' ); ?></label>
+			</th>
+			<td>
+				<input type="checkbox" {{#if disable_widget_excerpt}} checked="checked" {{/if}} name="disable_widget_excerpt" />
+				<small><?php esc_html_e( 'This disables the excerpt text on the widget.', 'tour-operator' ); ?></small>
+			</td>
+		</tr>
+		<tr class="form-field-wrap">
+			<th scope="row">
 				<label for="expiration_status"> <?php esc_html_e( 'Expiration Status', 'tour-operator' ); ?></label>
 			</th>
 			<td>
