@@ -67,7 +67,7 @@ if ( $has_single ) {
 		lsx_to_widget_entry_content_bottom();
 		$excerpt = ob_get_clean();
 
-		if ( ( isset( $tour_operator->options[ get_post_type() ] ) && isset( $tour_operator->options[ get_post_type() ]['disable_widget_excerpt'] ) && '' !== $tour_operator->options[ get_post_type() ]['disable_widget_excerpt'] ) && ! empty( $excerpt ) ) {
+		if ( ( isset( $tour_operator->options[ get_post_type() ] ) && isset( $tour_operator->options[ get_post_type() ]['enable_widget_excerpt'] ) && '' !== $tour_operator->options[ get_post_type() ]['enable_widget_excerpt'] ) && ! empty( $excerpt ) ) {
 			echo wp_kses_post( $excerpt );
 		} elseif ( $has_single ) {
 			?>
