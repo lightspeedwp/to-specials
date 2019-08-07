@@ -73,6 +73,7 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 
 			require_once(LSX_TO_SPECIALS_PATH . '/classes/class-to-specials-admin.php');
 			require_once(LSX_TO_SPECIALS_PATH . '/classes/class-to-specials-frontend.php');
+			require_once(LSX_TO_SPECIALS_PATH . '/classes/class-specials-schema.php');
 			require_once(LSX_TO_SPECIALS_PATH . '/includes/template-tags.php');
 
 			// flush_rewrite_rules()
