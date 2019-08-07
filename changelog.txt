@@ -1,5 +1,8 @@
 ## Change log
 
+### 1.2.1
+* Dev - Updating dependencies.
+
 ### 1.1.0
 * Dev - Support LSX Theme 2.0 new designs
 * Added compatibility with LSX 2.0
