@@ -1,5 +1,8 @@
 ## Change log
 
+### 1.2.2 - In development
+* Dev - Adding the .gitattributes file to remove unnecessary files from the WordPress version.
+
 ### 1.2.1
 * Dev - Updating dependencies.
 
