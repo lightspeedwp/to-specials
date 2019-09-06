@@ -1,5 +1,8 @@
 ## Change log
 
+### 1.2.2 (in development)
+* Dev - Added in the option to disable the view more button on the widget template
+
 ### 1.2.1
 * Dev - Updating dependencies.
 
