@@ -28,7 +28,9 @@ class LSX_TO_Specials_Schema extends LSX_TO_Schema_Graph_Piece {
 	 * @return array $data Review data.
 	 */
 	public function generate() {
-		$data = array(
+		$tour_list  = get_post_meta( get_the_ID(), 'tour_to_special', false );
+		$accom_list = get_post_meta( get_the_ID(), 'accommodation_to_special', false );
+		$data       = array(
 			'@type'            => array(
 				'Offer',
 			),
@@ -42,18 +44,49 @@ class LSX_TO_Specials_Schema extends LSX_TO_Schema_Graph_Piece {
 		);
 
 		if ( $this->context->site_represents_reference ) {
-			//$data['publisher'] = $this->context->site_represents_reference;
+			$data['offeredBy'] = $this->context->site_represents_reference;
 		}
 
-		$data = \lsx\legacy\Schema_Utils::add_image( $data, $this->context );
-		$data = $this->add_offers( $data );
-		$data = $this->add_reviews( $data );
-		$data = $this->add_articles( $data );
+		$data = $this->add_custom_field( $data, 'availabilityStarts', 'booking_validity_start' );
+		$data = $this->add_custom_field( $data, 'availabilityEnds', 'booking_validity_end' );
+		$data = $this->add_custom_field( $data, 'priceValidUntil', 'booking_validity_end' );
+		$data = $this->add_custom_field( $data, 'priceValidUntil', 'booking_validity_end' );
+		$data = $this->get_price( $data );
 
-		if ( isset( $_GET['debug'] ) ) {
-			print_r('<pre>');
-			print_r($data);
-			print_r('</pre>');
+		$data['itemOffered'] = \lsx\legacy\Schema_Utils::get_item_reviewed( $tour_list, 'Product' );
+		$data['itemOffered'] = \lsx\legacy\Schema_Utils::get_item_reviewed( $accom_list, 'Product' );
+
+		$data = $this->add_articles( $data );
+		$data = \lsx\legacy\Schema_Utils::add_image( $data, $this->context );
+
+		return $data;
+	}
+
+	/**
+	 * Gets the single special post and adds it as a special "Offer".
+	 *
+	 * @param  array $data An array of offers already added.
+	 * @return array $data
+	 */
+	public function get_price( $data ) {
+		$price         = get_post_meta( $this->context->id, 'price', true );
+		$currency      = 'USD';
+		$tour_operator = tour_operator();
+		if ( is_object( $tour_operator ) && isset( $tour_operator->options['general'] ) && is_array( $tour_operator->options['general'] ) ) {
+			if ( isset( $tour_operator->options['general']['currency'] ) && ! empty( $tour_operator->options['general']['currency'] ) ) {
+				$currency = $tour_operator->options['general']['currency'];
+			}
+		}
+		if ( false !== $price && '' !== $price ) {
+			$data['price']         = $price;
+			$data['priceCurrency'] = $currency;
+			$data['category']      = __( 'Special', 'tour-operator-specials' );
+			$data['availability']  = 'https://schema.org/LimitedAvailability';
+
+			$price_type = get_post_meta( $this->context->id, 'price_type', true );
+			if ( false !== $price_type && '' !== $price_type && 'none' !== $price_type ) {
+				$data['PriceSpecification'] = lsx_to_get_price_type_label( $price_type );
+			}
 		}
 		return $data;
 	}

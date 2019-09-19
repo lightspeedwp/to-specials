@@ -3,6 +3,7 @@
 ### 1.2.2 (in development)
 * Dev - Added in the option to disable the view more button on the widget template
 * Dev - Adding the .gitattributes file to remove unnecessary files from the WordPress version.
+* Dev - Added in the Offer Schema to the plugin, which integrates with Yoast WordPress SEO.
 
 ### 1.2.1
 * Dev - Updating dependencies.
