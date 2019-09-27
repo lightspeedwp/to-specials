@@ -5,7 +5,7 @@ Tags: tour operator, lsx, specials, accomodation, prices
 Requires at least: 4.9
 Tested up to: 5.2.2
 Requires PHP: 7.0
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv3
 
 With Tour Operator Specials, add deals to your website – a great way to entice people who are ready to take advantage of limited-time deals.

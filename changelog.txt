@@ -1,6 +1,6 @@
 ## Change log
 
-### 1.2.2 (in development)
+### 1.2.2 - September 27 2019
 * Dev - Added in the option to disable the view more button on the widget template
 * Fix - Fix the double button on widget template.
 * Dev - Adding the .gitattributes file to remove unnecessary files from the WordPress version.
