@@ -1,7 +1,7 @@
 <p align="center"><a target="_blank" href="https://tour-operator.lsdev.biz/"><img width="100px;" src="https://tour-operator.lsdev.biz/wp-content/uploads/2019/04/icon-specials.svg" alt="Tour Operator specials Extension"></a>
 
 </p>
-<h1 align="center">Tour Operator specials</h1>
+<h1 align="center">Tour Operator Specials</h1>
 
 <p align="center">
     <a href="https://gulpjs.com/"><img src="https://img.shields.io/badge/built%20with-gulp.js-green.svg" alt="Built with gulp.js"></a> 
@@ -27,7 +27,7 @@ We are always updating our software to add functionality, and maintain latest se
 
 Have you updated to the new WordPress Gutenberg editor? We've got you covered! The Tour Operator specials Plugin has been optimized for the Gutenberg update. 
 
-Check out our [our Tour Operator dedicated website](https://tour-operator.lsdev.biz/) to check out all our available extensions and features.
+Check out our [Tour Operator dedicated website](https://tour-operator.lsdev.biz/) to check out all our available extensions and features.
 
 ## It's free, and always will be.
 We’re firm believers in open source - that’s why this extension is free, and that won't change. 
@@ -46,8 +46,12 @@ If you are experiencing issues with the Tour Operator specials Plugin & have exp
 
 You can also send an email to our Support specials at [support@lsdev.biz](mailto:support@lsdev.biz) if you have a request for the LightSpeed Development specials.
 
-## Contributing to the Tour Operator specials Plugin
+## Contributing to the Tour Operator Specials Plugin
 
 If you're a developer who's spotted a bug issue and have a fix, or simply have the functionality you think would extend our core theme, we are always happy to accept your contribution! 
 
 Visit the [Tour Operator specials Plugin on Github](https://github.com/lightspeeddevelopment/to-specials/) and submit a Pull Request with your updates.
+
+
+## Like what you see?
+<a href="https://www.lsdev.biz/contact/"><img src="https://www.lsdev.biz/wp-content/uploads/2020/02/work-with-lightspeed.png" width="850" alt="Work with us at LightSpeed"></a>
