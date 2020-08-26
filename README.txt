@@ -2,9 +2,9 @@
 Contributors: feedmymedia
 Donate link:https://donate.lsdev.biz/
 Tags: tour operator, lsx, specials, accommodation, prices 
-Requires at least: 5.1.1
-Tested up to: 5.4
-Requires PHP: 7.0
+Requires at least: 5.3
+Tested up to: 5.5
+Requires PHP: 7.2
 Stable tag: 1.3.1
 License: GPLv3
 
