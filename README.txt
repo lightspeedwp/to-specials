@@ -1,6 +1,6 @@
 === Tour Operator Specials ===
-Contributors: feedmymedia
-Donate link:https://donate.lsdev.biz/
+Contributors: feedmymedia, lightspeedwp, eleshar, krugazul, jacquesvdh, ignusvermaak
+Donate link: https://lsdev.biz/lsx/donate/
 Tags: tour operator, lsx, specials, accommodation, prices 
 Requires at least: 5.3
 Tested up to: 5.5
