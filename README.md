@@ -42,7 +42,7 @@ We are constantly maintaining and updating our extension so you have the latest 
 
 ## Tour Operator specials Documentation
 
-Anything you need to double check, or simply need a walkthrough for setting up the extension? Visit the [Tour Operator specials documentation](https://tour-operator.lsdev.biz/documentation/extension/specials/).
+Anything you need to double check, or simply need a walkthrough for setting up the extension? Visit the [Tour Operator specials documentation](https://lsdev.biz/lsx/documentation/lsx-tour-operator/specials/).
 
 ## Tour Operator specials Help & Support
 
