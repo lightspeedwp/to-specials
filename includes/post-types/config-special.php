@@ -41,6 +41,7 @@ $post_type = array(
 	'capability_type'     => 'post',
 	'has_archive'         => 'specials',
 	'hierarchical'        => false,
+	'show_in_rest'        => true,
 	'supports'            => array(
 		'title',
 		'slug',
