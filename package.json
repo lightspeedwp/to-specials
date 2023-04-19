@@ -1,6 +1,6 @@
 {
   "name": "to-specials",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Tour Operators add-on for LSX",
   "main": "gulpfile.js",
   "scripts": {
