@@ -3,9 +3,9 @@ Contributors: feedmymedia, lightspeedwp, eleshar, krugazul, jacquesvdh, ignusver
 Donate link: https://lsdev.biz/lsx/donate/
 Tags: lsx, tour operator, specials, accommodation, prices 
 Requires at least: 5.3
-Tested up to: 6.3
+Tested up to: 6.6
 Requires PHP: 7.2
-Stable tag: 1.3.6
+Stable tag: 2.0.0
 License: GPLv3
 
 With Tour Operator Specials, add deals to your website – a great way to entice people who are ready to take advantage of limited-time deals.
