@@ -146,16 +146,11 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 				'name' => 'Specials related with this ' . $post_type,
 				'type' => 'pw_multiselect',
 				'use_ajax' => false,
-				'query' => array(
-					'post_type' => 'special',
-					'nopagin' => true,
-					'posts_per_page' => '-1',
-					'orderby' => 'title',
-					'order' => 'ASC',
-				),
-				'repeatable' => true,
+				'repeatable' => false,
 				'allow_none' => true,
-				'cols' => 12,
+				'options'  => array(
+					'post_type_args' => 'special',
+				),
 			);
 		}
 		return $fields;
