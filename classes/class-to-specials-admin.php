@@ -142,15 +142,9 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 
 		if ( false !== $post_type ) {
 			$fields[] = array(
-				'id' => 'specials_title',
-				'name' => 'Specials',
-				'type' => 'title',
-				'cols' => 12,
-			);
-			$fields[] = array(
 				'id' => 'special_to_' . $post_type,
 				'name' => 'Specials related with this ' . $post_type,
-				'type' => 'post_select',
+				'type' => 'pw_multiselect',
 				'use_ajax' => false,
 				'query' => array(
 					'post_type' => 'special',
