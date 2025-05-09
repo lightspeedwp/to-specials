@@ -80,7 +80,7 @@ class LSX_TO_Specials_Schema extends LSX_TO_Schema_Graph_Piece {
 		if ( false !== $price && '' !== $price ) {
 			$data['price']         = $price;
 			$data['priceCurrency'] = $currency;
-			$data['category']      = __( 'Special', 'tour-operator-specials' );
+			$data['category']      = __( 'Special', 'to-specials' );
 			$data['availability']  = 'https://schema.org/LimitedAvailability';
 
 			$price_type = get_post_meta( $this->context->id, 'price_type', true );

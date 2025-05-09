@@ -7,40 +7,6 @@
  */
 
 /**
- * Outputs the posts attached special
- *
- * @package 	to-specials
- * @subpackage	template-tags
- * @category 	special
- */
-if ( ! function_exists( 'lsx_to_special_posts' ) ) {
-	function lsx_to_special_posts() {
-		global $lsx_to_archive;
-
-		$args = array(
-			'from'		=> 'post',
-			'to'		=> 'special',
-			'column'	=> '3',
-			'before'	=> '<section id="posts" class="lsx-to-section lsx-to-collapse-section"><h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-posts">' . esc_html__( 'Featured Posts', 'to-specials' ) . '</h2><div id="collapse-posts" class="collapse in"><div class="collapse-inner">',
-			'after'		=> '</div></div></section>',
-		);
-
-		lsx_to_connected_panel_query( $args );
-	}
-}
-
-/**
- * Find the content part in the plugin.
- *
- * @package    tour-operator
- * @subpackage template-tag
- * @category   to-specials
- */
-function lsx_to_special_content( $slug, $name = null ) {
-	do_action( 'lsx_special_content', $slug, $name );
-}
-
-/**
  * Outputs the terms and conditions.
  *
  * @param  $before | string
@@ -75,8 +41,8 @@ function lsx_to_travel_dates( $before = '', $after = '', $echo = true ) {
 	$end = get_post_meta( get_the_ID(), 'travel_dates_end', true );
 
 	if ( ! empty( $start ) && ! empty( $end ) ) {
-		$start = date( 'M j, Y', strtotime( $start ) );
-		$end = date( 'M j, Y', strtotime( $end ) );
+		$start = gmdate( 'M j, Y', strtotime( $start ) );
+		$end = gmdate( 'M j, Y', strtotime( $end ) );
 
 		$new_field = array(
 			'travel_dates_start' => $start,
@@ -110,11 +76,11 @@ function lsx_to_travel_dates( $before = '', $after = '', $echo = true ) {
 			}
 
 			if ( ! empty( $start ) ) {
-				$start = date( 'd M Y', strtotime( $start ) );
+				$start = gmdate( 'd M Y', strtotime( $start ) );
 			}
 
 			if ( ! empty( $end ) ) {
-				$start .= ' - ' . date( 'd M Y', strtotime( $end ) );
+				$start .= ' - ' . gmdate( 'd M Y', strtotime( $end ) );
 			}
 
 			if ( ! empty( $start ) ) {
@@ -156,18 +122,18 @@ function lsx_to_travel_dates( $before = '', $after = '', $echo = true ) {
  * @category   to-specials
  */
 function lsx_to_specials_validity( $before = '', $after = '', $echo = true ) {
-	// $valid_from = get_the_date( 'M j, Y', get_the_ID() );
+	// $valid_from = get_the_gmdate( 'M j, Y', get_the_ID() );
 	// $valid_to = get_post_meta( get_the_ID(), '_expiration-date', true );
 
 	$valid_from = get_post_meta( get_the_ID(), 'booking_validity_start', true );
 	$valid_to = get_post_meta( get_the_ID(), 'booking_validity_end', true );
 
 	if ( ! empty( $valid_from ) ) {
-		$valid_from = date( 'd M Y', strtotime( $valid_from ) );
+		$valid_from = gmdate( 'd M Y', strtotime( $valid_from ) );
 	}
 
 	if ( ! empty( $valid_to ) ) {
-		$valid_from .= ' - ' . date( 'd M Y', strtotime( $valid_to ) );
+		$valid_from .= ' - ' . gmdate( 'd M Y', strtotime( $valid_to ) );
 	}
 
 	if ( ! empty( $valid_from ) ) {
@@ -178,74 +144,5 @@ function lsx_to_specials_validity( $before = '', $after = '', $echo = true ) {
 		} else {
 			return $return;
 		}
-	}
-}
-
-/**
- * Outputs the connected specials for an accommodation
- *
- * @package 	lsx-tour-operators
- * @subpackage	template-tags
- * @category 	special
- */
-function lsx_to_accommodation_specials() {
-	global $lsx_archive;
-
-	if ( post_type_exists( 'special' ) && is_singular( 'accommodation' ) ) {
-		$args = array(
-			'from'		=> 'special',
-			'to'		=> 'accommodation',
-			'column'	=> '3',
-			'before'	=> '<section id="special" class="lsx-to-section lsx-to-collapse-section"><h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-special">' . __( lsx_to_get_post_type_section_title( 'special', '', 'Featured Specials' ), 'to-specials' ) . '</h2><div id="collapse-special" class="collapse in"><div class="collapse-inner">',
-			'after'		=> '</div></div></section>',
-		);
-
-		lsx_to_connected_panel_query( $args );
-	}
-}
-
-/**
- * Outputs the connected specials for a tour
- *
- * @package 	lsx-tour-operators
- * @subpackage	template-tags
- * @category 	special
- */
-function lsx_to_tour_specials() {
-	global $lsx_archive;
-
-	if ( post_type_exists( 'special' ) && is_singular( 'tour' ) ) {
-		$args = array(
-			'from'		=> 'special',
-			'to'		=> 'tour',
-			'column'	=> '3',
-			'before'	=> '<section id="special" class="lsx-to-section lsx-to-collapse-section"><h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-special">' . __( lsx_to_get_post_type_section_title( 'special', '', 'Featured Specials' ), 'to-specials' ) . '</h2><div id="collapse-special" class="collapse in"><div class="collapse-inner">',
-			'after'		=> '</div></div></section>',
-		);
-
-		lsx_to_connected_panel_query( $args );
-	}
-}
-
-/**
- * Outputs the connected specials for a destination
- *
- * @package 	lsx-tour-operators
- * @subpackage	template-tags
- * @category 	special
- */
-function lsx_to_destination_specials() {
-	global $lsx_archive;
-
-	if ( post_type_exists( 'special' ) && is_singular( 'destination' ) ) {
-		$args = array(
-			'from'		=> 'special',
-			'to'		=> 'destination',
-			'column'	=> '3',
-			'before'	=> '<section id="special" class="lsx-to-section lsx-to-collapse-section"><h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-special">' . __( lsx_to_get_post_type_section_title( 'special', '', 'Featured Specials' ), 'to-specials' ) . '</h2><div id="collapse-special" class="collapse in"><div class="collapse-inner">',
-			'after'		=> '</div></div></section>',
-		);
-
-		lsx_to_connected_panel_query( $args );
 	}
 }

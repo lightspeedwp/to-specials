@@ -167,7 +167,7 @@ $metabox['fields'][] = array(
 	'repeatable'          => true,
 	'show_size'           => false,
 	'sortable'            => true,
-	'string-repeat-field' => esc_html__( 'Add new image', 'tour-operator' ),
+	'string-repeat-field' => esc_html__( 'Add new image', 'to-specials' ),
 );
 
 if ( class_exists( 'Envira_Gallery' ) ) {

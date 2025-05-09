@@ -1,5 +1,24 @@
 # Change log
 
+## [[2.0.0]](https://github.com/lightspeeddevelopment/to-reviews/releases/tag/2.0.0) - 2025-05-09
+
+### Description
+The following PR contains the code for the block updates and the removal of the legacy code.
+
+### Added
+- WordPress block editor support
+- Tour Operator 2.0 Support.
+
+### Updated
+- Custom fields to CMB2 and its add-ons.
+- WPCS warnings notices fixed.
+
+### Removed
+- Old PHP Templates, function and legacy template code.
+
+### Security
+- Tested with WordPress 6.8.1
+
 ## [[1.3.6]](https://github.com/lightspeeddevelopment/to-specials/releases/tag/1.3.6) - 2023-08-09
 
 ### Fixes

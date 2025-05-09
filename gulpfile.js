@@ -20,7 +20,7 @@ gulp.task('wordpress-pot', function(done) {
 			domain: 'to-specials',
 			package: 'to-specials',
 			bugReport: 'https://bitbucket.org/feedmycode/to-specials',
-			team: 'LightSpeed <webmaster@lsdev.biz>'
+			team: 'LightSpeed <webmaster@lightspeedwp.agency>'
 		}))
 		.pipe(gulp.dest('languages/to-specials.pot')),
 		done();
@@ -33,7 +33,7 @@ gulp.task('wordpress-po', function(done) {
 			domain: 'to-specials',
 			package: 'to-specials',
 			bugReport: 'https://bitbucket.org/feedmycode/to-specials',
-			team: 'LightSpeed <webmaster@lsdev.biz>'
+			team: 'LightSpeed <webmaster@lightspeedwp.agency>'
 		}))
 		.pipe(gulp.dest('languages/to-specials-en_EN.po')),
 		done();
