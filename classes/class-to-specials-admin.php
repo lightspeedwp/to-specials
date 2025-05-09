@@ -163,22 +163,22 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 		?>
 		<tr class="form-field-wrap">
 			<th scope="row">
-				<label for="enable_widget_excerpt"> <?php esc_html_e( 'Disable Widget Excerpt', 'tour-operator' ); ?></label>
+				<label for="enable_widget_excerpt"> <?php esc_html_e( 'Disable Widget Excerpt', 'to-specials' ); ?></label>
 			</th>
 			<td>
 				<input type="checkbox" {{#if enable_widget_excerpt}} checked="checked" {{/if}} name="enable_widget_excerpt" />
-				<small><?php esc_html_e( 'This enables the excerpt text on the widget.', 'tour-operator' ); ?></small>
+				<small><?php esc_html_e( 'This enables the excerpt text on the widget.', 'to-specials' ); ?></small>
 			</td>
 		</tr>
 		<tr class="form-field-wrap">
 			<th scope="row">
-				<label for="expiration_status"> <?php esc_html_e( 'Expiration Status', 'tour-operator' ); ?></label>
+				<label for="expiration_status"> <?php esc_html_e( 'Expiration Status', 'to-specials' ); ?></label>
 			</th>
 			<td>
 				<select value="{{expiration_status}}" name="expiration_status">
-					<option value="draft" {{#is expiration_status value=""}}selected="selected"{{/is}} {{#is expiration_status value="draft"}} selected="selected"{{/is}}><?php esc_html_e( 'Draft', 'tour-operator' ); ?></option>
-					<option value="delete" {{#is expiration_status value="delete"}} selected="selected"{{/is}}><?php esc_html_e( 'Delete', 'tour-operator' ); ?></option>
-					<option value="private" {{#is expiration_status value="private"}} selected="selected"{{/is}}><?php esc_html_e( 'Private', 'tour-operator' ); ?></option>
+					<option value="draft" {{#is expiration_status value=""}}selected="selected"{{/is}} {{#is expiration_status value="draft"}} selected="selected"{{/is}}><?php esc_html_e( 'Draft', 'to-specials' ); ?></option>
+					<option value="delete" {{#is expiration_status value="delete"}} selected="selected"{{/is}}><?php esc_html_e( 'Delete', 'to-specials' ); ?></option>
+					<option value="private" {{#is expiration_status value="private"}} selected="selected"{{/is}}><?php esc_html_e( 'Private', 'to-specials' ); ?></option>
 				</select>
 			</td>
 		</tr>

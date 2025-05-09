@@ -1,10 +1,10 @@
 <p align="center"><a target="_blank" href="https://lightspeedwp.agency/lsx/extensions/tour-operator/"><img src="https://lightspeedwp.agency/lsx/wp-content/uploads/2020/09/tour-operator-activities-banner-1544x500-1.jpg" alt="Tour Operator specials Extension"></a>
 
 </p>
-<h1 align="center">Tour Operator Specials</h1>
+<h1 align="center">Tour Operator Special Offers</h1>
 
 <p align="center">
-  <a href="https://lsx.design/"><img src="https://lightspeedwp.agency/lsx/wp-content/uploads/2019/06/Designed-for-LSX-Theme-blue.png" alt="Made for LSX Theme"></a>
+  <a href="https://lsx.design/"><img src="https://lightspeedwp.agency/lsx/wp-content/uploads/2019/06/Designed-for-LSX-Theme-blue.png" alt="Made for LSX Design"></a>
 	<a href="https://touroperator.solutions/"><img src="https://lightspeedwp.agency/lsx/wp-content/uploads/2019/06/Designed-for-Tour-Operator-plugin-1098ad.png" alt="Tour Operator"></a>
   <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://poser.pugx.org/woocommerce/woocommerce/license" alt="license"></a>
   <a href="http://gulpjs.com/"><img src="https://img.shields.io/badge/built%20with-gulp.js-green.svg" alt="Built with gulp.js"></a> 
@@ -48,7 +48,7 @@ We offer premium support for this plugin. Premium support that can be purchased 
 
 If you are experiencing issues with the Tour Operator specials Plugin & have experience with Github, please log any bug issues you are having on the [Tour Operator specials Github Issues](https://github.com/lightspeeddevelopment/to-specials/issues/) page.
 
-You can also send an email to our Support specials at [support@lightspeedwp.agency](mailto:support@lsdev.biz) if you have a request for the LightSpeed Development specials.
+You can also send an email to our Support specials at [support@lightspeedwp.agency](mailto:support@lightspeedwp.agency) if you have a request for the LightSpeed Development specials.
 
 ## Contributing to the Tour Operator Specials Plugin
 

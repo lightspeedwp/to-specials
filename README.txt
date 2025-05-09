@@ -1,4 +1,4 @@
-=== Tour Operator Specials ===
+=== Tour Operator Special Offers ===
 Contributors: feedmymedia, lightspeedwp, eleshar, krugazul, jacquesvdh, ignusvermaak
 Donate link: https://lightspeedwp.agency/donate/
 Tags: lsx, tour operator, specials, accommodation, prices 
