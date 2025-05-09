@@ -19,14 +19,22 @@
 class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 
 	/**
+	 * The post type slug
+	 *
+	 * @var string
+	 */
+	public $post_type = 'special';
+
+	/**
 	 * Constructor
 	 */
 	public function __construct() {
 		$this->set_vars();
 
-		add_filter( 'lsx_get_post-types_configs', array( $this, 'post_type_config' ), 10, 1 );
-		add_filter( 'lsx_get_metaboxes_configs', array( $this, 'meta_box_config' ), 10, 1 );
-		add_filter( 'lsx_get_taxonomies_configs', array( $this, 'taxonomy_config' ), 10, 1 );
+		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+		add_action( 'init', array( $this, 'register_post_type' ), 100 );
+		add_action( 'init', array( $this, 'register_taxonomy' ), 200 );
+		add_action( 'cmb2_admin_init', array( $this, 'register_cmb2_fields' ) );
 
 		add_filter( 'lsx_to_destination_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_tour_custom_fields', array( $this, 'custom_fields' ) );
@@ -38,50 +46,17 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 
 		add_action( 'lsx_to_framework_special_tab_general_settings_bottom', array( $this, 'general_settings' ), 10, 1 );
 	}
-	/**
-	 * Register the specials post type config
-	 *
-	 * @param  $objects
-	 * @return   array
-	 */
-	public function post_type_config( $objects ) {
-
-		foreach ( $this->post_types as $key => $label ) {
-			if ( file_exists( LSX_TO_SPECIALS_PATH . 'includes/post-types/config-' . $key . '.php' ) ) {
-				$objects[ $key ] = include LSX_TO_SPECIALS_PATH . 'includes/post-types/config-' . $key . '.php';
-			}
-		}
-
-		return 	$objects;
-	}
 
 	/**
-	 * Register the activity metabox config
+	 * Registers the custom post type for the content model.
 	 *
-	 * @param  $meta_boxes
-	 * @return   array
+	 * @return void
 	 */
-	public function meta_box_config( $meta_boxes ) {
-		foreach ( $this->post_types as $key => $label ) {
-			if ( file_exists( LSX_TO_SPECIALS_PATH . 'includes/metaboxes/config-' . $key . '.php' ) ) {
-				$meta_boxes[ $key ] = include LSX_TO_SPECIALS_PATH . 'includes/metaboxes/config-' . $key . '.php';
-			}
-		}
-		return 	$meta_boxes;
-	}
-
-	/**
-	 * Register the Role taxonomy
-	 *
-	 *
-	 * @return    null
-	 */
-	public function taxonomy_config( $taxonomies ) {
-
-		if ( file_exists( LSX_TO_SPECIALS_PATH . 'includes/taxonomies/config-special-type.php' ) ) {
-			$taxonomies['special-type'] = include LSX_TO_SPECIALS_PATH . 'includes/taxonomies/config-special-type.php';
-		}
-		return 	$taxonomies;
+	public function register_post_type() {
+		register_post_type(
+			'special',
+			require_once LSX_TO_SPECIALS_PATH . '/includes/post-types/config-' . $this->post_type . '.php'
+		);
 	}
 
 	/**
@@ -90,35 +65,12 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 	 *
 	 * @return    null
 	 */
-	public function register_taxonomies() {
-
-		$labels = array(
-				'name' => _x( 'Special Type', 'Singular', 'to-specials' ),
-				'singular_name' => _x( 'Special Type', 'Plural', 'to-specials' ),
-				'search_items' => __( 'Search Special Types' , 'to-specials' ),
-				'all_items' => __( 'Special Types' , 'to-specials' ),
-				'parent_item' => __( 'Parent Special Type' , 'to-specials' ),
-				'parent_item_colon' => __( 'Parent Special Type:' , 'to-specials' ),
-				'edit_item' => __( 'Edit Special Type' , 'to-specials' ),
-				'update_item' => __( 'Update Special Type' , 'to-specials' ),
-				'add_new_item' => __( 'Add New Special Type' , 'to-specials' ),
-				'new_item_name' => __( 'New Special Type' , 'to-specials' ),
-				'menu_name' => __( 'Special Types' , 'to-specials' ),
+	public function register_taxonomy() {
+		register_taxonomy(
+			'special-type',
+			$this->plugin_slug,
+			require_once LSX_TO_SPECIALS_PATH . '/includes/taxonomies/config-special-type.php'
 		);
-
-		// Now register the taxonomy
-		register_taxonomy('special-type',$this->plugin_slug, array(
-				'hierarchical' => true,
-				'labels' => $labels,
-				'show_ui' => true,
-				'public' => true,
-				'show_tagcloud' => false,
-				'exclude_from_search' => true,
-				'show_admin_column' => true,
-				'query_var' => true,
-				'rewrite' => array( 'special-type' ),
-		));
-
 	}
 
 	/**
@@ -156,6 +108,54 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 			);
 		}
 		return $fields;
+	}
+
+	/**
+	 * Registers the CMB2 custom fields
+	 *
+	 * @return void
+	 */
+	public function register_cmb2_fields() {
+		/**
+		 * Initiate the metabox
+		 */
+		$cmb = [];
+		$fields = include( LSX_TO_SPECIALS_PATH . 'includes/metaboxes/config-' . $this->post_type . '.php' );
+
+		$metabox_counter = 1;
+		$cmb[ $metabox_counter ] = new_cmb2_box( array(
+			'id'            => 'lsx_to_metabox_' . $this->post_type . '_' . $metabox_counter,
+			'title'         => $fields['title'],
+			'object_types'  => array( $this->post_type ), // Post type
+			'context'       => 'normal',
+			'priority'      => 'high',
+			'show_names'    => true,
+		) );
+
+		foreach ( $fields['fields'] as $field ) {
+
+			if ( 'title' === $field['type'] ) {
+				$metabox_counter++;
+				$cmb[ $metabox_counter ] = new_cmb2_box( array(
+					'id'            => 'lsx_to_metabox_' . $this->post_type . '_' . $metabox_counter,
+					'title'         => $field['name'],
+					'object_types'  => array( $this->post_type ), // Post type
+					'context'       => 'normal',
+					'priority'      => 'high',
+					'show_names'    => true,
+				) );
+				continue;
+			}
+
+			/**
+			 * Fixes for the extensions
+			 */
+			if ( 'post_select' === $field['type'] || 'post_ajax_search' === $field['type'] ) {
+				$field['type'] = 'pw_multiselect';
+			}
+
+			$cmb[ $metabox_counter ]->add_field( $field );
+		}
 	}
 
 	/**
