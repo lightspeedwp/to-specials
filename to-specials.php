@@ -8,7 +8,7 @@
  * Author URI:  https://lightspeedwp.agency/
  * License:     GPL3+
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain: lsx-specials
+ * Text Domain: to-specials
  * Domain Path: /languages
  */
 

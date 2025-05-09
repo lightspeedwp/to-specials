@@ -93,8 +93,8 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 	public function register_taxonomies() {
 
 		$labels = array(
-				'name' => _x( 'Special Type', 'to-specials' ),
-				'singular_name' => _x( 'Special Type', 'to-specials' ),
+				'name' => _x( 'Special Type', 'Singular', 'to-specials' ),
+				'singular_name' => _x( 'Special Type', 'Plural', 'to-specials' ),
 				'search_items' => __( 'Search Special Types' , 'to-specials' ),
 				'all_items' => __( 'Special Types' , 'to-specials' ),
 				'parent_item' => __( 'Parent Special Type' , 'to-specials' ),
@@ -128,6 +128,7 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 		global $post, $typenow, $current_screen;
 
 		$post_type = false;
+		// @phpcs:disable WordPress.Security.NonceVerification.Recommended
 		if ( $post && $post->post_type ) {
 			$post_type = $post->post_type;
 		} elseif ( $typenow ) {
@@ -139,6 +140,7 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 		} elseif ( isset( $_REQUEST['post'] ) ) {
 			$post_type = get_post_type( sanitize_key( $_REQUEST['post'] ) );
 		}
+		// @phpcs:enable WordPress.Security.NonceVerification.Recommended
 
 		if ( false !== $post_type ) {
 			$fields[] = array(

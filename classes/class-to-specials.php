@@ -93,7 +93,7 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 		 * Load the plugin text domain for translation.
 		 */
 		public function load_plugin_textdomain() {
-			load_plugin_textdomain( 'to-specials', FALSE, basename( LSX_TO_SPECIALS_PATH ) . '/languages');
+			load_plugin_textdomain( 'to-specials', '', basename( LSX_TO_SPECIALS_PATH ) . '/languages');
 		}
 
 		/**
@@ -207,6 +207,7 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 		 * On plugin activation
 		 */
 		public function register_activation_hook() {
+			// @phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			if ( ! is_network_admin() && ! isset( $_GET['activate-multi'] ) ) {
 				set_transient( '_tour_operators_specials_flush_rewrite_rules', 1, 30 );
 			}
