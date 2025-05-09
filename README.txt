@@ -21,7 +21,7 @@ We've also made a fantastic [theme](https://lsx.lsdev.biz/) that work well with 
 We’re firm believers in open source - that’s why we’re releasing the Tour Operator Specials plugin for free, forever. We offer free support on the [Tour Operator Specials support forums](https://wordpress.org/support/plugin/tour-operator-special-offers/).
 
 = Support =
-We offer premium support for this plugin. Premium support that can be purchased via [lsdev.biz](https://www.lsdev.biz/).
+We offer premium support for this plugin. Premium support that can be purchased via [lsdev.biz](https://lightspeedwp.agency/).
 
 == Installation ==
 
@@ -32,7 +32,7 @@ We offer premium support for this plugin. Premium support that can be purchased 
 
 = Where can I get support or talk to other users =
 If you get stuck, you can ask for help in the [our Operator Specials plugin forum](https://wordpress.org/support/plugin/tour-operator-special-offers/).
-For help with premium add-ons from LightSpeed, use [our contact page](https://www.lsdev.biz/contact-us/)
+For help with premium add-ons from LightSpeed, use [our contact page](https://lightspeedwp.agency/contact-us/)
 
 = Will the Tour Operator Specials plugin work with my theme 
 No; the Tour Operator Specials plugin will only work with LSX Theme.

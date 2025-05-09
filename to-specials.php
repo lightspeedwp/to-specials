@@ -5,7 +5,7 @@
  * Description: The Tour Operator Special Offers extension gives you the ability to create time-sensitive special prices that can be applied to Tour Operator post types you are using: Accommodations, destinations and/or tours.
  * Version:     2.0.0
  * Author:      LightSpeed
- * Author URI:  https://www.lsdev.biz/
+ * Author URI:  https://lightspeedwp.agency/
  * License:     GPL3+
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: lsx-specials
