@@ -33,7 +33,7 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 		add_action( 'init', array( $this, 'register_post_type' ), 100 );
-		add_action( 'init', array( $this, 'register_taxonomy' ), 200 );
+		add_filter( 'lsx_get_taxonomies_configs', array( $this, 'taxonomy_config' ), 10, 1 );
 		add_action( 'cmb2_admin_init', array( $this, 'register_cmb2_fields' ) );
 
 		add_filter( 'lsx_to_destination_custom_fields', array( $this, 'custom_fields' ) );
@@ -60,17 +60,17 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 	}
 
 	/**
-	 * Register the global post types.
+	 * Register the Role taxonomy
 	 *
 	 *
 	 * @return    null
 	 */
-	public function register_taxonomy() {
-		register_taxonomy(
-			'special-type',
-			$this->plugin_slug,
-			require_once LSX_TO_SPECIALS_PATH . '/includes/taxonomies/config-special-type.php'
-		);
+	public function taxonomy_config( $taxonomies ) {
+		if ( file_exists( LSX_TO_SPECIALS_PATH . 'includes/taxonomies/config-special-type.php' ) ) {
+			$taxonomies['special-type'] = include LSX_TO_SPECIALS_PATH . 'includes/taxonomies/config-special-type.php';
+		}
+
+		return 	$taxonomies;
 	}
 
 	/**
