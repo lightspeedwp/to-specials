@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Tour Operator Special Offers
- * Plugin URI:  https://www.lsdev.biz/product/tour-operator-special-offers/
+ * Plugin URI:  https://touroperator.solutions/plugins/specials/
  * Description: The Tour Operator Special Offers extension gives you the ability to create time-sensitive special prices that can be applied to Tour Operator post types you are using: Accommodations, destinations and/or tours.
  * Version:     2.0.0
  * Author:      LightSpeed
