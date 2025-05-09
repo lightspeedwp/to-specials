@@ -1,22 +1,46 @@
-# Copyright (C) 2017 to-specials
-# This file is distributed under the same license as the to-specials package.
+# Copyright (C) 2025 LightSpeed
+# This file is distributed under the GPL3+.
 msgid ""
 msgstr ""
-"Project-Id-Version: to-specials\n"
+"Project-Id-Version: Tour Operator Special Offers 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/to-specials\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-Team: LightSpeed <webmaster@lightspeedwp.agency>\n"
-"Report-Msgid-Bugs-To: https://bitbucket.org/feedmycode/to-specials\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: 2025-05-09T12:25:06+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: to-specials\n"
 
-#: classes/class-to-specials-admin.php:96, classes/class-to-specials-admin.php:97
-msgctxt "to-specials"
+#. Plugin Name of the plugin
+msgid "Tour Operator Special Offers"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://touroperator.solutions/plugins/specials/"
+msgstr ""
+
+#. Description of the plugin
+msgid "The Tour Operator Special Offers extension gives you the ability to create time-sensitive special prices that can be applied to Tour Operator post types you are using: Accommodations, destinations and/or tours."
+msgstr ""
+
+#. Author of the plugin
+msgid "LightSpeed"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://lightspeedwp.agency/"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:96
+msgctxt "Singular"
+msgid "Special Type"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:97
+msgctxt "Plural"
 msgid "Special Type"
 msgstr ""
 
@@ -24,7 +48,10 @@ msgstr ""
 msgid "Search Special Types"
 msgstr ""
 
-#: classes/class-to-specials-admin.php:99, classes/class-to-specials-admin.php:106, classes/class-to-specials.php:113
+#: classes/class-to-specials-admin.php:99
+#: classes/class-to-specials-admin.php:106
+#: classes/class-to-specials.php:114
+#: includes/taxonomies/config-special-type.php:21
 msgid "Special Types"
 msgstr ""
 
@@ -37,14 +64,17 @@ msgid "Parent Special Type:"
 msgstr ""
 
 #: classes/class-to-specials-admin.php:102
+#: includes/taxonomies/config-special-type.php:24
 msgid "Edit Special Type"
 msgstr ""
 
 #: classes/class-to-specials-admin.php:103
+#: includes/taxonomies/config-special-type.php:25
 msgid "Update Special Type"
 msgstr ""
 
 #: classes/class-to-specials-admin.php:104
+#: includes/taxonomies/config-special-type.php:26
 msgid "Add New Special Type"
 msgstr ""
 
@@ -52,95 +82,50 @@ msgstr ""
 msgid "New Special Type"
 msgstr ""
 
-#: classes/class-to-specials-frontend.php:127
+#: classes/class-to-specials-admin.php:168
+msgid "Disable Widget Excerpt"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:172
+msgid "This enables the excerpt text on the widget."
+msgstr ""
+
+#: classes/class-to-specials-admin.php:177
+msgid "Expiration Status"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:181
+msgid "Draft"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:182
+msgid "Delete"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:183
+msgid "Private"
+msgstr ""
+
+#: classes/class-to-specials-frontend.php:69
 msgid "Off"
 msgstr ""
 
-#: classes/class-to-specials-frontend.php:183, classes/class-to-specials-frontend.php:375
-msgid "Map"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:197, classes/class-to-specials-frontend.php:202, classes/class-to-specials-frontend.php:206, classes/class-to-specials-frontend.php:386, includes/metaboxes/config-special.php:159, includes/metaboxes/config-special.php:165
-msgid "Gallery"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:228, classes/class-to-specials-frontend.php:389, classes/class-to-specials-frontend.php:391
-msgid "Videos"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:251, includes/metaboxes/config-special.php:212
-msgid "Posts"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:263, classes/class-to-specials-frontend.php:398
-msgid "Terms and Conditions"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:279, classes/class-to-specials-frontend.php:311, templates/content-widget-special.php:48
-msgid "From price"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:280, classes/class-to-specials-frontend.php:312, classes/class-to-specials-frontend.php:354, templates/content-widget-special.php:49, includes/metaboxes/config-special.php:215
-msgid "Tours"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:281, classes/class-to-specials-frontend.php:313, classes/class-to-specials-frontend.php:355, templates/content-widget-special.php:50, includes/metaboxes/config-special.php:213
-msgid "Accommodation"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:282, classes/class-to-specials-frontend.php:314, classes/class-to-specials-frontend.php:352, templates/content-widget-special.php:51
-msgid "Travel Style"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:283, classes/class-to-specials-frontend.php:315, classes/class-to-specials-frontend.php:353, templates/content-widget-special.php:52
-msgid "Type"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:284, classes/class-to-specials-frontend.php:316, classes/class-to-specials-frontend.php:356, templates/content-widget-special.php:53, includes/metaboxes/config-special.php:214
-msgid "Destinations"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:285, classes/class-to-specials-frontend.php:317, classes/class-to-specials-frontend.php:350, templates/content-widget-special.php:54
-msgid "Booking Validity"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:286, classes/class-to-specials-frontend.php:318, classes/class-to-specials-frontend.php:351, includes/metaboxes/config-special.php:117
-msgid "Travel Dates"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:289, classes/class-to-specials-frontend.php:321, classes/class-to-specials-frontend.php:359, templates/content-widget-special.php:57
-msgid "Activites"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:331, templates/content-widget-special.php:72
-msgid "View more"
-msgstr ""
-
-#: classes/class-to-specials-frontend.php:343
-msgid "Special Summary"
-msgstr ""
-
-#: classes/class-to-specials.php:103, includes/post-types/config-special.php:16, includes/post-types/config-special.php:22, includes/post-types/config-special.php:28
-msgid "Specials"
-msgstr ""
-
-#: classes/class-to-specials.php:106
+#: classes/class-to-specials-schema.php:83
+#: classes/class-to-specials.php:107
 msgid "Special"
 msgstr ""
 
-#: classes/class-to-specials.php:110
+#: classes/class-to-specials.php:104
+#: includes/post-types/config-special.php:16
+#: includes/post-types/config-special.php:22
+#: includes/post-types/config-special.php:28
+msgid "Specials"
+msgstr ""
+
+#: classes/class-to-specials.php:111
+#: includes/taxonomies/config-special-type.php:18
+#: includes/taxonomies/config-special-type.php:19
 msgid "Special Type"
-msgstr ""
-
-#: includes/template-tags.php:24
-msgid "Featured Posts"
-msgstr ""
-
-#: includes/template-tags.php:199, includes/template-tags.php:222, includes/template-tags.php:245
-msgstr ""
-
-#: templates/single-special.php:24
-msgid "Summary"
 msgstr ""
 
 #: includes/metaboxes/config-special.php:13
@@ -219,6 +204,10 @@ msgstr ""
 msgid "Expire this special automatically"
 msgstr ""
 
+#: includes/metaboxes/config-special.php:117
+msgid "Travel Dates"
+msgstr ""
+
 #: includes/metaboxes/config-special.php:124
 msgid "Start"
 msgstr ""
@@ -227,40 +216,46 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:145, includes/metaboxes/config-special.php:151
+#: includes/metaboxes/config-special.php:145
+#: includes/metaboxes/config-special.php:151
 msgid "Location"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:174, includes/metaboxes/config-special.php:180
+#: includes/metaboxes/config-special.php:159
+msgid "Gallery"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:170
+msgid "Add new image"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:176
+#: includes/metaboxes/config-special.php:182
 msgid "Envira Gallery"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:196
+#: includes/metaboxes/config-special.php:198
 msgid "Envira Video Gallery"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:227
+#: includes/metaboxes/config-special.php:214
+msgid "Posts"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:215
+msgid "Accommodation"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:216
+msgid "Destinations"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:217
+msgid "Tours"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:229
 msgid " related with this special"
-msgstr ""
-
-#: includes/partials/special.php:4
-msgid "General"
-msgstr ""
-
-#: includes/partials/special.php:6
-msgid "Search"
-msgstr ""
-
-#: includes/partials/special.php:8
-msgid "Placeholders"
-msgstr ""
-
-#: includes/partials/special.php:9
-msgid "Archives"
-msgstr ""
-
-#: includes/partials/special.php:10
-msgid "Single"
 msgstr ""
 
 #: includes/post-types/config-special.php:17
@@ -297,4 +292,24 @@ msgstr ""
 
 #: includes/post-types/config-special.php:26
 msgid "No specials found in Trash"
+msgstr ""
+
+#: includes/taxonomies/config-special-type.php:20
+msgid "Search Types"
+msgstr ""
+
+#: includes/taxonomies/config-special-type.php:22
+msgid "Parent"
+msgstr ""
+
+#: includes/taxonomies/config-special-type.php:23
+msgid "Parent:"
+msgstr ""
+
+#: includes/taxonomies/config-special-type.php:27
+msgid "New Role"
+msgstr ""
+
+#: includes/taxonomies/config-special-type.php:28
+msgid "Roles"
 msgstr ""
