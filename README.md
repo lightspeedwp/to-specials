@@ -1,4 +1,4 @@
-<p align="center"><a target="_blank" href="https://lightspeedwp.agency/lsx/extensions/tour-operator/"><img src="https://lightspeedwp.agency/lsx/wp-content/uploads/2020/09/tour-operator-activities-banner-1544x500-1.jpg" alt="Tour Operator specials Extension"></a>
+<p align="center"><a target="_blank" href="https://lightspeedwp.agency/lsx/extensions/tour-operator/"><img src="https://ps.w.org/tour-operator-team/assets/banner-1544x500.png" alt="Tour Operator specials Extension"></a>
 
 </p>
 <h1 align="center">Tour Operator Special Offers</h1>
@@ -7,7 +7,6 @@
   <a href="https://lsx.design/"><img src="https://lightspeedwp.agency/lsx/wp-content/uploads/2019/06/Designed-for-LSX-Theme-blue.png" alt="Made for LSX Design"></a>
 	<a href="https://touroperator.solutions/"><img src="https://lightspeedwp.agency/lsx/wp-content/uploads/2019/06/Designed-for-Tour-Operator-plugin-1098ad.png" alt="Tour Operator"></a>
   <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://poser.pugx.org/woocommerce/woocommerce/license" alt="license"></a>
-  <a href="http://gulpjs.com/"><img src="https://img.shields.io/badge/built%20with-gulp.js-green.svg" alt="Built with gulp.js"></a> 
       <a href="https://codeclimate.com/github/lightspeeddevelopment/to-specials/"><img src="https://codeclimate.com/github/lightspeeddevelopment/to-specials/badges/gpa.svg" alt="Code Climate"></a>
     <a href="https://scrutinizer-ci.com/g/lightspeeddevelopment/to-specials/?branch=master"><img src="https://scrutinizer-ci.com/g/lightspeeddevelopment/to-specials/badges/quality-score.png?b=master" alt="Scrutinizer"></a>
   	<a href="https://travis-ci.org/github/lightspeeddevelopment/to-specials"><img src="https://travis-ci.org/lightspeeddevelopment/to-specials.svg?branch=master" alt="Build Status"></a>
