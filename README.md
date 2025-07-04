@@ -1,4 +1,4 @@
-<p align="center"><a target="_blank" href="https://lightspeedwp.agency/lsx/extensions/tour-operator/"><img src="https://ps.w.org/tour-operator-team/assets/banner-1544x500.png" alt="Tour Operator specials Extension"></a>
+<p align="center"><a target="_blank" href="https://lightspeedwp.agency/lsx/extensions/tour-operator/"><img src="https://ps.w.org/tour-operator-special-offers/assets/banner-1544x500.png" alt="Tour Operator specials Extension"></a>
 
 </p>
 <h1 align="center">Tour Operator Special Offers</h1>
