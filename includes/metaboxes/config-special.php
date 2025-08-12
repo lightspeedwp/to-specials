@@ -48,15 +48,11 @@ if ( class_exists( 'LSX_TO_Team' ) ) {
 	$metabox['fields'][] = array(
 		'id'         => 'team_to_special',
 		'name'       => esc_html__( 'Team Member', 'to-specials' ),
-		'type'       => 'post_select',
+		'type'       => 'pw_multiselect',
 		'use_ajax'   => false,
 		'allow_none' => true,
-		'query'      => array(
-			'post_type'      => 'team',
-			'nopagin'        => true,
-			'posts_per_page' => 1000,
-			'orderby'        => 'title',
-			'order'          => 'ASC',
+		'options'  => array(
+			'post_type_args' => 'team',
 		),
 	);
 }
@@ -156,39 +152,32 @@ if ( class_exists( 'LSX_TO_Maps' ) ) {
 
 $metabox['fields'][] = array(
 	'id'   => 'gallery_title',
-	'name' => esc_html__( 'Gallery', 'to-specials' ),
+	'name' => esc_html__( 'Gallery', 'to-team' ),
 	'type' => 'title',
 );
 
 $metabox['fields'][] = array(
-	'id'                  => 'gallery',
-	'name'                => '',
-	'type'                => 'image',
-	'repeatable'          => true,
-	'show_size'           => false,
-	'sortable'            => true,
-	'string-repeat-field' => esc_html__( 'Add new image', 'to-specials' ),
+    'name' => esc_html__( 'Gallery', 'to-specials' ),
+	'desc' => esc_html__( 'Add images related to the accommodation to be displayed in the Accommodation\'s gallery.', 'to-specials' ),
+    'id'   => 'gallery',
+    'type' => 'file_list',
+    'preview_size' => 'thumbnail', // Image size to use when previewing in the admin.
+    'query_args' => array( 'type' => 'image' ), // Only images attachment
+    'text' => array(
+        'add_upload_files_text' => esc_html__( 'Add new image', 'to-specials' ), // default: "Add or Upload Files"
+    ),
 );
 
 if ( class_exists( 'Envira_Gallery' ) ) {
-	$metabox['fields'][] = array(
-		'id'   => 'envira_title',
-		'name' => esc_html__( 'Envira Gallery', 'to-specials' ),
-		'type' => 'title',
-	);
 
 	$metabox['fields'][] = array(
 		'id'         => 'envira_gallery',
 		'name'       => esc_html__( 'Envira Gallery', 'to-specials' ),
-		'type'       => 'post_select',
+		'type'       => 'pw_multiselect',
 		'use_ajax'   => false,
 		'allow_none' => true,
-		'query'      => array(
-			'post_type'      => 'envira',
-			'nopagin'        => true,
-			'posts_per_page' => '-1',
-			'orderby'        => 'title',
-			'order'          => 'ASC',
+		'options'  => array(
+			'post_type_args' => 'envira',
 		),
 	);
 
@@ -196,15 +185,11 @@ if ( class_exists( 'Envira_Gallery' ) ) {
 		$metabox['fields'][] = array(
 			'id'         => 'envira_video',
 			'name'       => esc_html__( 'Envira Video Gallery', 'to-specials' ),
-			'type'       => 'post_select',
+			'type'       => 'pw_multiselect',
 			'use_ajax'   => false,
 			'allow_none' => true,
-			'query'      => array(
-				'post_type'      => 'envira',
-				'nopagin'        => true,
-				'posts_per_page' => '-1',
-				'orderby'        => 'title',
-				'order'          => 'ASC',
+			'options'  => array(
+				'post_type_args' => 'envira',
 			),
 		);
 	}
@@ -217,26 +202,22 @@ $post_types = array(
 	'tour'          => esc_html__( 'Tours', 'to-specials' ),
 );
 
-foreach ( $post_types as $slug => $label ) {
-	$metabox['fields'][] = array(
-		'id'   => $slug . '_title',
-		'name' => $label,
-		'type' => 'title',
-	);
+$metabox['fields'][] = array(
+	'id'   => 'related_title',
+	'name' => esc_html__( 'Related', 'to-team' ),
+	'type' => 'title',
+);
 
+foreach ( $post_types as $slug => $label ) {
 	$metabox['fields'][] = array(
 		'id'         => $slug . '_to_special',
 		'name'       => $label . esc_html__( ' related with this special', 'to-specials' ),
-		'type'       => 'post_select',
+		'type'       => 'pw_multiselect',
 		'use_ajax'   => false,
-		'repeatable' => true,
+		'repeatable' => false,
 		'allow_none' => true,
-		'query'      => array(
-			'post_type'      => $slug,
-			'nopagin'        => true,
-			'posts_per_page' => '-1',
-			'orderby'        => 'title',
-			'order'          => 'ASC',
+		'options'  => array(
+			'post_type_args' => $slug,
 		),
 	);
 }
