@@ -1,5 +1,10 @@
 # Change log
 
+## [[2.0.1]](https://github.com/lightspeeddevelopment/to-reviews/releases/tag/2.0.1) - WIP
+
+### Updated
+- Fixing the post type labels.
+
 ## [[2.0.0]](https://github.com/lightspeeddevelopment/to-reviews/releases/tag/2.0.0) - 2025-05-09
 
 ### Description

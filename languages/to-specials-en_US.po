@@ -2,14 +2,14 @@
 # This file is distributed under the GPL3+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tour Operator Special Offers 2.0.0\n"
+"Project-Id-Version: Tour Operator Special Offers 2.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/to-specials\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-09T12:25:06+00:00\n"
+"POT-Creation-Date: 2025-08-12T20:44:02+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: to-specials\n"
@@ -32,54 +32,6 @@ msgstr ""
 
 #. Author URI of the plugin
 msgid "https://lightspeedwp.agency/"
-msgstr ""
-
-#: classes/class-to-specials-admin.php:96
-msgctxt "Singular"
-msgid "Special Type"
-msgstr ""
-
-#: classes/class-to-specials-admin.php:97
-msgctxt "Plural"
-msgid "Special Type"
-msgstr ""
-
-#: classes/class-to-specials-admin.php:98
-msgid "Search Special Types"
-msgstr ""
-
-#: classes/class-to-specials-admin.php:99
-#: classes/class-to-specials-admin.php:106
-#: classes/class-to-specials.php:114
-#: includes/taxonomies/config-special-type.php:21
-msgid "Special Types"
-msgstr ""
-
-#: classes/class-to-specials-admin.php:100
-msgid "Parent Special Type"
-msgstr ""
-
-#: classes/class-to-specials-admin.php:101
-msgid "Parent Special Type:"
-msgstr ""
-
-#: classes/class-to-specials-admin.php:102
-#: includes/taxonomies/config-special-type.php:24
-msgid "Edit Special Type"
-msgstr ""
-
-#: classes/class-to-specials-admin.php:103
-#: includes/taxonomies/config-special-type.php:25
-msgid "Update Special Type"
-msgstr ""
-
-#: classes/class-to-specials-admin.php:104
-#: includes/taxonomies/config-special-type.php:26
-msgid "Add New Special Type"
-msgstr ""
-
-#: classes/class-to-specials-admin.php:105
-msgid "New Special Type"
 msgstr ""
 
 #: classes/class-to-specials-admin.php:168
@@ -111,21 +63,44 @@ msgid "Off"
 msgstr ""
 
 #: classes/class-to-specials-schema.php:83
-#: classes/class-to-specials.php:107
+#: classes/class-to-specials.php:108
+#: includes/post-types/config-special.php:17
 msgid "Special"
 msgstr ""
 
-#: classes/class-to-specials.php:104
+#: classes/class-to-specials-templates.php:41
+msgid "Single Special Offer"
+msgstr ""
+
+#: classes/class-to-specials-templates.php:42
+msgid "Displays a single tour"
+msgstr ""
+
+#: classes/class-to-specials-templates.php:46
+msgid "Specials Offers Archive"
+msgstr ""
+
+#: classes/class-to-specials-templates.php:47
+msgid "Displays all the specials available."
+msgstr ""
+
+#: classes/class-to-specials.php:105
 #: includes/post-types/config-special.php:16
 #: includes/post-types/config-special.php:22
 #: includes/post-types/config-special.php:28
 msgid "Specials"
 msgstr ""
 
-#: classes/class-to-specials.php:111
+#: classes/class-to-specials.php:112
 #: includes/taxonomies/config-special-type.php:18
 #: includes/taxonomies/config-special-type.php:19
+#: includes/taxonomies/config-special-type.php:28
 msgid "Special Type"
+msgstr ""
+
+#: classes/class-to-specials.php:115
+#: includes/taxonomies/config-special-type.php:21
+msgid "Special Types"
 msgstr ""
 
 #: includes/metaboxes/config-special.php:13
@@ -258,10 +233,6 @@ msgstr ""
 msgid " related with this special"
 msgstr ""
 
-#: includes/post-types/config-special.php:17
-msgid "Activity"
-msgstr ""
-
 #: includes/post-types/config-special.php:18
 msgid "Add New"
 msgstr ""
@@ -275,7 +246,7 @@ msgid "Edit Special"
 msgstr ""
 
 #: includes/post-types/config-special.php:21
-msgid "New Specials"
+msgid "New Special"
 msgstr ""
 
 #: includes/post-types/config-special.php:23
@@ -306,10 +277,18 @@ msgstr ""
 msgid "Parent:"
 msgstr ""
 
-#: includes/taxonomies/config-special-type.php:27
-msgid "New Role"
+#: includes/taxonomies/config-special-type.php:24
+msgid "Edit Special Type"
 msgstr ""
 
-#: includes/taxonomies/config-special-type.php:28
-msgid "Roles"
+#: includes/taxonomies/config-special-type.php:25
+msgid "Update Special Type"
+msgstr ""
+
+#: includes/taxonomies/config-special-type.php:26
+msgid "Add New Special Type"
+msgstr ""
+
+#: includes/taxonomies/config-special-type.php:27
+msgid "New Special Type"
 msgstr ""
