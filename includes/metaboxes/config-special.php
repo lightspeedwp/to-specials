@@ -109,7 +109,7 @@ $metabox['fields'][] = array(
 
 $metabox['fields'][] = array(
 	'id'   => 'travel_dates',
-	'name' => '',
+	'name' => esc_html__( 'Travel Dates','to-specials' ),
 	'single_name' => esc_html__( 'Travel Dates','to-specials' ),
 	'type' => 'group',
 	'repeatable'  => true,
