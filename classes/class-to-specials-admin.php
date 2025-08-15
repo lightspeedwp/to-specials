@@ -98,7 +98,7 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 		if ( false !== $post_type ) {
 			$fields[] = array(
 				'id' => 'special_to_' . $post_type,
-				'name' => 'Specials related with this ' . $post_type,
+				'name' => __( 'Related Specials', 'to-specials' ),
 				'type' => 'pw_multiselect',
 				'use_ajax' => false,
 				'repeatable' => false,
