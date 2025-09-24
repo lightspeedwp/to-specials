@@ -1,0 +1,42 @@
+{
+	"root": true,
+	"extends": [
+		"plugin:@wordpress/eslint-plugin/recommended"
+	],
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true,
+		"jquery": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 2020,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"ignorePatterns": [
+		"build/",
+		"assets/dist/",
+		"vendor/",
+		"node_modules/",
+		"tests/",
+		"test-results/",
+		"playwright-report/",
+		"coverage/",
+		"wp-content/",
+		"*.min.js",
+		"*.asset.php"
+	],
+	"rules": {
+		"no-console": "warn",
+		"import/no-extraneous-dependencies": "off",
+		"import/no-unresolved": "off"
+	}
+}
