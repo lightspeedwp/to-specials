@@ -37,7 +37,7 @@ class LSX_TO_Specials_Templates {
 		 * The slugs of the built in post types we are using.
 		 */
 		$post_types = [
-			'single-tour'  => [
+			'single-special'  => [
 				'title'       => __( 'Single Special Offer', 'to-specials' ),
 				'description' => __( 'Displays a single tour', 'to-specials' ),
 				'post_types'  => ['special'],
