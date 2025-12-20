@@ -94,7 +94,7 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 		 * Load the plugin text domain for translation.
 		 */
 		public function load_plugin_textdomain() {
-			load_plugin_textdomain( 'to-specials', '', basename( LSX_TO_SPECIALS_PATH ) . '/languages');
+			load_plugin_textdomain( 'to-specials' );
 		}
 
 		/**

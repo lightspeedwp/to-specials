@@ -8,7 +8,7 @@
  * @link
  * @copyright 2017 LightSpeedDevelopment
  */
-
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 $metabox = array(
 	'title'  => esc_html__( 'Tour Operator Plugin', 'to-specials' ),
 	'pages'  => 'special',
@@ -152,7 +152,7 @@ if ( class_exists( 'LSX_TO_Maps' ) ) {
 
 $metabox['fields'][] = array(
 	'id'   => 'gallery_title',
-	'name' => esc_html__( 'Gallery', 'to-team' ),
+	'name' => esc_html__( 'Gallery', 'to-specials' ),
 	'type' => 'title',
 );
 
@@ -204,7 +204,7 @@ $post_types = array(
 
 $metabox['fields'][] = array(
 	'id'   => 'related_title',
-	'name' => esc_html__( 'Related', 'to-team' ),
+	'name' => esc_html__( 'Related', 'to-specials' ),
 	'type' => 'title',
 );
 
