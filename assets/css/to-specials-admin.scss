@@ -1,0 +1,17 @@
+/**
+ * TO Specials Admin Styles
+ *
+ * @package TO_Specials
+ */
+
+.to-specials-admin {
+	display: block;
+
+	&__settings {
+		padding: 1rem;
+	}
+
+	&__form {
+		max-width: 600px;
+	}
+}

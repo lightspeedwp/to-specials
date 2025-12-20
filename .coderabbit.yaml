@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "en-ZA"
+early_access: false
+commands:
+  enabled: true
+linked_issues:
+  enabled: true
+reviews:
+  profile: "chill"
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - '.*'
+  path_filters:
+    - "!build/**"
+    - "!node_modules/**"
+    - "!vendor/**"
+  path_instructions:
+    - path: '**/*.php'
+      instructions: |
+        - Follow WordPress coding standards (WPCS) strictly
+        - Use proper sanitization and validation for all inputs
+        - Escape all outputs using esc_html, esc_attr, wp_kses_post
+        - Use WordPress functions instead of native PHP where available
+        - Add proper DocBlocks with @param, @return, @since tags
+        - Use meaningful variable and function names with to_specials_ prefix
+        - Follow WordPress naming conventions (snake_case for functions/variables)
+    - path: 'classes/*.php'
+      instructions: |
+        - TO Specials specific: Focus on special deals and discount management
+        - Validate special pricing and date ranges
+        - Implement proper special expiration handling
+        - Use WordPress meta fields for special deal data
+        - Ensure pricing security and validation
+        - Follow Tour Operator plugin integration patterns
+        - Ensure proper class naming with TO_Specials_ prefix
+    - path: 'includes/*.php'
+      instructions: |
+        - Check for proper WordPress security measures (nonces, capability checks)
+        - Ensure functions are properly hooked to WordPress actions/filters
+        - Validate special deal forms and pricing calculations
+        - Review discount logic and availability checks
+        - Use to_specials_ function prefix consistently
+        - Implement proper special deal display and filtering
+    - path: 'assets/**/*.{js,ts}'
+      instructions: |
+        - Follow WordPress JavaScript coding standards
+        - Use WordPress script localization for strings and AJAX URLs
+        - Ensure jQuery compatibility and proper enqueueing
+        - Add proper error handling for special deal interactions
+        - Implement client-side validation for booking forms
+        - Use modern ES6+ syntax where appropriate
+    - path: 'assets/**/*.{css,scss}'
+      instructions: |
+        - Follow WordPress CSS coding standards
+        - Use semantic class naming with to-specials- prefix
+        - Ensure responsive design for special deal displays
+        - Check for accessibility compliance (WCAG 2.1)
+        - Style pricing displays and call-to-action buttons effectively
+        - Use CSS custom properties for maintainable theming
+    - path: 'tests/**'
+      instructions: |
+        - Ensure test coverage for critical special deal functions
+        - Test pricing calculations and discount applications
+        - Test date-based availability and expiration logic
+        - Follow WordPress testing best practices
+        - Use PHPUnit for PHP tests and Playwright for E2E tests
+    - path: '**/*.md'
+      instructions: |
+        - Keep documentation updated with code changes
+        - Use clear examples for special deal integration
+        - Document pricing and discount configuration
+        - Include proper installation and configuration steps
+        - Follow markdown linting rules
+        - On Pull Requests check for updates to the changelog file
+chat:
+  auto_reply: true

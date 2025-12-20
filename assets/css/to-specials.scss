@@ -1,0 +1,17 @@
+/**
+ * TO Specials Plugin Styles
+ *
+ * @package TO_Specials
+ */
+
+.to-specials {
+	display: block;
+
+	&__container {
+		padding: 1rem;
+	}
+
+	&__item {
+		margin-bottom: 1rem;
+	}
+}

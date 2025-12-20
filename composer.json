@@ -3,23 +3,34 @@
     "description": "With the Tour Operator Special Offers extension you’re able to set up time-sensitive prices that you can use to price your accommodations, activities and tours. Set up booking validity dates, specials per person sharing/per person sharing/per person sharing per night, team members per special and more.",
     "type": "wordpress-plugin",
     "require": {
-        "php": ">=7.2",
-        "composer/installers": "^2.0.0"
+        "php": ">=8.0",
+        "composer/installers": "^2.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.5",
-        "wp-coding-standards/wpcs": "^3.0",
-        "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
-        "wpackagist-plugin/tour-operator": "^1.4.1",
+        "phpunit/phpunit": "^10.5",
+        "wp-coding-standards/wpcs": "^3.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "wpackagist-plugin/tour-operator": "^2.0",
         "wpackagist-theme/lsx": "^3.0",
-        "phpcompatibility/phpcompatibility-wp": "^2.1.0",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
         "roave/security-advisories": "dev-master"
     },
     "repositories":[{
         "type":"composer",
         "url":"https://wpackagist.org"
     }],
+    "scripts": {
+        "phpcs": "vendor/bin/phpcs",
+        "phpcbf": "vendor/bin/phpcbf",
+        "phpcs:report": "vendor/bin/phpcs --report=json --report-file=phpcs-report.json"
+    },
     "license": "GPL-3.0-or-later",
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
     "prefer-stable": true,
     "minimum-stability": "dev"
 }
