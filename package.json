@@ -38,7 +38,7 @@
   },
   "homepage": "https://www.lsdev.biz/product/tour-operator-special-offers/#readme",
   "devDependencies": {
-    "@playwright/test": "^1.49.0",
+    "@playwright/test": "^1.57.0",
     "@wordpress/eslint-plugin": "^22.22.0",
     "@wordpress/scripts": "^30.24.0",
     "@wordpress/stylelint-config": "^23.28.0",
