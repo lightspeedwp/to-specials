@@ -40,7 +40,7 @@
   "devDependencies": {
     "@playwright/test": "^1.57.0",
     "@wordpress/eslint-plugin": "^22.22.0",
-    "@wordpress/scripts": "^30.24.0",
+    "@wordpress/scripts": "^31.1.0",
     "@wordpress/stylelint-config": "^23.28.0",
     "webpack-remove-empty-scripts": "^1.1.1"
   },
