@@ -1,9 +1,42 @@
 # Change log
 
-## [[2.0.1]](https://github.com/lightspeeddevelopment/to-reviews/releases/tag/2.0.1) - WIP
+## [[2.1]](https://github.com/lightspeeddevelopment/to-specials/releases/tag/2.1) - 2025-01-13
+
+### Description
+This release introduces significant improvements to the template system, enhanced custom field configurations, and better Tour Operator 2.0 compatibility for the Special Offers plugin.
+
+### Added
+- New `LSX_TO_Specials_Templates` class for proper block template registration
+- Block editor templates: `templates/archive-special.html` and `templates/single-special.html`
+- Post field support for enhanced content management
 
 ### Updated
-- Fixing the post type labels.
+- Special metabox configurations for better CMB2 integration
+- Field titles and descriptions for improved user guidance
+- Post type labels for better clarity
+- Plugin assets converted to PNG format (banners and icons)
+- Language files (.po, .pot) with new strings and improved formatting
+- Plugin version to 2.1 across all files
+
+### Fixed
+- Post type slug for single special offer template (changed from 'tour' to 'special')
+- Travel dates field naming for consistency
+- Template registration logic for block editor compatibility
+
+### Removed
+- Legacy `class-template-redirects.php` (189 lines removed)
+- Unused `gulpfile.js` (51 lines removed)
+- Obsolete template selection logic
+
+### Changed
+- Improved class structure and organization
+- Simplified template loading system
+- Enhanced field structure in metabox configurations
+
+### Security
+- Tested with WordPress 6.9
+- Tested with PHP 8.0+
+- Code quality improvements for better security
 
 ## [[2.0.0]](https://github.com/lightspeeddevelopment/to-reviews/releases/tag/2.0.0) - 2025-05-09
 
