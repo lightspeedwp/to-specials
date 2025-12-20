@@ -158,7 +158,7 @@ $metabox['fields'][] = array(
 
 $metabox['fields'][] = array(
     'name' => esc_html__( 'Gallery', 'to-specials' ),
-	'desc' => esc_html__( 'Add images related to the accommodation to be displayed in the Accommodation\'s gallery.', 'to-specials' ),
+	'desc' => esc_html__( 'Add images related to the special to be displayed in the special\'s gallery.', 'to-specials' ),
     'id'   => 'gallery',
     'type' => 'file_list',
     'preview_size' => 'thumbnail', // Image size to use when previewing in the admin.

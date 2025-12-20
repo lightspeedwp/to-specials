@@ -39,7 +39,7 @@ class LSX_TO_Specials_Templates {
 		$post_types = [
 			'single-special'  => [
 				'title'       => __( 'Single Special Offer', 'to-specials' ),
-				'description' => __( 'Displays a single tour', 'to-specials' ),
+				'description' => __( 'Displays a single special offer', 'to-specials' ),
 				'post_types'  => ['special'],
 			],
 			'archive-special' => [
