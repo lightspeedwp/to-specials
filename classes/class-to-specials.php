@@ -73,6 +73,7 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 
 			require_once LSX_TO_SPECIALS_PATH . '/classes/class-to-specials-admin.php';
 			require_once LSX_TO_SPECIALS_PATH . '/classes/class-to-specials-frontend.php';
+			require_once LSX_TO_SPECIALS_PATH . '/classes/class-to-specials-templates.php';
 			require_once LSX_TO_SPECIALS_PATH . '/includes/template-tags.php';
 
 			// flush_rewrite_rules.
@@ -93,7 +94,7 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 		 * Load the plugin text domain for translation.
 		 */
 		public function load_plugin_textdomain() {
-			load_plugin_textdomain( 'to-specials', '', basename( LSX_TO_SPECIALS_PATH ) . '/languages');
+			load_plugin_textdomain( 'to-specials' );
 		}
 
 		/**

@@ -36,6 +36,7 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 		add_filter( 'lsx_get_taxonomies_configs', array( $this, 'taxonomy_config' ), 10, 1 );
 		add_action( 'cmb2_admin_init', array( $this, 'register_cmb2_fields' ) );
 
+		add_filter( 'lsx_to_post_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_destination_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_tour_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_accommodation_custom_fields', array( $this, 'custom_fields' ) );
@@ -97,7 +98,7 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 		if ( false !== $post_type ) {
 			$fields[] = array(
 				'id' => 'special_to_' . $post_type,
-				'name' => 'Specials related with this ' . $post_type,
+				'name' => __( 'Related Specials', 'to-specials' ),
 				'type' => 'pw_multiselect',
 				'use_ajax' => false,
 				'repeatable' => false,

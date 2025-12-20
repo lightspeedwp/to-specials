@@ -6,7 +6,7 @@
  */
 
 /**
- * Returns schema Review data.
+ * Returns schema Specials data.
  *
  * @since 10.2
  */
@@ -23,9 +23,9 @@ class LSX_TO_Specials_Schema extends LSX_TO_Schema_Graph_Piece {
 	}
 
 	/**
-	 * Returns Review data.
+	 * Returns Specials data.
 	 *
-	 * @return array $data Review data.
+	 * @return array $data Specials data.
 	 */
 	public function generate() {
 		$tour_list  = get_post_meta( get_the_ID(), 'tour_to_special', false );
