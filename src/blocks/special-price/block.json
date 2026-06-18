@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "textdomain": "to-specials",
+  "name": "lsx-tour-operator/special-price",
+  "title": "Special Price",
+  "category": "lsx-tour-operator",
+  "editorScript": "file:index.js",
+  "description": "Displays the price for this special.",
+  "icon": "money-alt",
+  "keywords": ["price", "cost", "special", "amount"]
+}
