@@ -76,6 +76,9 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 			require_once LSX_TO_SPECIALS_PATH . '/classes/class-to-specials-templates.php';
 			require_once LSX_TO_SPECIALS_PATH . '/includes/template-tags.php';
 
+			require_once LSX_TO_SPECIALS_PATH . '/classes/class-to-specials-blocks.php';
+			new LSX_TO_Specials_Blocks();
+
 			// flush_rewrite_rules.
 			register_activation_hook( LSX_TO_SPECIALS_CORE, array( $this, 'register_activation_hook' ) );
 			add_action( 'admin_init', array( $this, 'register_activation_hook_check' ) );

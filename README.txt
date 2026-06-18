@@ -5,7 +5,7 @@ Tags: lsx, tour operator, specials, accommodation, prices
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 2.1
+Stable tag: 2.2
 License: GPLv3
 
 With Tour Operator Specials, add deals to your website – a great way to entice people who are ready to take advantage of limited-time deals.
@@ -49,3 +49,11 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 2. Backend View
 3. Backend View 2
 4. Settings
+
+== Changelog ==
+
+= 2.2 =
+* Added Gutenberg block variations: featured special, related specials, post meta blocks (tagline, price, price type, duration, booking validity), post connection blocks (to accommodation, destination, tour, team), and gallery block.
+* Added related blocks for destination, accommodation, and tour post types.
+
+[Lastest changelogs can be found on GitHub](https://github.com/lightspeeddevelopment/to-specials/blob/master/changelog.md).
