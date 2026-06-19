@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "textdomain": "to-specials",
+  "name": "lsx-tour-operator/featured-special",
+  "title": "Featured Specials",
+  "category": "lsx-tour-operator",
+  "editorScript": "file:index.js",
+  "description": "Displays Specials with the Featured tag.",
+  "icon": "tag",
+  "keywords": [
+    "featured",
+    "special",
+    "offer",
+    "deal"
+  ]
+}
