@@ -27,7 +27,7 @@ wp.domReady(() => {
             metadata: {
                 name: 'Featured Special',
             },
-            className: 'lsx-featured-special-query-wrapper',
+            className: 'lsx-featured-query-wrapper',
             align: 'full',
             layout: {
                 type: 'constrained',

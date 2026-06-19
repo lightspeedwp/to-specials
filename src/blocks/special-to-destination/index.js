@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Special to Destination', 'to-specials') },
-                className: 'lsx-special-to-destination-wrapper',
+                className: 'lsx-to-destination-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [

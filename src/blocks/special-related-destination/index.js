@@ -28,7 +28,7 @@ function registerSpecialRelatedDestinationVariation() {
             metadata: {
                 name: __('Related Specials', 'to-specials'),
             },
-            className: 'lsx-special-related-destination-query-wrapper',
+            className: 'lsx-related-destination-query-wrapper',
             align: 'full',
             layout: {
                 type: 'constrained',
@@ -75,9 +75,9 @@ function registerSpecialRelatedDestinationVariation() {
         ],
         isActive: (blockAttributes) => {
             return (
-                blockAttributes.className === 'lsx-special-related-destination-query-wrapper' ||
+                blockAttributes.className === 'lsx-related-destination-query-wrapper' ||
                 (blockAttributes.className &&
-                    blockAttributes.className.includes('lsx-special-related-destination-query-wrapper'))
+                    blockAttributes.className.includes('lsx-related-destination-query-wrapper'))
             );
         },
     });

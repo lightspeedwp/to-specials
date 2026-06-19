@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Special to Team', 'to-specials') },
-                className: 'lsx-special-to-team-wrapper',
+                className: 'lsx-to-team-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [

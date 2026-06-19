@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Special to Tour', 'to-specials') },
-                className: 'lsx-special-to-tour-wrapper',
+                className: 'lsx-to-tour-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [

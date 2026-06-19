@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Special Booking Validity', 'to-specials') },
-                className: 'lsx-special-booking-validity-wrapper',
+                className: 'lsx-booking-validity-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [

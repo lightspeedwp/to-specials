@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Special Price Type', 'to-specials') },
-                className: 'lsx-special-price-type-wrapper',
+                className: 'lsx-price-type-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [

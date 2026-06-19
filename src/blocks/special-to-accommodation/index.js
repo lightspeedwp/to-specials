@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Special to Accommodation', 'to-specials') },
-                className: 'lsx-special-to-accommodation-wrapper',
+                className: 'lsx-to-accommodation-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [

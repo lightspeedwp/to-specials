@@ -26,7 +26,7 @@ function registerSpecialRelatedAccommodationVariation() {
         ],
         attributes: {
             metadata: { name: __('Related Specials', 'to-specials') },
-            className: 'lsx-special-related-accommodation-query-wrapper',
+            className: 'lsx-related-accommodation-query-wrapper',
             align: 'full',
             layout: { type: 'constrained' },
             tagName: 'section',
@@ -68,9 +68,9 @@ function registerSpecialRelatedAccommodationVariation() {
         ],
         isActive: (blockAttributes) => {
             return (
-                blockAttributes.className === 'lsx-special-related-accommodation-query-wrapper' ||
+                blockAttributes.className === 'lsx-related-accommodation-query-wrapper' ||
                 (blockAttributes.className &&
-                    blockAttributes.className.includes('lsx-special-related-accommodation-query-wrapper'))
+                    blockAttributes.className.includes('lsx-related-accommodation-query-wrapper'))
             );
         },
     });

@@ -28,7 +28,7 @@ function registerSpecialRelatedSpecialVariation() {
             metadata: {
                 name: __('Related Specials', 'to-specials'),
             },
-            className: 'lsx-special-related-special-query-wrapper',
+            className: 'lsx-related-special-query-wrapper',
             align: 'full',
             layout: {
                 type: 'constrained',
@@ -113,9 +113,9 @@ function registerSpecialRelatedSpecialVariation() {
         ],
         isActive: (blockAttributes) => {
             return (
-                blockAttributes.className === 'lsx-special-related-special-query-wrapper' ||
+                blockAttributes.className === 'lsx-related-special-query-wrapper' ||
                 (blockAttributes.className &&
-                    blockAttributes.className.includes('lsx-special-related-special-query-wrapper'))
+                    blockAttributes.className.includes('lsx-related-special-query-wrapper'))
             );
         },
     });

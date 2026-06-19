@@ -22,7 +22,7 @@ wp.domReady(() => {
             },
             attributes: {
                 metadata: { name: __('Special Tagline', 'to-specials') },
-                className: 'lsx-special-tagline-wrapper',
+                className: 'lsx-tagline-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [
