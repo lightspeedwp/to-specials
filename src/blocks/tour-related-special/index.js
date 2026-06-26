@@ -1,8 +1,8 @@
 /**
- * Special Related Special Block Variation
+ * Tour Related Special Block Variation
  *
- * Registers a block variation for displaying other specials.
- * Only available on special post type edit screens.
+ * Registers a block variation for displaying specials related to the current tour.
+ * Only available on tour post type edit screens.
  *
  * @since 2.2.0
  * @package TO_Specials
@@ -12,24 +12,24 @@ import { __ } from '@wordpress/i18n';
 import { registerForPostTypesAndTemplates } from '@utils/conditional-block-registration.js';
 
 wp.domReady(() => {
-    const registerSpecialRelatedSpecialVariation = () => {
+    const registerTourRelatedSpecialVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
-            name: 'lsx-tour-operator/special-related-special',
+            name: 'lsx-tour-operator/tour-related-special',
             title: __('Related Specials', 'to-specials'),
             icon: 'tag',
-            description: __('Displays other specials from the site.', 'to-specials'),
+            description: __('Displays specials related to this tour.', 'to-specials'),
             category: 'lsx-tour-operator',
             keywords: [
                 __('specials', 'to-specials'),
+                __('tour', 'to-specials'),
                 __('related', 'to-specials'),
-                __('similar', 'to-specials'),
                 __('offers', 'to-specials'),
             ],
             attributes: {
                 metadata: {
                     name: __('Related Specials', 'to-specials'),
                 },
-                className: 'lsx-special-related-special-query-wrapper',
+                className: 'lsx-tour-related-special-query-wrapper',
                 align: 'full',
                 layout: {
                     type: 'constrained',
@@ -52,7 +52,7 @@ wp.domReady(() => {
                             'core/heading',
                             {
                                 textAlign: 'center',
-                                content: __('Related Specials', 'to-specials'),
+                                content: __('Specials', 'to-specials'),
                                 level: 2,
                             },
                         ],
@@ -70,12 +70,12 @@ wp.domReady(() => {
                             'core/query',
                             {
                                 metadata: {
-                                    name: __('Related Special Query', 'to-specials'),
+                                    name: __('Related Specials Query', 'to-specials'),
                                 },
                                 query: {
                                     perPage: 8,
                                     postType: 'special',
-                                    order: 'asc',
+                                    order: 'desc',
                                     orderBy: 'date',
                                 },
                                 align: 'wide',
@@ -84,8 +84,8 @@ wp.domReady(() => {
                                 [
                                     'core/post-template',
                                     {
-                                        className: 'lsx-special-related-special-query',
-                                        layout: { type: 'grid', columnCount: 3 },
+                                        className: 'lsx-tour-related-special-query',
+                                        layout: { type: 'grid', columnCount: 2 },
                                     },
                                     [
                                         [
@@ -116,7 +116,7 @@ wp.domReady(() => {
                                 name: 'core/heading',
                                 attributes: {
                                     textAlign: 'center',
-                                    content: __('Related Specials', 'to-specials'),
+                                    content: __('Specials', 'to-specials'),
                                     level: 2,
                                 },
                             },
@@ -133,8 +133,8 @@ wp.domReady(() => {
                             {
                                 name: 'core/group',
                                 attributes: {
-                                    className: 'lsx-special-related-special-query',
-                                    layout: { type: 'grid', columnCount: 3 },
+                                    className: 'lsx-tour-related-special-query',
+                                    layout: { type: 'grid', columnCount: 2 },
                                 },
                                 innerBlocks: [
                                     {
@@ -169,27 +169,8 @@ wp.domReady(() => {
                                                 name: 'core/group',
                                                 attributes: { style: { spacing: { padding: { top: '5px', bottom: '0px', left: '5px', right: '5px' } } }, layout: { type: 'constrained' } },
                                                 innerBlocks: [
-                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Honeymoon Package', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
-                                                    { name: 'core/paragraph', attributes: { content: __('Complimentary room upgrade and romantic dinner for two on your first night.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
-                                                ],
-                                            },
-                                        ],
-                                    },
-                                    {
-                                        name: 'core/group',
-                                        attributes: {
-                                            className: 'is-style-shadow-sm',
-                                            style: { spacing: { blockGap: '0px', padding: { top: '0px', bottom: '0px', left: '0px', right: '0px' } }, border: { radius: '8px' } },
-                                            backgroundColor: 'base',
-                                            layout: { type: 'constrained' },
-                                        },
-                                        innerBlocks: [
-                                            {
-                                                name: 'core/group',
-                                                attributes: { style: { spacing: { padding: { top: '5px', bottom: '0px', left: '5px', right: '5px' } } }, layout: { type: 'constrained' } },
-                                                innerBlocks: [
-                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Last Minute Deal', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
-                                                    { name: 'core/paragraph', attributes: { content: __('30% off remaining availability for departures within the next 60 days.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
+                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Early Bird Discount', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
+                                                    { name: 'core/paragraph', attributes: { content: __('Book this tour 6 months in advance and receive a 15% discount on the total price.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
                                                 ],
                                             },
                                         ],
@@ -207,9 +188,9 @@ wp.domReady(() => {
     };
 
     const conditionalRegister = registerForPostTypesAndTemplates(
-        ['special'],
-        ['special'],
-        registerSpecialRelatedSpecialVariation
+        ['tour'],
+        ['tour'],
+        registerTourRelatedSpecialVariation
     );
     conditionalRegister();
 });

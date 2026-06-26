@@ -2,11 +2,11 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "textdomain": "to-specials",
-  "name": "lsx-tour-operator/special-related-destination",
+  "name": "lsx-tour-operator/tour-related-special",
   "title": "Related Specials",
   "category": "lsx-tour-operator",
   "editorScript": "file:index.js",
-  "description": "Display specials related to this destination.",
+  "description": "Display specials related to this tour.",
   "icon": "tag",
-  "keywords": ["specials", "destination", "related", "offers"]
+  "keywords": ["specials", "tour", "related", "offers"]
 }

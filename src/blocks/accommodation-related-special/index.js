@@ -1,8 +1,8 @@
 /**
- * Special Related Special Block Variation
+ * Accommodation Related Special Block Variation
  *
- * Registers a block variation for displaying other specials.
- * Only available on special post type edit screens.
+ * Registers a block variation for displaying specials related to the current accommodation.
+ * Only available on accommodation post type edit screens.
  *
  * @since 2.2.0
  * @package TO_Specials
@@ -12,24 +12,24 @@ import { __ } from '@wordpress/i18n';
 import { registerForPostTypesAndTemplates } from '@utils/conditional-block-registration.js';
 
 wp.domReady(() => {
-    const registerSpecialRelatedSpecialVariation = () => {
+    const registerAccommodationRelatedSpecialVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
-            name: 'lsx-tour-operator/special-related-special',
+            name: 'lsx-tour-operator/accommodation-related-special',
             title: __('Related Specials', 'to-specials'),
             icon: 'tag',
-            description: __('Displays other specials from the site.', 'to-specials'),
+            description: __('Displays specials related to this accommodation.', 'to-specials'),
             category: 'lsx-tour-operator',
             keywords: [
                 __('specials', 'to-specials'),
+                __('accommodation', 'to-specials'),
                 __('related', 'to-specials'),
-                __('similar', 'to-specials'),
                 __('offers', 'to-specials'),
             ],
             attributes: {
                 metadata: {
                     name: __('Related Specials', 'to-specials'),
                 },
-                className: 'lsx-special-related-special-query-wrapper',
+                className: 'lsx-accommodation-related-special-query-wrapper',
                 align: 'full',
                 layout: {
                     type: 'constrained',
@@ -52,7 +52,7 @@ wp.domReady(() => {
                             'core/heading',
                             {
                                 textAlign: 'center',
-                                content: __('Related Specials', 'to-specials'),
+                                content: __('Specials', 'to-specials'),
                                 level: 2,
                             },
                         ],
@@ -70,12 +70,12 @@ wp.domReady(() => {
                             'core/query',
                             {
                                 metadata: {
-                                    name: __('Related Special Query', 'to-specials'),
+                                    name: __('Related Specials Query', 'to-specials'),
                                 },
                                 query: {
                                     perPage: 8,
                                     postType: 'special',
-                                    order: 'asc',
+                                    order: 'desc',
                                     orderBy: 'date',
                                 },
                                 align: 'wide',
@@ -84,8 +84,8 @@ wp.domReady(() => {
                                 [
                                     'core/post-template',
                                     {
-                                        className: 'lsx-special-related-special-query',
-                                        layout: { type: 'grid', columnCount: 3 },
+                                        className: 'lsx-accommodation-related-special-query',
+                                        layout: { type: 'grid', columnCount: 2 },
                                     },
                                     [
                                         [
@@ -116,7 +116,7 @@ wp.domReady(() => {
                                 name: 'core/heading',
                                 attributes: {
                                     textAlign: 'center',
-                                    content: __('Related Specials', 'to-specials'),
+                                    content: __('Specials', 'to-specials'),
                                     level: 2,
                                 },
                             },
@@ -133,8 +133,8 @@ wp.domReady(() => {
                             {
                                 name: 'core/group',
                                 attributes: {
-                                    className: 'lsx-special-related-special-query',
-                                    layout: { type: 'grid', columnCount: 3 },
+                                    className: 'lsx-accommodation-related-special-query',
+                                    layout: { type: 'grid', columnCount: 2 },
                                 },
                                 innerBlocks: [
                                     {
@@ -175,25 +175,6 @@ wp.domReady(() => {
                                             },
                                         ],
                                     },
-                                    {
-                                        name: 'core/group',
-                                        attributes: {
-                                            className: 'is-style-shadow-sm',
-                                            style: { spacing: { blockGap: '0px', padding: { top: '0px', bottom: '0px', left: '0px', right: '0px' } }, border: { radius: '8px' } },
-                                            backgroundColor: 'base',
-                                            layout: { type: 'constrained' },
-                                        },
-                                        innerBlocks: [
-                                            {
-                                                name: 'core/group',
-                                                attributes: { style: { spacing: { padding: { top: '5px', bottom: '0px', left: '5px', right: '5px' } } }, layout: { type: 'constrained' } },
-                                                innerBlocks: [
-                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Last Minute Deal', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
-                                                    { name: 'core/paragraph', attributes: { content: __('30% off remaining availability for departures within the next 60 days.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
-                                                ],
-                                            },
-                                        ],
-                                    },
                                 ],
                             },
                         ],
@@ -207,9 +188,9 @@ wp.domReady(() => {
     };
 
     const conditionalRegister = registerForPostTypesAndTemplates(
-        ['special'],
-        ['special'],
-        registerSpecialRelatedSpecialVariation
+        ['accommodation'],
+        ['accommodation'],
+        registerAccommodationRelatedSpecialVariation
     );
     conditionalRegister();
 });

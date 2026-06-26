@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "textdomain": "to-specials",
   "name": "lsx-tour-operator/special-related-special",
+
   "title": "Related Specials",
   "category": "lsx-tour-operator",
   "editorScript": "file:index.js",
