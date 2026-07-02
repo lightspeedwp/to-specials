@@ -41,7 +41,7 @@
     "@playwright/test": "^1.61.1",
     "@wordpress/eslint-plugin": "^25.5.1",
     "@wordpress/scripts": "^32.5.1",
-    "@wordpress/stylelint-config": "^23.41.1",
+    "@wordpress/stylelint-config": "^23.42.0",
     "webpack-remove-empty-scripts": "^1.1.1"
   },
   "engines": {
