@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "textdomain": "to-specials",
+  "name": "lsx-tour-operator/special-tagline",
+  "title": "Special - Tagline",
+  "category": "lsx-tour-operator",
+  "editorScript": "file:index.js",
+  "description": "Displays the tagline for this special.",
+  "icon": "editor-textcolor",
+  "keywords": [
+    "tagline",
+    "special",
+    "subtitle"
+  ]
+}
