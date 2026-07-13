@@ -1,5 +1,5 @@
 /**
- * Special to Tour Block Variation
+ * Tour to Special Block Variation
  *
  * @since 2.2.0
  * @package TO_Specials
@@ -9,10 +9,10 @@ import { __ } from '@wordpress/i18n';
 import { registerForPostTypesAndTemplates } from '@utils/conditional-block-registration.js';
 
 wp.domReady(() => {
-    const registerSpecialToTourVariation = () => {
+    const registerTourToSpecialVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
-            name: 'lsx-tour-operator/special-to-tour',
-            title: __('Special to Tour', 'to-specials'),
+            name: 'lsx-tour-operator/tour-to-special',
+            title: __('Tour to Special', 'to-specials'),
             icon: 'location-alt',
             category: 'lsx-tour-operator',
             description: __('Displays the tours connected to this special.', 'to-specials'),
@@ -21,8 +21,8 @@ wp.domReady(() => {
                 return blockAttributes.className === variationAttributes.className;
             },
             attributes: {
-                metadata: { name: __('Special to Tour', 'to-specials') },
-                className: 'lsx-to-tour-wrapper',
+                metadata: { name: __('Tour to Special', 'to-specials') },
+                className: 'lsx-tour-to-special-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [
@@ -65,6 +65,6 @@ wp.domReady(() => {
         });
     };
 
-    const conditionalRegister = registerForPostTypesAndTemplates(['special'], ['special'], registerSpecialToTourVariation);
+    const conditionalRegister = registerForPostTypesAndTemplates(['special'], ['special'], registerTourToSpecialVariation);
     conditionalRegister();
 });

@@ -1,5 +1,5 @@
 /**
- * Special to Accommodation Block Variation
+ * Team to Special Block Variation
  *
  * @since 2.2.0
  * @package TO_Specials
@@ -9,27 +9,27 @@ import { __ } from '@wordpress/i18n';
 import { registerForPostTypesAndTemplates } from '@utils/conditional-block-registration.js';
 
 wp.domReady(() => {
-    const registerSpecialToAccommodationVariation = () => {
+    const registerTeamToSpecialVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
-            name: 'lsx-tour-operator/special-to-accommodation',
-            title: __('Special to Accommodation', 'to-specials'),
-            icon: 'admin-home',
+            name: 'lsx-tour-operator/team-to-special',
+            title: __('Team to Special', 'to-specials'),
+            icon: 'admin-users',
             category: 'lsx-tour-operator',
-            description: __('Displays the accommodations connected to this special.', 'to-specials'),
-            keywords: [__('accommodation', 'to-specials'), __('special', 'to-specials'), __('connection', 'to-specials'), __('lodging', 'to-specials')],
+            description: __('Displays the team members connected to this special.', 'to-specials'),
+            keywords: [__('team', 'to-specials'), __('special', 'to-specials'), __('connection', 'to-specials'), __('guide', 'to-specials')],
             isActive: (blockAttributes, variationAttributes) => {
                 return blockAttributes.className === variationAttributes.className;
             },
             attributes: {
-                metadata: { name: __('Special to Accommodation', 'to-specials') },
-                className: 'lsx-to-accommodation-wrapper',
+                metadata: { name: __('Team to Special', 'to-specials') },
+                className: 'lsx-team-to-special-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [
                 [
                     'core/group',
                     { layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'middle' } },
-                    [['lsx-tour-operator/icons', { iconType: 'solid', iconName: 'accommodationIcon' }]],
+                    [['lsx-tour-operator/icons', { iconType: 'solid', iconName: 'teamIcon' }]],
                 ],
                 [
                     'core/group',
@@ -40,10 +40,10 @@ wp.domReady(() => {
                             {
                                 metadata: {
                                     bindings: {
-                                        content: { source: 'lsx/post-connection', args: { key: 'accommodation_to_special' } },
+                                        content: { source: 'lsx/post-connection', args: { key: 'team_to_special' } },
                                     },
                                 },
-                                prefix: __('Accommodation:', 'to-specials'),
+                                prefix: __('Guide:', 'to-specials'),
                                 prefixBold: true,
                             },
                         ],
@@ -56,8 +56,8 @@ wp.domReady(() => {
                         name: 'core/group',
                         attributes: { layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'middle' } },
                         innerBlocks: [
-                            { name: 'lsx-tour-operator/icons', attributes: { iconType: 'solid', iconName: 'accommodationIcon' } },
-                            { name: 'core/paragraph', attributes: { content: '<strong>' + __('Accommodation: ', 'to-specials') + '</strong>' + __('Safari Lodge', 'to-specials') } },
+                            { name: 'lsx-tour-operator/icons', attributes: { iconType: 'solid', iconName: 'teamIcon' } },
+                            { name: 'core/paragraph', attributes: { content: '<strong>' + __('Guide: ', 'to-specials') + '</strong>' + __('John Safari Guide', 'to-specials') } },
                         ],
                     },
                 ],
@@ -65,6 +65,6 @@ wp.domReady(() => {
         });
     };
 
-    const conditionalRegister = registerForPostTypesAndTemplates(['special'], ['special'], registerSpecialToAccommodationVariation);
+    const conditionalRegister = registerForPostTypesAndTemplates(['special'], ['special'], registerTeamToSpecialVariation);
     conditionalRegister();
 });

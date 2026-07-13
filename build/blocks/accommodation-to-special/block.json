@@ -2,11 +2,16 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "textdomain": "to-specials",
-  "name": "lsx-tour-operator/special-to-accommodation",
-  "title": "Special to Accommodation",
+  "name": "lsx-tour-operator/accommodation-to-special",
+  "title": "Accommodation to Special",
   "category": "lsx-tour-operator",
   "editorScript": "file:index.js",
   "description": "Displays the accommodations connected to this special.",
   "icon": "admin-home",
-  "keywords": ["accommodation", "special", "connection", "lodging"]
+  "keywords": [
+    "accommodation",
+    "special",
+    "connection",
+    "lodging"
+  ]
 }

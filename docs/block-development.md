@@ -42,10 +42,10 @@ All scoped to `special` post type and template.
 
 | Block Name | Connection Key | Icon |
 |---|---|---|
-| `lsx-tour-operator/special-to-accommodation` | `accommodation_to_special` | `accommodationIcon` |
-| `lsx-tour-operator/special-to-destination` | `destination_to_special` | `destinationIcon` |
-| `lsx-tour-operator/special-to-tour` | `tour_to_special` | `tourIcon` |
-| `lsx-tour-operator/special-to-team` | `team_to_special` | `teamIcon` |
+| `lsx-tour-operator/accommodation-to-special` | `accommodation_to_special` | `accommodationIcon` |
+| `lsx-tour-operator/destination-to-special` | `destination_to_special` | `destinationIcon` |
+| `lsx-tour-operator/tour-to-special` | `tour_to_special` | `tourIcon` |
+| `lsx-tour-operator/team-to-special` | `team_to_special` | `teamIcon` |
 
 ### Gallery
 

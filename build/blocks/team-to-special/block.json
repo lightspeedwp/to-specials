@@ -2,16 +2,16 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "textdomain": "to-specials",
-  "name": "lsx-tour-operator/special-to-destination",
-  "title": "Special to Destination",
+  "name": "lsx-tour-operator/team-to-special",
+  "title": "Team to Special",
   "category": "lsx-tour-operator",
   "editorScript": "file:index.js",
-  "description": "Displays the destinations connected to this special.",
-  "icon": "admin-site",
+  "description": "Displays the team members connected to this special.",
+  "icon": "admin-users",
   "keywords": [
-    "destination",
+    "team",
     "special",
     "connection",
-    "location"
+    "guide"
   ]
 }

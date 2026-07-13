@@ -1,5 +1,5 @@
 /**
- * Special to Destination Block Variation
+ * Destination to Special Block Variation
  *
  * @since 2.2.0
  * @package TO_Specials
@@ -9,10 +9,10 @@ import { __ } from '@wordpress/i18n';
 import { registerForPostTypesAndTemplates } from '@utils/conditional-block-registration.js';
 
 wp.domReady(() => {
-    const registerSpecialToDestinationVariation = () => {
+    const registerDestinationToSpecialVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
-            name: 'lsx-tour-operator/special-to-destination',
-            title: __('Special to Destination', 'to-specials'),
+            name: 'lsx-tour-operator/destination-to-special',
+            title: __('Destination to Special', 'to-specials'),
             icon: 'admin-site',
             category: 'lsx-tour-operator',
             description: __('Displays the destinations connected to this special.', 'to-specials'),
@@ -21,8 +21,8 @@ wp.domReady(() => {
                 return blockAttributes.className === variationAttributes.className;
             },
             attributes: {
-                metadata: { name: __('Special to Destination', 'to-specials') },
-                className: 'lsx-to-destination-wrapper',
+                metadata: { name: __('Destination to Special', 'to-specials') },
+                className: 'lsx-destination-to-special-wrapper',
                 layout: { type: 'flex', flexWrap: 'nowrap', verticalAlignment: 'top' },
             },
             innerBlocks: [
@@ -65,6 +65,6 @@ wp.domReady(() => {
         });
     };
 
-    const conditionalRegister = registerForPostTypesAndTemplates(['special'], ['special'], registerSpecialToDestinationVariation);
+    const conditionalRegister = registerForPostTypesAndTemplates(['special'], ['special'], registerDestinationToSpecialVariation);
     conditionalRegister();
 });
