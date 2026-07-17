@@ -34,7 +34,7 @@ class LSX_TO_Specials_Schema extends LSX_TO_Schema_Graph_Piece {
 			'@type'            => 'Offer',
 			'@id'              => $this->context->canonical . '#/schema/offer/' . $this->post->ID,
 			'name'             => get_the_title( $this->post->ID ),
-			'description'      => wp_strip_all_tags( apply_filters( 'the_content', $this->post->post_content ) ),
+			'description'      => \lsx\schema\Helpers::strip_to_text( apply_filters( 'the_content', $this->post->post_content ) ),
 			'url'              => $this->post_url,
 			'mainEntityOfPage' => array(
 				'@id' => $this->context->canonical . WPSEO_Schema_IDs::WEBPAGE_HASH,
@@ -67,14 +67,10 @@ class LSX_TO_Specials_Schema extends LSX_TO_Schema_Graph_Piece {
 	 * @return array $data Offer data.
 	 */
 	public function add_availability( $data, $data_key, $meta_key ) {
-		$raw = get_post_meta( $this->context->id, $meta_key, true );
-		if ( false === $raw || '' === $raw ) {
-			return $data;
-		}
-
-		$timestamp = is_numeric( $raw ) ? (int) $raw : strtotime( $raw );
-		if ( false !== $timestamp && $timestamp > 0 ) {
-			$data[ $data_key ] = gmdate( 'Y-m-d', $timestamp );
+		$raw  = get_post_meta( $this->context->id, $meta_key, true );
+		$date = \lsx\schema\Helpers::format_iso_date( $raw );
+		if ( '' !== $date ) {
+			$data[ $data_key ] = $date;
 		}
 
 		return $data;
@@ -88,16 +84,11 @@ class LSX_TO_Specials_Schema extends LSX_TO_Schema_Graph_Piece {
 	 */
 	public function get_price( $data ) {
 		$price         = get_post_meta( $this->context->id, 'price', true );
-		$currency      = 'USD';
-		$tour_operator = tour_operator();
-		if ( is_object( $tour_operator ) && isset( $tour_operator->options['general'] ) && is_array( $tour_operator->options['general'] ) ) {
-			if ( isset( $tour_operator->options['general']['currency'] ) && ! empty( $tour_operator->options['general']['currency'] ) ) {
-				$currency = $tour_operator->options['general']['currency'];
-			}
-		}
-		if ( false !== $price && '' !== $price ) {
-			$numeric_price         = preg_replace( '/[^\d.]/', '', $price );
-			$data['price']         = '' !== $numeric_price ? $numeric_price : $price;
+		$currency      = \lsx\schema\Helpers::get_currency();
+		$numeric_price = \lsx\schema\Helpers::normalise_price( $price );
+
+		if ( '' !== $numeric_price ) {
+			$data['price']         = $numeric_price;
 			$data['priceCurrency'] = $currency;
 			$data['category']      = __( 'Special', 'to-specials' );
 			$data['availability']  = 'https://schema.org/LimitedAvailability';
@@ -106,7 +97,7 @@ class LSX_TO_Specials_Schema extends LSX_TO_Schema_Graph_Piece {
 			if ( false !== $price_type && '' !== $price_type && 'none' !== $price_type ) {
 				$data['priceSpecification'] = array(
 					'@type'         => 'PriceSpecification',
-					'price'         => '' !== $numeric_price ? $numeric_price : $price,
+					'price'         => $numeric_price,
 					'priceCurrency' => $currency,
 					'unitText'      => lsx_to_get_price_type_label( $price_type ),
 				);
