@@ -1,8 +1,8 @@
 /**
  * Tour Related Special Block Variation
  *
- * Registers a block variation for displaying specials related to the current tour.
- * Only available on tour post type edit screens.
+ * Registers a block variation for displaying tours related to the current special.
+ * Only available on special post type edit screens.
  *
  * @since 2.2.0
  * @package TO_Specials
@@ -15,19 +15,19 @@ wp.domReady(() => {
     const registerTourRelatedSpecialVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
             name: 'lsx-tour-operator/tour-related-special',
-            title: __('Related Specials', 'to-specials'),
+            title: __('Related Tour', 'to-specials'),
             icon: 'tag',
-            description: __('Displays specials related to this tour.', 'to-specials'),
+            description: __('Displays tour related to this special.', 'to-specials'),
             category: 'lsx-tour-operator',
             keywords: [
-                __('specials', 'to-specials'),
                 __('tour', 'to-specials'),
+                __('special', 'to-specials'),
                 __('related', 'to-specials'),
                 __('offers', 'to-specials'),
             ],
             attributes: {
                 metadata: {
-                    name: __('Related Specials', 'to-specials'),
+                    name: __('Related Tour', 'to-specials'),
                 },
                 className: 'lsx-tour-related-special-query-wrapper',
                 align: 'full',
@@ -52,7 +52,7 @@ wp.domReady(() => {
                             'core/heading',
                             {
                                 textAlign: 'center',
-                                content: __('Specials', 'to-specials'),
+                                content: __('Related Tour', 'to-specials'),
                                 level: 2,
                             },
                         ],
@@ -70,11 +70,11 @@ wp.domReady(() => {
                             'core/query',
                             {
                                 metadata: {
-                                    name: __('Related Specials Query', 'to-specials'),
+                                    name: __('Related Tour Query', 'to-specials'),
                                 },
                                 query: {
                                     perPage: 8,
-                                    postType: 'special',
+                                    postType: 'tour',
                                     order: 'desc',
                                     orderBy: 'date',
                                 },
@@ -90,7 +90,7 @@ wp.domReady(() => {
                                     [
                                         [
                                             'core/pattern',
-                                            { slug: 'lsx-tour-operator/special-card' },
+                                            { slug: 'lsx-tour-operator/tour-card' },
                                         ],
                                     ],
                                 ],
@@ -116,7 +116,7 @@ wp.domReady(() => {
                                 name: 'core/heading',
                                 attributes: {
                                     textAlign: 'center',
-                                    content: __('Specials', 'to-specials'),
+                                    content: __('Related Tour', 'to-specials'),
                                     level: 2,
                                 },
                             },
@@ -150,8 +150,8 @@ wp.domReady(() => {
                                                 name: 'core/group',
                                                 attributes: { style: { spacing: { padding: { top: '5px', bottom: '0px', left: '5px', right: '5px' } } }, layout: { type: 'constrained' } },
                                                 innerBlocks: [
-                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Summer Safari Deal', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
-                                                    { name: 'core/paragraph', attributes: { content: __('Save 20% on 7-night safari packages. Valid for travel June–August.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
+                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('7-Night Safari Adventure', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
+                                                    { name: 'core/paragraph', attributes: { content: __('A guided safari package, discounted as part of this special.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
                                                 ],
                                             },
                                         ],
@@ -169,8 +169,8 @@ wp.domReady(() => {
                                                 name: 'core/group',
                                                 attributes: { style: { spacing: { padding: { top: '5px', bottom: '0px', left: '5px', right: '5px' } } }, layout: { type: 'constrained' } },
                                                 innerBlocks: [
-                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Early Bird Discount', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
-                                                    { name: 'core/paragraph', attributes: { content: __('Book this tour 6 months in advance and receive a 15% discount on the total price.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
+                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Kilimanjaro Trekking Tour', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
+                                                    { name: 'core/paragraph', attributes: { content: __('A multi-day trek included in this special package.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
                                                 ],
                                             },
                                         ],
@@ -188,8 +188,8 @@ wp.domReady(() => {
     };
 
     const conditionalRegister = registerForPostTypesAndTemplates(
-        ['tour'],
-        ['tour'],
+        ['special'],
+        ['special'],
         registerTourRelatedSpecialVariation
     );
     conditionalRegister();

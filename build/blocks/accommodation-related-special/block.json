@@ -3,14 +3,14 @@
   "apiVersion": 3,
   "textdomain": "to-specials",
   "name": "lsx-tour-operator/accommodation-related-special",
-  "title": "Related Specials",
+  "title": "Related Accommodation",
   "category": "lsx-tour-operator",
   "editorScript": "file:index.js",
-  "description": "Display specials related to this accommodation.",
+  "description": "Display accommodation related to this special.",
   "icon": "tag",
   "keywords": [
-    "specials",
     "accommodation",
+    "special",
     "related",
     "offers"
   ]

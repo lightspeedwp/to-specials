@@ -1,8 +1,8 @@
 /**
  * Destination Related Special Block Variation
  *
- * Registers a block variation for displaying specials related to the current destination.
- * Only available on destination post types and templates.
+ * Registers a block variation for displaying destinations related to the current special.
+ * Only available on special post type edit screens.
  *
  * @since 2.2.0
  * @package TO_Specials
@@ -15,19 +15,19 @@ wp.domReady(() => {
     const registerDestinationRelatedSpecialVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
             name: 'lsx-tour-operator/destination-related-special',
-            title: __('Related Specials', 'to-specials'),
+            title: __('Related Destination', 'to-specials'),
             icon: 'tag',
-            description: __('Displays specials related to this destination.', 'to-specials'),
+            description: __('Displays destination related to this special.', 'to-specials'),
             category: 'lsx-tour-operator',
             keywords: [
-                __('specials', 'to-specials'),
                 __('destination', 'to-specials'),
+                __('special', 'to-specials'),
                 __('related', 'to-specials'),
                 __('offers', 'to-specials'),
             ],
             attributes: {
                 metadata: {
-                    name: __('Related Specials', 'to-specials'),
+                    name: __('Related Destination', 'to-specials'),
                 },
                 className: 'lsx-destination-related-special-query-wrapper',
                 align: 'full',
@@ -52,7 +52,7 @@ wp.domReady(() => {
                             'core/heading',
                             {
                                 textAlign: 'center',
-                                content: __('Specials', 'to-specials'),
+                                content: __('Related Destination', 'to-specials'),
                                 level: 2,
                             },
                         ],
@@ -70,11 +70,11 @@ wp.domReady(() => {
                             'core/query',
                             {
                                 metadata: {
-                                    name: __('Related Specials Query', 'to-specials'),
+                                    name: __('Related Destination Query', 'to-specials'),
                                 },
                                 query: {
                                     perPage: 8,
-                                    postType: 'special',
+                                    postType: 'destination',
                                     order: 'desc',
                                     orderBy: 'date',
                                 },
@@ -90,7 +90,7 @@ wp.domReady(() => {
                                     [
                                         [
                                             'core/pattern',
-                                            { slug: 'lsx-tour-operator/special-card' },
+                                            { slug: 'lsx-tour-operator/destination-card' },
                                         ],
                                     ],
                                 ],
@@ -116,7 +116,7 @@ wp.domReady(() => {
                                 name: 'core/heading',
                                 attributes: {
                                     textAlign: 'center',
-                                    content: __('Specials', 'to-specials'),
+                                    content: __('Related Destination', 'to-specials'),
                                     level: 2,
                                 },
                             },
@@ -150,8 +150,8 @@ wp.domReady(() => {
                                                 name: 'core/group',
                                                 attributes: { style: { spacing: { padding: { top: '5px', bottom: '0px', left: '5px', right: '5px' } } }, layout: { type: 'constrained' } },
                                                 innerBlocks: [
-                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Kenya Wildlife Offer', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
-                                                    { name: 'core/paragraph', attributes: { content: __('Book a 10-night Kenya safari and get 2 nights free at a luxury lodge.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
+                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Kenya', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
+                                                    { name: 'core/paragraph', attributes: { content: __('Explore the wildlife-rich plains of Kenya, part of this special offer.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
                                                 ],
                                             },
                                         ],
@@ -169,8 +169,8 @@ wp.domReady(() => {
                                                 name: 'core/group',
                                                 attributes: { style: { spacing: { padding: { top: '5px', bottom: '0px', left: '5px', right: '5px' } } }, layout: { type: 'constrained' } },
                                                 innerBlocks: [
-                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Botswana Early Bird', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
-                                                    { name: 'core/paragraph', attributes: { content: __('Book 6 months in advance and save 15% on all Botswana itineraries.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
+                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Botswana', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
+                                                    { name: 'core/paragraph', attributes: { content: __('Discover the Okavango Delta, included in this special itinerary.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
                                                 ],
                                             },
                                         ],
@@ -188,8 +188,8 @@ wp.domReady(() => {
     };
 
     const conditionalRegister = registerForPostTypesAndTemplates(
-        ['destination'],
-        ['destination', 'country', 'region'],
+        ['special'],
+        ['special'],
         registerDestinationRelatedSpecialVariation
     );
     conditionalRegister();

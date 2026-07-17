@@ -1,8 +1,8 @@
 /**
  * Accommodation Related Special Block Variation
  *
- * Registers a block variation for displaying specials related to the current accommodation.
- * Only available on accommodation post type edit screens.
+ * Registers a block variation for displaying accommodation related to the current special.
+ * Only available on special post type edit screens.
  *
  * @since 2.2.0
  * @package TO_Specials
@@ -15,19 +15,19 @@ wp.domReady(() => {
     const registerAccommodationRelatedSpecialVariation = () => {
         wp.blocks.registerBlockVariation('core/group', {
             name: 'lsx-tour-operator/accommodation-related-special',
-            title: __('Related Specials', 'to-specials'),
+            title: __('Related Accommodation', 'to-specials'),
             icon: 'tag',
-            description: __('Displays specials related to this accommodation.', 'to-specials'),
+            description: __('Displays accommodation related to this special.', 'to-specials'),
             category: 'lsx-tour-operator',
             keywords: [
-                __('specials', 'to-specials'),
                 __('accommodation', 'to-specials'),
+                __('special', 'to-specials'),
                 __('related', 'to-specials'),
                 __('offers', 'to-specials'),
             ],
             attributes: {
                 metadata: {
-                    name: __('Related Specials', 'to-specials'),
+                    name: __('Related Accommodation', 'to-specials'),
                 },
                 className: 'lsx-accommodation-related-special-query-wrapper',
                 align: 'full',
@@ -52,7 +52,7 @@ wp.domReady(() => {
                             'core/heading',
                             {
                                 textAlign: 'center',
-                                content: __('Specials', 'to-specials'),
+                                content: __('Related Accommodation', 'to-specials'),
                                 level: 2,
                             },
                         ],
@@ -70,11 +70,11 @@ wp.domReady(() => {
                             'core/query',
                             {
                                 metadata: {
-                                    name: __('Related Specials Query', 'to-specials'),
+                                    name: __('Related Accommodation Query', 'to-specials'),
                                 },
                                 query: {
                                     perPage: 8,
-                                    postType: 'special',
+                                    postType: 'accommodation',
                                     order: 'desc',
                                     orderBy: 'date',
                                 },
@@ -90,7 +90,7 @@ wp.domReady(() => {
                                     [
                                         [
                                             'core/pattern',
-                                            { slug: 'lsx-tour-operator/special-card' },
+                                            { slug: 'lsx-tour-operator/accommodation-card' },
                                         ],
                                     ],
                                 ],
@@ -116,7 +116,7 @@ wp.domReady(() => {
                                 name: 'core/heading',
                                 attributes: {
                                     textAlign: 'center',
-                                    content: __('Specials', 'to-specials'),
+                                    content: __('Related Accommodation', 'to-specials'),
                                     level: 2,
                                 },
                             },
@@ -150,8 +150,8 @@ wp.domReady(() => {
                                                 name: 'core/group',
                                                 attributes: { style: { spacing: { padding: { top: '5px', bottom: '0px', left: '5px', right: '5px' } } }, layout: { type: 'constrained' } },
                                                 innerBlocks: [
-                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Summer Safari Deal', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
-                                                    { name: 'core/paragraph', attributes: { content: __('Save 20% on 7-night safari packages. Valid for travel June–August.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
+                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Serengeti Safari Lodge', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
+                                                    { name: 'core/paragraph', attributes: { content: __('Luxury lodge offering stunning views of the Serengeti, with the special discount applied.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
                                                 ],
                                             },
                                         ],
@@ -169,8 +169,8 @@ wp.domReady(() => {
                                                 name: 'core/group',
                                                 attributes: { style: { spacing: { padding: { top: '5px', bottom: '0px', left: '5px', right: '5px' } } }, layout: { type: 'constrained' } },
                                                 innerBlocks: [
-                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Honeymoon Package', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
-                                                    { name: 'core/paragraph', attributes: { content: __('Complimentary room upgrade and romantic dinner for two on your first night.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
+                                                    { name: 'core/heading', attributes: { textAlign: 'center', content: __('Kilimanjaro View Hotel', 'to-specials'), level: 3, fontSize: 'small', style: { spacing: { margin: { top: '0', bottom: '0' } } } } },
+                                                    { name: 'core/paragraph', attributes: { content: __('Comfortable hotel with breathtaking mountain views, included in this special offer.', 'to-specials'), style: { spacing: { padding: { left: '5px', right: '5px' } } } } },
                                                 ],
                                             },
                                         ],
@@ -188,8 +188,8 @@ wp.domReady(() => {
     };
 
     const conditionalRegister = registerForPostTypesAndTemplates(
-        ['accommodation'],
-        ['accommodation'],
+        ['special'],
+        ['special'],
         registerAccommodationRelatedSpecialVariation
     );
     conditionalRegister();

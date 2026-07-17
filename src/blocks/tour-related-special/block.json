@@ -3,10 +3,10 @@
   "apiVersion": 3,
   "textdomain": "to-specials",
   "name": "lsx-tour-operator/tour-related-special",
-  "title": "Related Specials",
+  "title": "Related Tour",
   "category": "lsx-tour-operator",
   "editorScript": "file:index.js",
-  "description": "Display specials related to this tour.",
+  "description": "Display tour related to this special.",
   "icon": "tag",
-  "keywords": ["specials", "tour", "related", "offers"]
+  "keywords": ["tour", "special", "related", "offers"]
 }
