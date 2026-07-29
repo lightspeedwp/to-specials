@@ -34,7 +34,7 @@ class LSX_TO_Specials_Schema extends LSX_TO_Schema_Graph_Piece {
 			'@type'            => 'Offer',
 			'@id'              => $this->context->canonical . '#/schema/offer/' . $this->post->ID,
 			'name'             => get_the_title( $this->post->ID ),
-			'description'      => \lsx\schema\Helpers::strip_to_text( apply_filters( 'the_content', $this->post->post_content ) ),
+			'description'      => \lsx\schema\Helpers::strip_to_text( apply_filters( 'the_content', $this->post->post_content ) ), // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 			'url'              => $this->post_url,
 			'mainEntityOfPage' => array(
 				'@id' => $this->context->canonical . WPSEO_Schema_IDs::WEBPAGE_HASH,

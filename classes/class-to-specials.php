@@ -63,8 +63,6 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 			// Make TO last plugin to load
 			add_action( 'activated_plugin', array( $this, 'activated_plugin' ) );
 
-			add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
-
 			if ( false !== $this->post_types ) {
 				add_filter( 'lsx_to_framework_post_types', array( $this, 'post_types_filter' ) );
 				add_filter( 'lsx_to_post_types', array( $this, 'post_types_filter' ) );
@@ -96,13 +94,6 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 		public function lsx_to_search_integration() {
 			add_filter( 'lsx_to_search_post_types', array( $this, 'post_types_filter' ) );
 			add_filter( 'lsx_to_search_taxonomies', array( $this, 'taxonomies_filter' ) );
-		}
-
-		/**
-		 * Load the plugin text domain for translation.
-		 */
-		public function load_plugin_textdomain() {
-			load_plugin_textdomain( 'to-specials' );
 		}
 
 		/**

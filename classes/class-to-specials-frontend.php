@@ -120,7 +120,7 @@ class LSX_TO_Specials_Frontend {
 	 */
 	public function terms_conditions_filter( $html = '', $meta_key = false, $value = false, $before = '', $after = '' ) {
 		if ( get_post_type() === 'special' && 'terms_conditions' === $meta_key ) {
-			$html = $before . '<div class="entry-content">' . apply_filters( 'the_content', wpautop( $value ) ) . '</div>' . $after;
+			$html = $before . '<div class="entry-content">' . apply_filters( 'the_content', wpautop( $value ) ) . '</div>' . $after; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 		}
 
