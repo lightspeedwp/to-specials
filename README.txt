@@ -1,9 +1,9 @@
 === Tour Operator Special Offers ===
 Contributors: feedmymedia, lightspeedwp, eleshar, krugazul
 Donate link: https://lightspeedwp.agency/donate/
-Tags: lsx, tour operator, specials, accommodation, prices 
+Tags: lsx, tour operator, specials, accommodation, prices
 Requires at least: 6.7
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 8.0
 Stable tag: 2.2
 License: GPLv3
@@ -34,7 +34,7 @@ We offer premium support for this plugin. Premium support that can be purchased 
 If you get stuck, you can ask for help in the [our Operator Specials plugin forum](https://touroperator.solutions/plugins/specials/).
 For help with premium add-ons from LightSpeed, use [our contact page](https://lightspeedwp.agency/contact-us/)
 
-= Will the Tour Operator Specials plugin work with my theme 
+= Will the Tour Operator Specials plugin work with my theme
 No; the Tour Operator Specials plugin will only work with LSX Theme.
 
 = Where can I report bugs or contribute to the project? =
