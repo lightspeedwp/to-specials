@@ -32,6 +32,7 @@ class LSX_TO_Specials_Frontend {
 		if ( ! class_exists( 'LSX_Currencies' ) ) {
 			add_filter( 'lsx_to_custom_field_query', array( $this, 'price_filter' ), 5, 10 );
 		}
+		add_filter( 'lsx_to_custom_field_query', array( $this, 'price_type_filter' ), 5, 10 );
 
 		add_filter( 'lsx_to_custom_field_query', array( $this, 'terms_conditions_filter' ), 5, 10 );
 	}
@@ -79,6 +80,34 @@ class LSX_TO_Specials_Frontend {
 			$html = $before . $value . $after;
 		}
 
+		return $html;
+	}
+
+	public function price_type_filter( $html = '', $meta_key = false, $value = false, $before = '', $after = '' ) {
+
+		if ( get_post_type() === 'special' && 'price_type' === $meta_key ) {
+
+			switch ( $value ) {
+				case 'per_person':
+				case 'per_person_per_night':
+				case 'per_person_sharing':
+				case 'per_person_sharing_per_night':
+					$html = ucwords( str_replace( '_', ' ', $value ) );
+					$html = str_replace( 'Per Person', 'P/P', $html );
+				break;
+
+				case 'total_percentage':
+					$html = '% ' . __( 'Off', 'to-specials' );
+					$before = str_replace( 'from price', '', $before );
+				break;
+
+				case 'none':
+				default:
+					$html = '';
+				break;
+			}
+
+		}
 		return $html;
 	}
 
