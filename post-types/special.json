@@ -71,14 +71,14 @@
 		},
 		{
 			"slug": "booking_validity_start",
-			"type": "date",
+			"type": "text_date_timestamp",
 			"label": "Booking Validity Start",
 			"description": "The date from which bookings for this special are valid.",
 			"visible": true
 		},
 		{
 			"slug": "booking_validity_end",
-			"type": "date",
+			"type": "text_date_timestamp",
 			"label": "Booking Validity End",
 			"description": "The date until which bookings for this special are valid.",
 			"visible": true

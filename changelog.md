@@ -1,5 +1,22 @@
 # Change log
 
+## [2.2] - 2026-07-29
+
+### Added
+- New `special-card` block pattern (`patterns/special-card.php`) — card layout for use in query loops displaying featured photo, title, price, duration, booking validity, and excerpt.
+- `register_block_patterns()` method in `LSX_TO_Specials_Blocks` — auto-loads all `.php` files from the `/patterns/` directory and registers them as block patterns under the `lsx-tour-operator` namespace, skipping any already-registered keys.
+- `register_multi_field_wrappers()` filter handler in `LSX_TO_Specials_Blocks` — registers two new multi-field wrapper groups for the `lsx_to_multi_field_wrappers` filter: `booking-validity` (groups `booking_validity_start` + `booking_validity_end`) and `pricing-booking-column` (groups `booking_validity_start`, `booking_validity_end`, and `price_type`) so these fields collapse when all values are empty.
+- `price_type_filter()` in `LSX_TO_Specials_Frontend` — new `lsx_to_custom_field_query` filter that formats the `price_type` meta value for display: `per_person*` variants abbreviated to `P/P …`; `total_percentage` rendered as `% Off`; `none` hidden entirely.
+- `single-special.html` and `archive-special.html` block templates rebuilt with full block markup, using the new `special-card` pattern for archive listings and a structured pricing/booking section on the single view.
+
+### Updated
+- Booking validity fields (`booking_validity_start`, `booking_validity_end`) field type changed from `date` to `text_date_timestamp` in both `config-special.php` and `post-types/special.json` for consistent Unix timestamp storage.
+- Grid `columnCount` for `accommodation-related-special`, `destination-related-special`, and `tour-related-special` block variations increased from `2` to `3`.
+- Related-post card blocks in the single-special template replaced with dedicated block patterns for improved maintainability.
+
+### Removed
+- `travel_dates` repeater field commented out in `config-special.php` (pending decision on storage format).
+
 ## [[2.1]](https://github.com/lightspeeddevelopment/to-specials/releases/tag/2.1) - 2025-01-13
 
 ### Description
