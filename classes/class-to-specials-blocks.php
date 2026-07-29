@@ -84,6 +84,11 @@ class LSX_TO_Specials_Blocks {
 			'booking_validity_start',
 			'booking_validity_end',
 		);
+		$wrappers['pricing-booking-column'] = array(
+			'booking_validity_start',
+			'booking_validity_end',
+			'price_type'
+		);
 		return $wrappers;
 	}
 }
