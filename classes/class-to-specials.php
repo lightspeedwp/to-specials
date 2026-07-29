@@ -8,6 +8,11 @@
  * @link
  * @copyright 2018 LightSpeedDevelopment
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if (!class_exists( 'LSX_TO_Specials' ) ) {
 	/**
 	 * Main plugin class.

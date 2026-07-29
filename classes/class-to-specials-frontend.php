@@ -16,6 +16,10 @@
  * @author  LightSpeed
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class LSX_TO_Specials_Frontend {
 
 	/**

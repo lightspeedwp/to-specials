@@ -16,6 +16,10 @@
  * @author  LightSpeed
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 
 	/**
