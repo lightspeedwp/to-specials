@@ -1,6 +1,6 @@
 # Change log
 
-## [2.2] - 2026-07-29
+## [2.2](https://github.com/lightspeeddevelopment/to-specials/releases/tag/2.2) - 2026-07-29
 
 ### Added
 - New `special-card` block pattern (`patterns/special-card.php`) — card layout for use in query loops displaying featured photo, title, price, duration, booking validity, and excerpt.
@@ -16,6 +16,22 @@
 
 ### Removed
 - `travel_dates` repeater field commented out in `config-special.php` (pending decision on storage format).
+
+### Schema Fixed
+- Schema: `@type` simplified from `array( 'Offer' )` to a plain `'Offer'` string.
+- Schema: `@id` updated from `#special` to `#/schema/offer/{id}` to avoid collisions on pages with multiple specials.
+- Schema: `name` now uses `get_the_title( $post->ID )` instead of `$post->post_title` directly.
+- Schema: `description` now uses `\lsx\schema\Helpers::strip_to_text()` on `apply_filters( 'the_content', … )` instead of a bare `wp_strip_all_tags()` on raw post content.
+- Schema: meta queries changed from `get_the_ID()` to `$this->context->id` for consistency.
+- Schema: duplicate `itemOffered` keys (tours and accommodation were silently overwriting each other) replaced with a new `add_items_offered()` method that merges both into a single value; tours typed as `TouristTrip`, accommodation as `LodgingBusiness`.
+- Schema: duplicate `priceValidUntil` assignment removed.
+- Schema: availability and price-validity dates now formatted as ISO 8601 via a new `add_availability()` helper that calls `\lsx\schema\Helpers::format_iso_date()`; fields are omitted when the date is empty.
+- Schema: `get_price()` refactored — currency now resolved via `\lsx\schema\Helpers::get_currency()` instead of inline `tour_operator()` option lookup; price value normalised via `\lsx\schema\Helpers::normalise_price()`.
+- Schema: `PriceSpecification` key corrected to lowercase `priceSpecification`; now outputs a properly typed `PriceSpecification` object with `@type`, `price`, `priceCurrency`, and `unitText` instead of a bare label string.
+
+### Schema Added
+- Schema: new `add_availability()` helper that reads a raw CMB2 date meta value, formats it as ISO 8601, and conditionally sets the given schema property.
+- Schema: new `add_items_offered()` method that merges related tour and accommodation post IDs into a single `itemOffered` value without overwriting.
 
 ## [[2.1]](https://github.com/lightspeeddevelopment/to-specials/releases/tag/2.1) - 2025-01-13
 
