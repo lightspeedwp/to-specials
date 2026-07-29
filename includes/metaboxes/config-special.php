@@ -92,13 +92,13 @@ $metabox['fields'][] = array(
 $metabox['fields'][] = array(
 	'id'   => 'booking_validity_start',
 	'name' => esc_html__( 'Booking Validity (start)','to-specials' ),
-	'type' => 'date',
+	'type' => 'text_date_timestamp',
 );
 
 $metabox['fields'][] = array(
 	'id'   => 'booking_validity_end',
 	'name' => esc_html__( 'Booking Validity (end)','to-specials' ),
-	'type' => 'date',
+	'type' => 'text_date_timestamp',
 );
 
 $metabox['fields'][] = array(
@@ -118,12 +118,12 @@ $metabox['fields'][] = array(
 		array(
 			'id'   => 'travel_dates_start',
 			'name' => esc_html__( 'Start','to-specials' ),
-			'type' => 'date',
+			'type' => 'text_date_timestamp',
 		),
 		array(
 			'id'   => 'travel_dates_end',
 			'name' => esc_html__( 'End','to-specials' ),
-			'type' => 'date',
+			'type' => 'text_date_timestamp',
 		),
 	),
 );
