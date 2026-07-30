@@ -16,6 +16,10 @@
  * @author  LightSpeed
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 
 	/**
@@ -31,7 +35,6 @@ class LSX_TO_Specials_Admin extends LSX_TO_Specials {
 	public function __construct() {
 		$this->set_vars();
 
-		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 		add_action( 'init', array( $this, 'register_post_type' ), 100 );
 		add_filter( 'lsx_get_taxonomies_configs', array( $this, 'taxonomy_config' ), 10, 1 );
 		add_action( 'cmb2_admin_init', array( $this, 'register_cmb2_fields' ) );

@@ -9,6 +9,10 @@
  * @copyright 2017 LightSpeedDevelopment
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 $post_type = array(
 	'class'               => 'LSX_TO_Specials',
 	'menu_icon'           => 'dashicons-star-filled',

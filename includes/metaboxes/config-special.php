@@ -8,6 +8,11 @@
  * @link
  * @copyright 2017 LightSpeedDevelopment
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 $metabox = array(
 	'title'  => esc_html__( 'Tour Operator Plugin', 'to-specials' ),

@@ -9,6 +9,10 @@
  * @copyright 2017 LightSpeedDevelopment
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 $taxonomy = array(
 	'object_types'  => 'special',
 	'menu_position' => 73,

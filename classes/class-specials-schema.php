@@ -16,6 +16,10 @@
  * @author  LightSpeed
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class LSX_TO_Specials_Schema extends LSX_TO_Specials {
 
 	/**
@@ -45,7 +49,7 @@ class LSX_TO_Specials_Schema extends LSX_TO_Specials {
 		$price = get_post_meta( get_the_ID(), 'price', false );
 		$start_validity = get_post_meta( get_the_ID(), 'booking_validity_start', false );
 		$end_validity = get_post_meta( get_the_ID(), 'booking_validity_end', false );
-	
+
 
 		if ( ! empty( $destination_list_special ) ) {
 			foreach( $destination_list_special as $single_destination ) {
