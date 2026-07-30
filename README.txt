@@ -55,5 +55,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 = 2.2 =
 * Added Gutenberg block variations: featured special, related specials, post meta blocks (tagline, price, price type, duration, booking validity), post connection blocks (to accommodation, destination, tour, team), and gallery block.
 * Added related blocks for destination, accommodation, and tour post types.
+* Rebuilt archive and single templates with a new hero section, styled breadcrumbs, refined sticky menu styling, and a `special-card` block pattern.
+* Addressed Plugin Check security and WPCS issues (direct-access guards, removed redundant textdomain loading, PHPCS annotations).
 
 [Lastest changelogs can be found on GitHub](https://github.com/lightspeeddevelopment/to-specials/blob/master/changelog.md).
