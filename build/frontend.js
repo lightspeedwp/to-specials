@@ -1,0 +1,1 @@
+!function(){"use strict";jQuery(document).ready(function(){console.log("TO Specials frontend loaded")})}();

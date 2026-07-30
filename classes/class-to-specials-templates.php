@@ -1,10 +1,14 @@
 <?php
 /**
  * Registers our Block Templates
- * 
+ *
  * @link https://github.com/lightspeedwp/lsx-starter-plugin/blob/master/classes/class-templates.php
  * @version 1.0.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 class LSX_TO_Specials_Templates {
 

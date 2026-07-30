@@ -1,5 +1,51 @@
 # Change log
 
+## [2.2](https://github.com/lightspeeddevelopment/to-specials/releases/tag/2.2) - 2026-07-29
+
+### Added
+- New `special-card` block pattern (`patterns/special-card.php`) — card layout for use in query loops displaying featured photo, title, price, duration, booking validity, and excerpt.
+- `register_block_patterns()` method in `LSX_TO_Specials_Blocks` — auto-loads all `.php` files from the `/patterns/` directory and registers them as block patterns under the `lsx-tour-operator` namespace, skipping any already-registered keys.
+- `register_multi_field_wrappers()` filter handler in `LSX_TO_Specials_Blocks` — registers two new multi-field wrapper groups for the `lsx_to_multi_field_wrappers` filter: `booking-validity` (groups `booking_validity_start` + `booking_validity_end`) and `pricing-booking-column` (groups `booking_validity_start`, `booking_validity_end`, and `price_type`) so these fields collapse when all values are empty.
+- `price_type_filter()` in `LSX_TO_Specials_Frontend` — new `lsx_to_custom_field_query` filter that formats the `price_type` meta value for display: `per_person*` variants abbreviated to `P/P …`; `total_percentage` rendered as `% Off`; `none` hidden entirely.
+- `single-special.html` and `archive-special.html` block templates rebuilt with full block markup, using the new `special-card` pattern for archive listings and a structured pricing/booking section on the single view.
+- Hero section (cover block using the featured image, with a centered post title and a `lsx/post-meta` tagline binding) added above the sticky menu on `single-special.html`.
+- Breadcrumbs `template-part` on `archive-special.html` and `single-special.html` replaced with a styled `wp:group` (primary background, medium font size, hover link colour) wrapping the `yoast-seo/breadcrumbs` block for consistent layout across templates.
+
+### Updated
+- Booking validity fields (`booking_validity_start`, `booking_validity_end`) field type changed from `date` to `text_date_timestamp` in both `config-special.php` and `post-types/special.json` for consistent Unix timestamp storage.
+- Grid `columnCount` for `accommodation-related-special`, `destination-related-special`, and `tour-related-special` block variations increased from `2` to `3`.
+- Related-post card blocks in the single-special template replaced with dedicated block patterns for improved maintainability.
+- Sticky menu block on `single-special.html` restyled with active/hover background and text colours, a contrast background, and medium font size for improved accessibility and visual consistency.
+- Spacing (`blockGap` and top/bottom padding using spacing presets) added to the Accommodation, Tours, Destinations, Reviews, and Team Members related-query sections on `single-special.html`.
+- `README.txt` "Tested up to" bumped from 6.9 to 7.0; minor whitespace/formatting cleanup (trailing space on `Tags:`, missing FAQ heading delimiter).
+
+### Fixed
+- Duplicate `post-title` block removed from the Overview section of `single-special.html` (title now rendered once, in the new hero section).
+
+### Removed
+- `travel_dates` repeater field commented out in `config-special.php` (pending decision on storage format).
+- Unused `load_plugin_textdomain()` action/method removed from the `LSX_TO_Specials` and `LSX_TO_Specials_Admin` constructors (WordPress core has auto-loaded plugin translations since 4.6).
+
+### Security
+- Added `if ( ! defined( 'ABSPATH' ) ) { exit; }` direct-access guards to `class-specials-schema.php`, `class-to-specials-admin.php`, `class-to-specials-frontend.php`, `class-to-specials-templates.php`, `class-to-specials.php`, `includes/metaboxes/config-special.php`, `includes/post-types/config-special.php`, `includes/taxonomies/config-special-type.php`, `includes/template-tags.php`, and `patterns/special-card.php`.
+- Added `phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound` annotations to `the_content` filter calls in `class-to-specials-frontend.php` and `class-to-specials-schema.php` to address Plugin Check/WPCS findings.
+
+### Schema Fixed
+- Schema: `@type` simplified from `array( 'Offer' )` to a plain `'Offer'` string.
+- Schema: `@id` updated from `#special` to `#/schema/offer/{id}` to avoid collisions on pages with multiple specials.
+- Schema: `name` now uses `get_the_title( $post->ID )` instead of `$post->post_title` directly.
+- Schema: `description` now uses `\lsx\schema\Helpers::strip_to_text()` on `apply_filters( 'the_content', … )` instead of a bare `wp_strip_all_tags()` on raw post content.
+- Schema: meta queries changed from `get_the_ID()` to `$this->context->id` for consistency.
+- Schema: duplicate `itemOffered` keys (tours and accommodation were silently overwriting each other) replaced with a new `add_items_offered()` method that merges both into a single value; tours typed as `TouristTrip`, accommodation as `LodgingBusiness`.
+- Schema: duplicate `priceValidUntil` assignment removed.
+- Schema: availability and price-validity dates now formatted as ISO 8601 via a new `add_availability()` helper that calls `\lsx\schema\Helpers::format_iso_date()`; fields are omitted when the date is empty.
+- Schema: `get_price()` refactored — currency now resolved via `\lsx\schema\Helpers::get_currency()` instead of inline `tour_operator()` option lookup; price value normalised via `\lsx\schema\Helpers::normalise_price()`.
+- Schema: `PriceSpecification` key corrected to lowercase `priceSpecification`; now outputs a properly typed `PriceSpecification` object with `@type`, `price`, `priceCurrency`, and `unitText` instead of a bare label string.
+
+### Schema Added
+- Schema: new `add_availability()` helper that reads a raw CMB2 date meta value, formats it as ISO 8601, and conditionally sets the given schema property.
+- Schema: new `add_items_offered()` method that merges related tour and accommodation post IDs into a single `itemOffered` value without overwriting.
+
 ## [[2.1]](https://github.com/lightspeeddevelopment/to-specials/releases/tag/2.1) - 2025-01-13
 
 ### Description

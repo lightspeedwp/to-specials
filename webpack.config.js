@@ -19,6 +19,12 @@ module.exports = {
 		'frontend': path.resolve( process.cwd(), 'assets/js/to-specials.js' ),
 	},
 
+	resolve: {
+		alias: {
+			'@utils': path.resolve( __dirname, 'src/utils/' ),
+		},
+	},
+
 	plugins: [
 		...defaultConfig.plugins,
 		new RemoveEmptyScriptsPlugin(),

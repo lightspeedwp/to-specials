@@ -1,294 +1,1066 @@
-# Copyright (C) 2025 LightSpeed
+# Copyright (C) 2026 LightSpeed
 # This file is distributed under the GPL3+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tour Operator Special Offers 2.0.1\n"
+"Project-Id-Version: Tour Operator Special Offers 2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/to-specials\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-08-12T20:44:02+00:00\n"
+"POT-Creation-Date: 2026-07-30T07:26:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.8.1\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: to-specials\n"
 
 #. Plugin Name of the plugin
+#: to-specials.php
 msgid "Tour Operator Special Offers"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: to-specials.php
 msgid "https://touroperator.solutions/plugins/specials/"
 msgstr ""
 
 #. Description of the plugin
+#: to-specials.php
 msgid "The Tour Operator Special Offers extension gives you the ability to create time-sensitive special prices that can be applied to Tour Operator post types you are using: Accommodations, destinations and/or tours."
 msgstr ""
 
 #. Author of the plugin
+#: to-specials.php
 msgid "LightSpeed"
 msgstr ""
 
 #. Author URI of the plugin
+#: to-specials.php
 msgid "https://lightspeedwp.agency/"
 msgstr ""
 
-#: classes/class-to-specials-admin.php:168
-msgid "Disable Widget Excerpt"
+#: classes/class-to-specials-admin.php:104
+msgid "Related Specials"
 msgstr ""
 
 #: classes/class-to-specials-admin.php:172
+msgid "Disable Widget Excerpt"
+msgstr ""
+
+#: classes/class-to-specials-admin.php:176
 msgid "This enables the excerpt text on the widget."
 msgstr ""
 
-#: classes/class-to-specials-admin.php:177
+#: classes/class-to-specials-admin.php:181
 msgid "Expiration Status"
 msgstr ""
 
-#: classes/class-to-specials-admin.php:181
+#: classes/class-to-specials-admin.php:185
 msgid "Draft"
 msgstr ""
 
-#: classes/class-to-specials-admin.php:182
+#: classes/class-to-specials-admin.php:186
 msgid "Delete"
 msgstr ""
 
-#: classes/class-to-specials-admin.php:183
+#: classes/class-to-specials-admin.php:187
 msgid "Private"
 msgstr ""
 
-#: classes/class-to-specials-frontend.php:69
+#: classes/class-to-specials-frontend.php:74
+#: classes/class-to-specials-frontend.php:104
 msgid "Off"
 msgstr ""
 
-#: classes/class-to-specials-schema.php:83
-#: classes/class-to-specials.php:108
-#: includes/post-types/config-special.php:17
+#: classes/class-to-specials-schema.php:93
+#: classes/class-to-specials.php:107
+#: includes/post-types/config-special.php:21
 msgid "Special"
 msgstr ""
 
-#: classes/class-to-specials-templates.php:41
+#: classes/class-to-specials-templates.php:45
 msgid "Single Special Offer"
 msgstr ""
 
-#: classes/class-to-specials-templates.php:42
-msgid "Displays a single tour"
+#: classes/class-to-specials-templates.php:46
+msgid "Displays a single special offer"
 msgstr ""
 
-#: classes/class-to-specials-templates.php:46
+#: classes/class-to-specials-templates.php:50
 msgid "Specials Offers Archive"
 msgstr ""
 
-#: classes/class-to-specials-templates.php:47
+#: classes/class-to-specials-templates.php:51
 msgid "Displays all the specials available."
 msgstr ""
 
-#: classes/class-to-specials.php:105
-#: includes/post-types/config-special.php:16
-#: includes/post-types/config-special.php:22
-#: includes/post-types/config-special.php:28
+#: classes/class-to-specials.php:104
+#: includes/post-types/config-special.php:20
+#: includes/post-types/config-special.php:26
+#: includes/post-types/config-special.php:32
 msgid "Specials"
 msgstr ""
 
-#: classes/class-to-specials.php:112
-#: includes/taxonomies/config-special-type.php:18
-#: includes/taxonomies/config-special-type.php:19
-#: includes/taxonomies/config-special-type.php:28
+#: classes/class-to-specials.php:111
+#: includes/taxonomies/config-special-type.php:22
+#: includes/taxonomies/config-special-type.php:23
+#: includes/taxonomies/config-special-type.php:32
 msgid "Special Type"
 msgstr ""
 
-#: classes/class-to-specials.php:115
-#: includes/taxonomies/config-special-type.php:21
+#: classes/class-to-specials.php:114
+#: includes/taxonomies/config-special-type.php:25
 msgid "Special Types"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:13
+#: includes/metaboxes/config-special.php:18
 msgid "Tour Operator Plugin"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:20
+#: includes/metaboxes/config-special.php:25
 msgid "Featured"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:26
+#: includes/metaboxes/config-special.php:31
 msgid "Disable Single"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:33
+#: includes/metaboxes/config-special.php:38
 msgid "Tagline"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:40
+#: includes/metaboxes/config-special.php:45
 msgid "Terms & Conditions"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:50
+#: includes/metaboxes/config-special.php:55
 msgid "Team Member"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:66
+#: includes/metaboxes/config-special.php:67
 msgid "Booking"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:72
+#: includes/metaboxes/config-special.php:73
 msgid "Price"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:78
+#: includes/metaboxes/config-special.php:79
 msgid "Price Type"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:81
+#: includes/metaboxes/config-special.php:82
 msgid "Select a type"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:82
+#: includes/metaboxes/config-special.php:83
 msgid "Per Person"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:83
+#: includes/metaboxes/config-special.php:84
 msgid "Per Person Per Night"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:84
+#: includes/metaboxes/config-special.php:85
+#: src/blocks/price-type/index.js:47
 msgid "Per Person Sharing"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:85
+#: includes/metaboxes/config-special.php:86
 msgid "Per Person Sharing Per Night"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:86
+#: includes/metaboxes/config-special.php:87
 msgid "Percentage Off Your Price."
 msgstr ""
 
-#: includes/metaboxes/config-special.php:92
+#: includes/metaboxes/config-special.php:93
 msgid "Duration"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:98
+#: includes/metaboxes/config-special.php:99
 msgid "Booking Validity (start)"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:104
+#: includes/metaboxes/config-special.php:105
 msgid "Booking Validity (end)"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:110
+#: includes/metaboxes/config-special.php:111
 msgid "Expire this special automatically"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:117
-msgid "Travel Dates"
-msgstr ""
-
-#: includes/metaboxes/config-special.php:124
-msgid "Start"
-msgstr ""
-
-#: includes/metaboxes/config-special.php:129
-msgid "End"
-msgstr ""
-
-#: includes/metaboxes/config-special.php:145
-#: includes/metaboxes/config-special.php:151
+#: includes/metaboxes/config-special.php:146
+#: includes/metaboxes/config-special.php:152
 msgid "Location"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:159
+#: includes/metaboxes/config-special.php:160
+#: includes/metaboxes/config-special.php:165
 msgid "Gallery"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:170
+#: includes/metaboxes/config-special.php:166
+msgid "Add images related to the special to be displayed in the special's gallery."
+msgstr ""
+
+#: includes/metaboxes/config-special.php:172
 msgid "Add new image"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:176
-#: includes/metaboxes/config-special.php:182
+#: includes/metaboxes/config-special.php:180
 msgid "Envira Gallery"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:198
+#: includes/metaboxes/config-special.php:192
 msgid "Envira Video Gallery"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:214
+#: includes/metaboxes/config-special.php:204
 msgid "Posts"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:215
+#: includes/metaboxes/config-special.php:205
 msgid "Accommodation"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:216
+#: includes/metaboxes/config-special.php:206
 msgid "Destinations"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:217
+#: includes/metaboxes/config-special.php:207
 msgid "Tours"
 msgstr ""
 
-#: includes/metaboxes/config-special.php:229
+#: includes/metaboxes/config-special.php:212
+msgid "Related"
+msgstr ""
+
+#: includes/metaboxes/config-special.php:219
 msgid " related with this special"
 msgstr ""
 
-#: includes/post-types/config-special.php:18
+#: includes/post-types/config-special.php:22
 msgid "Add New"
 msgstr ""
 
-#: includes/post-types/config-special.php:19
+#: includes/post-types/config-special.php:23
 msgid "Add New Special"
 msgstr ""
 
-#: includes/post-types/config-special.php:20
+#: includes/post-types/config-special.php:24
 msgid "Edit Special"
 msgstr ""
 
-#: includes/post-types/config-special.php:21
+#: includes/post-types/config-special.php:25
 msgid "New Special"
 msgstr ""
 
-#: includes/post-types/config-special.php:23
+#: includes/post-types/config-special.php:27
 msgid "View Special"
 msgstr ""
 
-#: includes/post-types/config-special.php:24
+#: includes/post-types/config-special.php:28
 msgid "Search Specials"
 msgstr ""
 
-#: includes/post-types/config-special.php:25
+#: includes/post-types/config-special.php:29
 msgid "No specials found"
 msgstr ""
 
-#: includes/post-types/config-special.php:26
+#: includes/post-types/config-special.php:30
 msgid "No specials found in Trash"
 msgstr ""
 
-#: includes/taxonomies/config-special-type.php:20
+#: includes/taxonomies/config-special-type.php:24
 msgid "Search Types"
 msgstr ""
 
-#: includes/taxonomies/config-special-type.php:22
+#: includes/taxonomies/config-special-type.php:26
 msgid "Parent"
 msgstr ""
 
-#: includes/taxonomies/config-special-type.php:23
+#: includes/taxonomies/config-special-type.php:27
 msgid "Parent:"
 msgstr ""
 
-#: includes/taxonomies/config-special-type.php:24
+#: includes/taxonomies/config-special-type.php:28
 msgid "Edit Special Type"
 msgstr ""
 
-#: includes/taxonomies/config-special-type.php:25
+#: includes/taxonomies/config-special-type.php:29
 msgid "Update Special Type"
 msgstr ""
 
-#: includes/taxonomies/config-special-type.php:26
+#: includes/taxonomies/config-special-type.php:30
 msgid "Add New Special Type"
 msgstr ""
 
-#: includes/taxonomies/config-special-type.php:27
+#: includes/taxonomies/config-special-type.php:31
 msgid "New Special Type"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/index.js:18
+#: src/blocks/accommodation-related-special/index.js:30
+#: src/blocks/accommodation-related-special/index.js:55
+#: src/blocks/accommodation-related-special/index.js:119
+msgid "Related Accommodation"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/index.js:20
+msgid "Displays accommodation related to this special."
+msgstr ""
+
+#: src/blocks/accommodation-related-special/index.js:23
+#: src/blocks/accommodation-to-special/index.js:19
+msgid "accommodation"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/index.js:24
+#: src/blocks/accommodation-to-special/index.js:19
+#: src/blocks/booking-validity/index.js:19
+#: src/blocks/destination-related-special/index.js:24
+#: src/blocks/destination-to-special/index.js:19
+#: src/blocks/duration/index.js:19
+#: src/blocks/gallery/index.js:22
+#: src/blocks/price-type/index.js:19
+#: src/blocks/price/index.js:19
+#: src/blocks/tagline/index.js:19
+#: src/blocks/team-to-special/index.js:19
+#: src/blocks/tour-related-special/index.js:24
+#: src/blocks/tour-to-special/index.js:19
+msgid "special"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/index.js:25
+#: src/blocks/destination-related-special/index.js:25
+#: src/blocks/tour-related-special/index.js:25
+msgid "related"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/index.js:26
+#: src/blocks/destination-related-special/index.js:26
+#: src/blocks/featured-special/index.js:23
+#: src/blocks/tour-related-special/index.js:26
+msgid "offers"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/index.js:73
+msgid "Related Accommodation Query"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/index.js:153
+msgid "Serengeti Safari Lodge"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/index.js:154
+msgid "Luxury lodge offering stunning views of the Serengeti, with the special discount applied."
+msgstr ""
+
+#: src/blocks/accommodation-related-special/index.js:172
+msgid "Kilimanjaro View Hotel"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/index.js:173
+msgid "Comfortable hotel with breathtaking mountain views, included in this special offer."
+msgstr ""
+
+#: src/blocks/accommodation-to-special/index.js:15
+#: src/blocks/accommodation-to-special/index.js:24
+msgid "Accommodation to Special"
+msgstr ""
+
+#: src/blocks/accommodation-to-special/index.js:18
+msgid "Displays the accommodations connected to this special."
+msgstr ""
+
+#: src/blocks/accommodation-to-special/index.js:19
+#: src/blocks/destination-to-special/index.js:19
+#: src/blocks/team-to-special/index.js:19
+#: src/blocks/tour-to-special/index.js:19
+msgid "connection"
+msgstr ""
+
+#: src/blocks/accommodation-to-special/index.js:19
+msgid "lodging"
+msgstr ""
+
+#: src/blocks/accommodation-to-special/index.js:46
+msgid "Accommodation:"
+msgstr ""
+
+#: src/blocks/accommodation-to-special/index.js:60
+msgid "Accommodation: "
+msgstr ""
+
+#: src/blocks/accommodation-to-special/index.js:60
+msgid "Safari Lodge"
+msgstr ""
+
+#: src/blocks/booking-validity/index.js:15
+#: src/blocks/booking-validity/index.js:24
+msgid "Special - Booking Validity"
+msgstr ""
+
+#: src/blocks/booking-validity/index.js:18
+msgid "Displays the booking validity dates for this special."
+msgstr ""
+
+#: src/blocks/booking-validity/index.js:19
+msgid "booking"
+msgstr ""
+
+#: src/blocks/booking-validity/index.js:19
+msgid "validity"
+msgstr ""
+
+#: src/blocks/booking-validity/index.js:19
+msgid "dates"
+msgstr ""
+
+#: src/blocks/booking-validity/index.js:51
+msgid "Valid From:"
+msgstr ""
+
+#: src/blocks/booking-validity/index.js:63
+msgid "Valid To:"
+msgstr ""
+
+#: src/blocks/booking-validity/index.js:77
+msgid "Valid From: "
+msgstr ""
+
+#: src/blocks/booking-validity/index.js:77
+msgid "January 2025"
+msgstr ""
+
+#: src/blocks/booking-validity/index.js:78
+msgid "Valid To: "
+msgstr ""
+
+#: src/blocks/booking-validity/index.js:78
+msgid "March 2025"
+msgstr ""
+
+#: src/blocks/destination-related-special/index.js:18
+#: src/blocks/destination-related-special/index.js:30
+#: src/blocks/destination-related-special/index.js:55
+#: src/blocks/destination-related-special/index.js:119
+msgid "Related Destination"
+msgstr ""
+
+#: src/blocks/destination-related-special/index.js:20
+msgid "Displays destination related to this special."
+msgstr ""
+
+#: src/blocks/destination-related-special/index.js:23
+#: src/blocks/destination-to-special/index.js:19
+msgid "destination"
+msgstr ""
+
+#: src/blocks/destination-related-special/index.js:73
+msgid "Related Destination Query"
+msgstr ""
+
+#: src/blocks/destination-related-special/index.js:153
+msgid "Kenya"
+msgstr ""
+
+#: src/blocks/destination-related-special/index.js:154
+msgid "Explore the wildlife-rich plains of Kenya, part of this special offer."
+msgstr ""
+
+#: src/blocks/destination-related-special/index.js:172
+msgid "Botswana"
+msgstr ""
+
+#: src/blocks/destination-related-special/index.js:173
+msgid "Discover the Okavango Delta, included in this special itinerary."
+msgstr ""
+
+#: src/blocks/destination-to-special/index.js:15
+#: src/blocks/destination-to-special/index.js:24
+msgid "Destination to Special"
+msgstr ""
+
+#: src/blocks/destination-to-special/index.js:18
+msgid "Displays the destinations connected to this special."
+msgstr ""
+
+#: src/blocks/destination-to-special/index.js:19
+msgid "location"
+msgstr ""
+
+#: src/blocks/destination-to-special/index.js:46
+msgid "Destination:"
+msgstr ""
+
+#: src/blocks/destination-to-special/index.js:60
+msgid "Destination: "
+msgstr ""
+
+#: src/blocks/destination-to-special/index.js:60
+msgid "Cape Town"
+msgstr ""
+
+#: src/blocks/duration/index.js:15
+#: src/blocks/duration/index.js:24
+msgid "Special - Duration"
+msgstr ""
+
+#: src/blocks/duration/index.js:18
+msgid "Displays the duration for this special."
+msgstr ""
+
+#: src/blocks/duration/index.js:19
+msgid "duration"
+msgstr ""
+
+#: src/blocks/duration/index.js:19
+msgid "length"
+msgstr ""
+
+#: src/blocks/duration/index.js:19
+msgid "days"
+msgstr ""
+
+#: src/blocks/duration/index.js:51
+msgid "Duration:"
+msgstr ""
+
+#: src/blocks/duration/index.js:65
+msgid "Duration: "
+msgstr ""
+
+#: src/blocks/featured-special/index.js:16
+#: src/blocks/featured-special/index.js:57
+msgid "Featured Specials"
+msgstr ""
+
+#: src/blocks/featured-special/index.js:18
+msgid "Displays Specials with the Featured tag."
+msgstr ""
+
+#: src/blocks/featured-special/index.js:21
+msgid "featured"
+msgstr ""
+
+#: src/blocks/featured-special/index.js:22
+msgid "specials"
+msgstr ""
+
+#: src/blocks/featured-special/index.js:24
+msgid "deals"
+msgstr ""
+
+#: src/blocks/gallery/index.js:18
+#: src/blocks/gallery/index.js:25
+msgid "Special - Gallery"
+msgstr ""
+
+#: src/blocks/gallery/index.js:21
+msgid "Display the gallery images for this special."
+msgstr ""
+
+#: src/blocks/gallery/index.js:22
+msgid "gallery"
+msgstr ""
+
+#: src/blocks/gallery/index.js:22
+msgid "images"
+msgstr ""
+
+#: src/blocks/gallery/index.js:22
+msgid "photos"
+msgstr ""
+
+#: src/blocks/price-type/index.js:15
+#: src/blocks/price-type/index.js:24
+msgid "Special - Price Type"
+msgstr ""
+
+#: src/blocks/price-type/index.js:18
+msgid "Displays the price type for this special."
+msgstr ""
+
+#: src/blocks/price-type/index.js:19
+msgid "price type"
+msgstr ""
+
+#: src/blocks/price-type/index.js:19
+msgid "per person"
+msgstr ""
+
+#: src/blocks/price-type/index.js:37
+msgid "Price Type:"
+msgstr ""
+
+#: src/blocks/price-type/index.js:47
+msgid "Price Type: "
+msgstr ""
+
+#: src/blocks/price/index.js:15
+#: src/blocks/price/index.js:24
+msgid "Special - Price"
+msgstr ""
+
+#: src/blocks/price/index.js:18
+msgid "Displays the price for this special."
+msgstr ""
+
+#: src/blocks/price/index.js:19
+msgid "price"
+msgstr ""
+
+#: src/blocks/price/index.js:19
+msgid "cost"
+msgstr ""
+
+#: src/blocks/price/index.js:19
+msgid "amount"
+msgstr ""
+
+#: src/blocks/price/index.js:51
+msgid "Price:"
+msgstr ""
+
+#: src/blocks/price/index.js:65
+msgid "Price: "
+msgstr ""
+
+#: src/blocks/tagline/index.js:15
+#: src/blocks/tagline/index.js:24
+msgid "Special - Tagline"
+msgstr ""
+
+#: src/blocks/tagline/index.js:18
+msgid "Displays the tagline for this special."
+msgstr ""
+
+#: src/blocks/tagline/index.js:19
+msgid "tagline"
+msgstr ""
+
+#: src/blocks/tagline/index.js:19
+msgid "subtitle"
+msgstr ""
+
+#: src/blocks/tagline/index.js:37
+msgid "Tagline:"
+msgstr ""
+
+#: src/blocks/tagline/index.js:47
+msgid "Tagline: "
+msgstr ""
+
+#: src/blocks/tagline/index.js:47
+msgid "Book now and save 20%"
+msgstr ""
+
+#: src/blocks/team-to-special/index.js:15
+#: src/blocks/team-to-special/index.js:24
+msgid "Team to Special"
+msgstr ""
+
+#: src/blocks/team-to-special/index.js:18
+msgid "Displays the team members connected to this special."
+msgstr ""
+
+#: src/blocks/team-to-special/index.js:19
+msgid "team"
+msgstr ""
+
+#: src/blocks/team-to-special/index.js:19
+msgid "guide"
+msgstr ""
+
+#: src/blocks/team-to-special/index.js:46
+msgid "Guide:"
+msgstr ""
+
+#: src/blocks/team-to-special/index.js:60
+msgid "Guide: "
+msgstr ""
+
+#: src/blocks/team-to-special/index.js:60
+msgid "John Safari Guide"
+msgstr ""
+
+#: src/blocks/tour-related-special/index.js:18
+#: src/blocks/tour-related-special/index.js:30
+#: src/blocks/tour-related-special/index.js:55
+#: src/blocks/tour-related-special/index.js:119
+msgid "Related Tour"
+msgstr ""
+
+#: src/blocks/tour-related-special/index.js:20
+msgid "Displays tour related to this special."
+msgstr ""
+
+#: src/blocks/tour-related-special/index.js:23
+#: src/blocks/tour-to-special/index.js:19
+msgid "tour"
+msgstr ""
+
+#: src/blocks/tour-related-special/index.js:73
+msgid "Related Tour Query"
+msgstr ""
+
+#: src/blocks/tour-related-special/index.js:153
+msgid "7-Night Safari Adventure"
+msgstr ""
+
+#: src/blocks/tour-related-special/index.js:154
+msgid "A guided safari package, discounted as part of this special."
+msgstr ""
+
+#: src/blocks/tour-related-special/index.js:172
+msgid "Kilimanjaro Trekking Tour"
+msgstr ""
+
+#: src/blocks/tour-related-special/index.js:173
+msgid "A multi-day trek included in this special package."
+msgstr ""
+
+#: src/blocks/tour-to-special/index.js:15
+#: src/blocks/tour-to-special/index.js:24
+msgid "Tour to Special"
+msgstr ""
+
+#: src/blocks/tour-to-special/index.js:18
+msgid "Displays the tours connected to this special."
+msgstr ""
+
+#: src/blocks/tour-to-special/index.js:19
+msgid "itinerary"
+msgstr ""
+
+#: src/blocks/tour-to-special/index.js:46
+msgid "Tour:"
+msgstr ""
+
+#: src/blocks/tour-to-special/index.js:60
+msgid "Tour: "
+msgstr ""
+
+#: src/blocks/tour-to-special/index.js:60
+msgid "Big Five Safari"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/block.json
+msgctxt "block title"
+msgid "Related Accommodation"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/block.json
+msgctxt "block description"
+msgid "Display accommodation related to this special."
+msgstr ""
+
+#: src/blocks/accommodation-related-special/block.json
+#: src/blocks/accommodation-to-special/block.json
+msgctxt "block keyword"
+msgid "accommodation"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/block.json
+#: src/blocks/accommodation-to-special/block.json
+#: src/blocks/booking-validity/block.json
+#: src/blocks/destination-related-special/block.json
+#: src/blocks/destination-to-special/block.json
+#: src/blocks/duration/block.json
+#: src/blocks/featured-special/block.json
+#: src/blocks/gallery/block.json
+#: src/blocks/price-type/block.json
+#: src/blocks/price/block.json
+#: src/blocks/tagline/block.json
+#: src/blocks/team-to-special/block.json
+#: src/blocks/tour-related-special/block.json
+#: src/blocks/tour-to-special/block.json
+msgctxt "block keyword"
+msgid "special"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/block.json
+#: src/blocks/destination-related-special/block.json
+#: src/blocks/tour-related-special/block.json
+msgctxt "block keyword"
+msgid "related"
+msgstr ""
+
+#: src/blocks/accommodation-related-special/block.json
+#: src/blocks/destination-related-special/block.json
+#: src/blocks/tour-related-special/block.json
+msgctxt "block keyword"
+msgid "offers"
+msgstr ""
+
+#: src/blocks/accommodation-to-special/block.json
+msgctxt "block title"
+msgid "Accommodation to Special"
+msgstr ""
+
+#: src/blocks/accommodation-to-special/block.json
+msgctxt "block description"
+msgid "Displays the accommodations connected to this special."
+msgstr ""
+
+#: src/blocks/accommodation-to-special/block.json
+#: src/blocks/destination-to-special/block.json
+#: src/blocks/team-to-special/block.json
+#: src/blocks/tour-to-special/block.json
+msgctxt "block keyword"
+msgid "connection"
+msgstr ""
+
+#: src/blocks/accommodation-to-special/block.json
+msgctxt "block keyword"
+msgid "lodging"
+msgstr ""
+
+#: src/blocks/booking-validity/block.json
+msgctxt "block title"
+msgid "Special - Booking Validity"
+msgstr ""
+
+#: src/blocks/booking-validity/block.json
+msgctxt "block description"
+msgid "Displays the booking validity dates for this special."
+msgstr ""
+
+#: src/blocks/booking-validity/block.json
+msgctxt "block keyword"
+msgid "booking"
+msgstr ""
+
+#: src/blocks/booking-validity/block.json
+msgctxt "block keyword"
+msgid "validity"
+msgstr ""
+
+#: src/blocks/booking-validity/block.json
+msgctxt "block keyword"
+msgid "dates"
+msgstr ""
+
+#: src/blocks/destination-related-special/block.json
+msgctxt "block title"
+msgid "Related Destination"
+msgstr ""
+
+#: src/blocks/destination-related-special/block.json
+msgctxt "block description"
+msgid "Display destination related to this special."
+msgstr ""
+
+#: src/blocks/destination-related-special/block.json
+#: src/blocks/destination-to-special/block.json
+msgctxt "block keyword"
+msgid "destination"
+msgstr ""
+
+#: src/blocks/destination-to-special/block.json
+msgctxt "block title"
+msgid "Destination to Special"
+msgstr ""
+
+#: src/blocks/destination-to-special/block.json
+msgctxt "block description"
+msgid "Displays the destinations connected to this special."
+msgstr ""
+
+#: src/blocks/destination-to-special/block.json
+msgctxt "block keyword"
+msgid "location"
+msgstr ""
+
+#: src/blocks/duration/block.json
+msgctxt "block title"
+msgid "Special - Duration"
+msgstr ""
+
+#: src/blocks/duration/block.json
+msgctxt "block description"
+msgid "Displays the duration for this special."
+msgstr ""
+
+#: src/blocks/duration/block.json
+msgctxt "block keyword"
+msgid "duration"
+msgstr ""
+
+#: src/blocks/duration/block.json
+msgctxt "block keyword"
+msgid "length"
+msgstr ""
+
+#: src/blocks/duration/block.json
+msgctxt "block keyword"
+msgid "days"
+msgstr ""
+
+#: src/blocks/featured-special/block.json
+msgctxt "block title"
+msgid "Featured Specials"
+msgstr ""
+
+#: src/blocks/featured-special/block.json
+msgctxt "block description"
+msgid "Displays Specials with the Featured tag."
+msgstr ""
+
+#: src/blocks/featured-special/block.json
+msgctxt "block keyword"
+msgid "featured"
+msgstr ""
+
+#: src/blocks/featured-special/block.json
+msgctxt "block keyword"
+msgid "offer"
+msgstr ""
+
+#: src/blocks/featured-special/block.json
+msgctxt "block keyword"
+msgid "deal"
+msgstr ""
+
+#: src/blocks/gallery/block.json
+msgctxt "block title"
+msgid "Special - Gallery"
+msgstr ""
+
+#: src/blocks/gallery/block.json
+msgctxt "block description"
+msgid "Displays the gallery images for this special."
+msgstr ""
+
+#: src/blocks/gallery/block.json
+msgctxt "block keyword"
+msgid "gallery"
+msgstr ""
+
+#: src/blocks/gallery/block.json
+msgctxt "block keyword"
+msgid "images"
+msgstr ""
+
+#: src/blocks/gallery/block.json
+msgctxt "block keyword"
+msgid "photos"
+msgstr ""
+
+#: src/blocks/price-type/block.json
+msgctxt "block title"
+msgid "Special - Price Type"
+msgstr ""
+
+#: src/blocks/price-type/block.json
+msgctxt "block description"
+msgid "Displays the price type for this special."
+msgstr ""
+
+#: src/blocks/price-type/block.json
+msgctxt "block keyword"
+msgid "price type"
+msgstr ""
+
+#: src/blocks/price-type/block.json
+msgctxt "block keyword"
+msgid "per person"
+msgstr ""
+
+#: src/blocks/price/block.json
+msgctxt "block title"
+msgid "Special - Price"
+msgstr ""
+
+#: src/blocks/price/block.json
+msgctxt "block description"
+msgid "Displays the price for this special."
+msgstr ""
+
+#: src/blocks/price/block.json
+msgctxt "block keyword"
+msgid "price"
+msgstr ""
+
+#: src/blocks/price/block.json
+msgctxt "block keyword"
+msgid "cost"
+msgstr ""
+
+#: src/blocks/price/block.json
+msgctxt "block keyword"
+msgid "amount"
+msgstr ""
+
+#: src/blocks/tagline/block.json
+msgctxt "block title"
+msgid "Special - Tagline"
+msgstr ""
+
+#: src/blocks/tagline/block.json
+msgctxt "block description"
+msgid "Displays the tagline for this special."
+msgstr ""
+
+#: src/blocks/tagline/block.json
+msgctxt "block keyword"
+msgid "tagline"
+msgstr ""
+
+#: src/blocks/tagline/block.json
+msgctxt "block keyword"
+msgid "subtitle"
+msgstr ""
+
+#: src/blocks/team-to-special/block.json
+msgctxt "block title"
+msgid "Team to Special"
+msgstr ""
+
+#: src/blocks/team-to-special/block.json
+msgctxt "block description"
+msgid "Displays the team members connected to this special."
+msgstr ""
+
+#: src/blocks/team-to-special/block.json
+msgctxt "block keyword"
+msgid "team"
+msgstr ""
+
+#: src/blocks/team-to-special/block.json
+msgctxt "block keyword"
+msgid "guide"
+msgstr ""
+
+#: src/blocks/tour-related-special/block.json
+msgctxt "block title"
+msgid "Related Tour"
+msgstr ""
+
+#: src/blocks/tour-related-special/block.json
+msgctxt "block description"
+msgid "Display tour related to this special."
+msgstr ""
+
+#: src/blocks/tour-related-special/block.json
+#: src/blocks/tour-to-special/block.json
+msgctxt "block keyword"
+msgid "tour"
+msgstr ""
+
+#: src/blocks/tour-to-special/block.json
+msgctxt "block title"
+msgid "Tour to Special"
+msgstr ""
+
+#: src/blocks/tour-to-special/block.json
+msgctxt "block description"
+msgid "Displays the tours connected to this special."
+msgstr ""
+
+#: src/blocks/tour-to-special/block.json
+msgctxt "block keyword"
+msgid "itinerary"
 msgstr ""

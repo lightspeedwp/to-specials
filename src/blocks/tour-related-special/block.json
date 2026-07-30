@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "textdomain": "to-specials",
+  "name": "lsx-tour-operator/tour-related-special",
+  "title": "Related Tour",
+  "category": "lsx-tour-operator",
+  "editorScript": "file:index.js",
+  "description": "Display tour related to this special.",
+  "icon": "tag",
+  "keywords": ["tour", "special", "related", "offers"]
+}
