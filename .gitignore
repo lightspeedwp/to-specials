@@ -2,13 +2,6 @@
 node_modules/
 vendor/
 
-# Build artifacts and compiled files
-/build/
-/assets/dist/
-*.min.js
-*.min.css
-*.map
-
 # IDE/Editor files
 .idea/
 .vscode/

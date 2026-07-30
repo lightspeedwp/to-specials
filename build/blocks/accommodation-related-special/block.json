@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "textdomain": "to-specials",
+  "name": "lsx-tour-operator/accommodation-related-special",
+  "title": "Related Accommodation",
+  "category": "lsx-tour-operator",
+  "editorScript": "file:index.js",
+  "description": "Display accommodation related to this special.",
+  "icon": "tag",
+  "keywords": [
+    "accommodation",
+    "special",
+    "related",
+    "offers"
+  ]
+}

@@ -8,6 +8,11 @@
  * @link
  * @copyright 2017 LightSpeedDevelopment
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 $metabox = array(
 	'title'  => esc_html__( 'Tour Operator Plugin', 'to-specials' ),
@@ -92,13 +97,13 @@ $metabox['fields'][] = array(
 $metabox['fields'][] = array(
 	'id'   => 'booking_validity_start',
 	'name' => esc_html__( 'Booking Validity (start)','to-specials' ),
-	'type' => 'date',
+	'type' => 'text_date_timestamp',
 );
 
 $metabox['fields'][] = array(
 	'id'   => 'booking_validity_end',
 	'name' => esc_html__( 'Booking Validity (end)','to-specials' ),
-	'type' => 'date',
+	'type' => 'text_date_timestamp',
 );
 
 $metabox['fields'][] = array(
@@ -107,7 +112,7 @@ $metabox['fields'][] = array(
 	'type' => 'checkbox',
 );
 
-$metabox['fields'][] = array(
+/*$metabox['fields'][] = array(
 	'id'   => 'travel_dates',
 	'name' => esc_html__( 'Travel Dates','to-specials' ),
 	'single_name' => esc_html__( 'Travel Dates','to-specials' ),
@@ -118,15 +123,15 @@ $metabox['fields'][] = array(
 		array(
 			'id'   => 'travel_dates_start',
 			'name' => esc_html__( 'Start','to-specials' ),
-			'type' => 'date',
+			'type' => 'text_date_timestamp',
 		),
 		array(
 			'id'   => 'travel_dates_end',
 			'name' => esc_html__( 'End','to-specials' ),
-			'type' => 'date',
+			'type' => 'text_date_timestamp',
 		),
 	),
-);
+);*/
 
 if ( class_exists( 'LSX_TO_Maps' ) ) {
 	$tour_operator = tour_operator();

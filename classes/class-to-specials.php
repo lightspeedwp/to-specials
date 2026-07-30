@@ -8,6 +8,11 @@
  * @link
  * @copyright 2018 LightSpeedDevelopment
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if (!class_exists( 'LSX_TO_Specials' ) ) {
 	/**
 	 * Main plugin class.
@@ -58,8 +63,6 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 			// Make TO last plugin to load
 			add_action( 'activated_plugin', array( $this, 'activated_plugin' ) );
 
-			add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
-
 			if ( false !== $this->post_types ) {
 				add_filter( 'lsx_to_framework_post_types', array( $this, 'post_types_filter' ) );
 				add_filter( 'lsx_to_post_types', array( $this, 'post_types_filter' ) );
@@ -76,6 +79,9 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 			require_once LSX_TO_SPECIALS_PATH . '/classes/class-to-specials-templates.php';
 			require_once LSX_TO_SPECIALS_PATH . '/includes/template-tags.php';
 
+			require_once LSX_TO_SPECIALS_PATH . '/classes/class-to-specials-blocks.php';
+			new LSX_TO_Specials_Blocks();
+
 			// flush_rewrite_rules.
 			register_activation_hook( LSX_TO_SPECIALS_CORE, array( $this, 'register_activation_hook' ) );
 			add_action( 'admin_init', array( $this, 'register_activation_hook_check' ) );
@@ -88,13 +94,6 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 		public function lsx_to_search_integration() {
 			add_filter( 'lsx_to_search_post_types', array( $this, 'post_types_filter' ) );
 			add_filter( 'lsx_to_search_taxonomies', array( $this, 'taxonomies_filter' ) );
-		}
-
-		/**
-		 * Load the plugin text domain for translation.
-		 */
-		public function load_plugin_textdomain() {
-			load_plugin_textdomain( 'to-specials' );
 		}
 
 		/**

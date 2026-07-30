@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "textdomain": "to-specials",
+  "name": "lsx-tour-operator/destination-to-special",
+  "title": "Destination to Special",
+  "category": "lsx-tour-operator",
+  "editorScript": "file:index.js",
+  "description": "Displays the destinations connected to this special.",
+  "icon": "admin-site",
+  "keywords": [
+    "destination",
+    "special",
+    "connection",
+    "location"
+  ]
+}

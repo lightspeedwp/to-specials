@@ -1,11 +1,11 @@
 === Tour Operator Special Offers ===
 Contributors: feedmymedia, lightspeedwp, eleshar, krugazul
 Donate link: https://lightspeedwp.agency/donate/
-Tags: lsx, tour operator, specials, accommodation, prices 
+Tags: lsx, tour operator, specials, accommodation, prices
 Requires at least: 6.7
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 2.1
+Stable tag: 2.2
 License: GPLv3
 
 With Tour Operator Specials, add deals to your website – a great way to entice people who are ready to take advantage of limited-time deals.
@@ -34,7 +34,7 @@ We offer premium support for this plugin. Premium support that can be purchased 
 If you get stuck, you can ask for help in the [our Operator Specials plugin forum](https://touroperator.solutions/plugins/specials/).
 For help with premium add-ons from LightSpeed, use [our contact page](https://lightspeedwp.agency/contact-us/)
 
-= Will the Tour Operator Specials plugin work with my theme 
+= Will the Tour Operator Specials plugin work with my theme
 No; the Tour Operator Specials plugin will only work with LSX Theme.
 
 = Where can I report bugs or contribute to the project? =
@@ -49,3 +49,13 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 2. Backend View
 3. Backend View 2
 4. Settings
+
+== Changelog ==
+
+= 2.2 =
+* Added Gutenberg block variations: featured special, related specials, post meta blocks (tagline, price, price type, duration, booking validity), post connection blocks (to accommodation, destination, tour, team), and gallery block.
+* Added related blocks for destination, accommodation, and tour post types.
+* Rebuilt archive and single templates with a new hero section, styled breadcrumbs, refined sticky menu styling, and a `special-card` block pattern.
+* Addressed Plugin Check security and WPCS issues (direct-access guards, removed redundant textdomain loading, PHPCS annotations).
+
+[Lastest changelogs can be found on GitHub](https://github.com/lightspeeddevelopment/to-specials/blob/master/changelog.md).

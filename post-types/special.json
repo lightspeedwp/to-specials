@@ -1,0 +1,143 @@
+{
+	"type": "postType",
+	"postType": "special",
+	"slug": "special",
+	"label": "Special",
+	"pluralLabel": "Specials",
+	"icon": "tag",
+	"hasArchive": "specials",
+	"hierarchical": false,
+	"showInRest": true,
+	"showInMenu": "tour-operator",
+	"menuPosition": 32,
+	"template": [],
+	"fields": [
+		{
+			"slug": "featured",
+			"type": "checkbox",
+			"label": "Featured",
+			"description": "Mark this special as featured.",
+			"visible": true
+		},
+		{
+			"slug": "disable_single",
+			"type": "checkbox",
+			"label": "Disable Single",
+			"description": "Disable the single post view for this special.",
+			"visible": true
+		},
+		{
+			"slug": "tagline",
+			"type": "string",
+			"label": "Tagline",
+			"description": "",
+			"visible": true
+		},
+		{
+			"slug": "terms_conditions",
+			"type": "wysiwyg",
+			"label": "Terms & Conditions",
+			"description": "Terms and conditions that apply to this special.",
+			"visible": true
+		},
+		{
+			"slug": "price",
+			"type": "string",
+			"label": "Price",
+			"description": "The promotional price for this special.",
+			"visible": true
+		},
+		{
+			"slug": "price_type",
+			"type": "select",
+			"label": "Price Type",
+			"description": "The pricing unit for this special.",
+			"visible": true,
+			"options": [
+				{ "label": "Select a type", "value": "none" },
+				{ "label": "Per Person", "value": "per_person" },
+				{ "label": "Per Night", "value": "per_person_per_night" },
+				{ "label": "Per Person Sharing", "value": "per_person_sharing" },
+				{ "label": "Per Person Sharing Per Night", "value": "per_person_sharing_per_night" },
+				{ "label": "Percentage Off", "value": "total_percentage" }
+			]
+		},
+		{
+			"slug": "duration",
+			"type": "string",
+			"label": "Duration",
+			"description": "The duration of the special offer (e.g. 3 nights).",
+			"visible": true
+		},
+		{
+			"slug": "booking_validity_start",
+			"type": "text_date_timestamp",
+			"label": "Booking Validity Start",
+			"description": "The date from which bookings for this special are valid.",
+			"visible": true
+		},
+		{
+			"slug": "booking_validity_end",
+			"type": "text_date_timestamp",
+			"label": "Booking Validity End",
+			"description": "The date until which bookings for this special are valid.",
+			"visible": true
+		},
+		{
+			"slug": "expire_post",
+			"type": "checkbox",
+			"label": "Expire Automatically",
+			"description": "Automatically expire this post after the booking validity end date.",
+			"visible": true
+		},
+		{
+			"slug": "travel_dates",
+			"type": "group",
+			"label": "Travel Dates",
+			"description": "Repeatable travel date windows for this special.",
+			"visible": true
+		},
+		{
+			"slug": "gallery",
+			"type": "file_list",
+			"label": "Gallery",
+			"description": "Images for this special offer.",
+			"visible": true
+		},
+		{
+			"slug": "team_to_special",
+			"type": "multiselect",
+			"label": "Related Team Member",
+			"description": "Team member associated with this special.",
+			"visible": true
+		},
+		{
+			"slug": "accommodation_to_special",
+			"type": "multiselect",
+			"label": "Related Accommodation",
+			"description": "Accommodation posts this special is connected to.",
+			"visible": true
+		},
+		{
+			"slug": "destination_to_special",
+			"type": "multiselect",
+			"label": "Related Destinations",
+			"description": "Destination posts this special is connected to.",
+			"visible": true
+		},
+		{
+			"slug": "tour_to_special",
+			"type": "multiselect",
+			"label": "Related Tours",
+			"description": "Tour posts this special is connected to.",
+			"visible": true
+		},
+		{
+			"slug": "post_to_special",
+			"type": "multiselect",
+			"label": "Related Posts",
+			"description": "Blog posts this special is connected to.",
+			"visible": true
+		}
+	]
+}

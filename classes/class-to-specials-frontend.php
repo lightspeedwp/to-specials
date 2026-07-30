@@ -16,6 +16,10 @@
  * @author  LightSpeed
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class LSX_TO_Specials_Frontend {
 
 	/**
@@ -32,6 +36,7 @@ class LSX_TO_Specials_Frontend {
 		if ( ! class_exists( 'LSX_Currencies' ) ) {
 			add_filter( 'lsx_to_custom_field_query', array( $this, 'price_filter' ), 5, 10 );
 		}
+		add_filter( 'lsx_to_custom_field_query', array( $this, 'price_type_filter' ), 5, 10 );
 
 		add_filter( 'lsx_to_custom_field_query', array( $this, 'terms_conditions_filter' ), 5, 10 );
 	}
@@ -82,12 +87,40 @@ class LSX_TO_Specials_Frontend {
 		return $html;
 	}
 
+	public function price_type_filter( $html = '', $meta_key = false, $value = false, $before = '', $after = '' ) {
+
+		if ( get_post_type() === 'special' && 'price_type' === $meta_key ) {
+
+			switch ( $value ) {
+				case 'per_person':
+				case 'per_person_per_night':
+				case 'per_person_sharing':
+				case 'per_person_sharing_per_night':
+					$html = ucwords( str_replace( '_', ' ', $value ) );
+					$html = str_replace( 'Per Person', 'P/P', $html );
+				break;
+
+				case 'total_percentage':
+					$html = '% ' . __( 'Off', 'to-specials' );
+					$before = str_replace( 'from price', '', $before );
+				break;
+
+				case 'none':
+				default:
+					$html = '';
+				break;
+			}
+
+		}
+		return $html;
+	}
+
 	/**
 	 * Filters text area type filters
 	 */
 	public function terms_conditions_filter( $html = '', $meta_key = false, $value = false, $before = '', $after = '' ) {
 		if ( get_post_type() === 'special' && 'terms_conditions' === $meta_key ) {
-			$html = $before . '<div class="entry-content">' . apply_filters( 'the_content', wpautop( $value ) ) . '</div>' . $after;
+			$html = $before . '<div class="entry-content">' . apply_filters( 'the_content', wpautop( $value ) ) . '</div>' . $after; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 		}
 
