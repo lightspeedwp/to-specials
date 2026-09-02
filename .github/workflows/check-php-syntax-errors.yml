@@ -13,7 +13,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v7
     - name: Checking PHP syntax error
-      uses: overtrue/phplint@9.7.2
+      uses: overtrue/phplint@9.8
       with:
         path: .
         options: --exclude=*.log
