@@ -7,8 +7,11 @@ on:
 
 # Supersedes cancel.yml / styfle/cancel-workflow-action: GitHub cancels
 # superseded runs natively per ref.
+# github.ref is unique per pull request (refs/pull/N/merge). github.head_ref
+# is only the branch name, so two fork PRs sharing a branch name would land in
+# the same group and cancel each other's checks.
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
