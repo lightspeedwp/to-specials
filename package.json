@@ -1,6 +1,6 @@
 {
   "name": "to-specials",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Tour Operators add-on for LSX",
   "scripts": {
     "start": "wp-scripts start",
@@ -21,7 +21,8 @@
     "validate-collections": "node .github/scripts/validate-collections.js",
     "create-collection": "node .github/scripts/create-collection.js create",
     "list-collections": "node .github/scripts/create-collection.js list",
-    "validate": "node .github/scripts/validate-collections.js"
+    "validate": "node .github/scripts/validate-collections.js",
+    "lint:version": "node scripts/check-version-sync.mjs"
   },
   "repository": {
     "type": "git",

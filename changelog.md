@@ -1,5 +1,23 @@
 # Change log
 
+## [Unreleased]
+
+### Security
+- Cleared all 13 Dependabot alerts. Every one was a transitive build-toolchain package reached through `@wordpress/scripts`, `stylelint` or `cssnano`, with no direct dependency to bump, so they are constrained with `overrides` in `package.json`, which survives lockfile regeneration. These are caret ranges rather than exact pins: they set a patched floor and let npm resolve upwards within the major. `fast-uri ^3.1.6` (4 high, SSRF and host confusion), `serialize-javascript ^7.0.5` (high RCE, moderate CPU-exhaustion DoS), `browserslist ^4.28.7` (high), `@humanfs/node ^0.16.8` (moderate), and `sockjs > uuid ^11.1.1`. `postcss-selector-parser` (2 low) is pinned `^6.1.3` at the root for the cssnano v6 plugin set, with nested `^7.1.3` overrides for stylelint and the postcss-modules packages, so neither major line is forced across a boundary. `markdownlint-cli ^0.49.1` clears the `markdown-it` smartquotes ReDoS and the `minimatch` backtracking alerts at source rather than force-patching leaves into a 2022-era parent.
+
+### Changed
+- All version sources reconciled on `2.2.0`. The plugin header and the readme `Stable tag` read `2.2`, `LSX_TO_SPECIALS_VER` read `2.2.0`, and `package.json` was further behind still at `2.1.0`. Only `2.2.0` has ever existed as a git tag, and `10up/action-wordpress-plugin-deploy` derives the WordPress.org SVN tag from the git tag, so `Stable tag: 2.2` pointed at a tag that was never created. All four sources now read `2.2.0`, and `npm run lint:version` (`scripts/check-version-sync.mjs`) fails CI if they drift apart again.
+- Raised the Node support contract to `>=24.0.0` with `npm >=11.0.0`, pinned in a new `.nvmrc` on 24.20.0, the current LTS line. The previous `>=18.0.0` was far broader than the resolved toolchain supports, which requires Node 20 and 22 in places.
+- `.coderabbit.yaml` now parses. Removed the top-level `commands` and `linked_issues` keys, which are not in the v2 schema, and the duplicated `reviews.path_filters` mapping key.
+
+### Added
+- CI workflow that builds the block assets and lints styles. The only checks were PHP syntax and CodeQL, so a broken webpack config or stylesheet could merge unnoticed. It uses GitHub's native `concurrency` with `cancel-in-progress`, keyed on `github.ref` so that fork pull requests sharing a branch name cannot cancel each other's checks.
+
+### Removed
+- `.github/workflows/check-php-syntax-errors.yml`. It pinned `overtrue/phplint@9.8`, whose published action image is missing `symfony/stopwatch` and dies before linting anything. The new CI workflow lints with plain `php -l` across 8.2, 8.3 and 8.4 instead, covering more PHP versions than phplint did.
+- `.github/workflows/cancel.yml`. GitHub cancels superseded runs natively, and the workflow queried the API for every workflow id on each run.
+- `.stylelintrc.json`. It extended `@humanmade/stylelint-config`, which is not installed, so `npm run lint:css` aborted with a `ConfigurationError` before linting anything, and it shadowed the `stylelint.config.js` that extends `@wordpress/stylelint-config`.
+
 ## [2.2](https://github.com/lightspeeddevelopment/to-specials/releases/tag/2.2) - 2026-07-29
 
 ### Added
