@@ -45,8 +45,8 @@
     "webpack-remove-empty-scripts": "^1.1.1"
   },
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
+    "node": ">=24.0.0",
+    "npm": ">=11.0.0"
   },
   "overrides": {
     "linkify-it": "^5.0.2",
