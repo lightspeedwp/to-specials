@@ -37,6 +37,9 @@ Other gaps found during the audit:
 
 - A **retired legacy file** (`classes/class-specials-schema.php`) still ships in the plugin. It declares the same class name as the live schema piece, hard-codes a telephone number, references an undefined variable and emits a conflicting multi-type node. It is not loaded today, but if anything requires it, the site will fail with a fatal error or emit incorrect data.
 - **Core version dependency**: the live schema piece relies on shared schema helpers that ship only with Tour Operator core 2.2+. The loader checks only for the older base class, which core 2.1 also provides. A site running this extension with core 2.1 would hit a fatal error on every Special page.
+- **Legacy base classes removed from core** *(added 2026-10-09)*: Core commit `f62d3b5dd` deletes the legacy schema base class and utilities that the Specials piece extends. With that core build, Special pages emit **no Offer node at all**. The piece must stop depending on those classes (see FR-011 and [plan.md](./plan.md)).
+- **Percentage specials** *(added 2026-10-09)*: The "Percentage Off Your Price" price type stores a percentage in the price field. The baseline published it as a currency amount, so "20% off" became `price: 20` in the site currency.
+- **Missing price-type label** *(added 2026-10-09)*: Core's price-type label helper returns no label for "Per Person", so the price specification lost its unit text for that type.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -104,6 +107,7 @@ A reviewer approving the PR needs repeatable evidence that the output matches th
 
 - **No price, or an unparseable price** such as "Price on request": omit `price`, `priceCurrency`, `priceSpecification`, `category` and `availability`, and still emit the rest of the Offer.
 - **Price type is empty or "none"**: omit `priceSpecification` and keep `price`/`priceCurrency`.
+- **Price type is "Percentage Off Your Price"**: the price field is a percentage, not an amount. Omit `price`, `priceCurrency`, `priceSpecification`, `category` and `availability`.
 - **Invalid or partial booking dates**: omit only the affected date property. Never emit a malformed date.
 - **Booking validity end before start**: emit both as stored, and flag it for content QA rather than silently swapping them. Recorded as an assumption.
 - **No linked tours or accommodation**: omit `itemOffered` entirely.
@@ -120,13 +124,13 @@ A reviewer approving the PR needs repeatable evidence that the output matches th
 - **FR-002**: The Offer MUST include `name` and `description` taken from the filtered title and filtered, markup-free content, plus `url` and `mainEntityOfPage`.
 - **FR-003**: The Offer MUST include `offeredBy` that references the site organisation whenever one is configured.
 - **FR-004**: Booking validity start and end MUST map to `availabilityStarts` and `availabilityEnds`, and booking validity end MUST map to a single `priceValidUntil`. All three MUST be valid ISO 8601 dates, or be omitted.
-- **FR-005**: The price MUST be emitted as a normalised numeric value with `priceCurrency` from Tour Operator settings, falling back to a documented default.
+- **FR-005**: The price MUST be emitted as a normalised numeric value with `priceCurrency` from Tour Operator settings, falling back to a documented default. When the price type is a percentage discount, no price fields may be emitted.
 - **FR-006**: When a price type is set, the Offer MUST include a correctly cased, structured `priceSpecification` object carrying price, currency and the human-readable price-type label.
 - **FR-007**: Linked tours and accommodation MUST be merged into one `itemOffered` value, typed `TouristTrip` and `LodgingBusiness` respectively. Neither list may overwrite the other, duplicate links MUST be removed, and only published products may be included.
 - **FR-008**: Each `itemOffered` entry MUST include the product's public URL, in addition to its name and type.
 - **FR-009**: `category` and `availability` MUST only be emitted when a valid price is present.
 - **FR-010**: The image MUST continue to be emitted through the shared schema image utility.
-- **FR-011**: The Specials schema piece MUST only register when the Tour Operator core schema helpers it depends on are available. Otherwise it MUST register nothing and raise no errors.
+- **FR-011**: The Specials schema piece MUST only register when the Tour Operator core schema helpers it depends on are available. Otherwise it MUST register nothing and raise no errors. It MUST NOT depend on the legacy core schema base classes, and it MUST emit the Offer node both with and without Yoast SEO active.
 - **FR-012**: The retired legacy Specials schema file MUST be removed from the plugin.
 - **FR-013**: The plugin MUST include at least one automated regression check that covers FR-001, FR-004 (single `priceValidUntil`), FR-006 and FR-007.
 - **FR-014**: The PR MUST include documented manual QA evidence for one fully populated Special: validator results and the captured JSON-LD.
