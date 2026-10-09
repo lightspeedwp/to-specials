@@ -54,6 +54,13 @@ class LSX_TO_Specials_Schema {
 	protected $canonical;
 
 	/**
+	 * Price type whose price field holds a percentage discount, not an amount.
+	 *
+	 * @var string
+	 */
+	const PERCENTAGE_PRICE_TYPE = 'total_percentage';
+
+	/**
 	 * Constructor.
 	 *
 	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context|\WPSEO_Schema_Context|null $context Yoast context, or null when Yoast is inactive.
@@ -87,7 +94,7 @@ class LSX_TO_Specials_Schema {
 		$data = array(
 			'@type'            => 'Offer',
 			'@id'              => $this->canonical . '#/schema/offer/' . $this->post_id,
-			'name'             => get_the_title( $this->post_id ),
+			'name'             => $this->get_plain_title( $this->post_id ),
 			'description'      => Helpers::strip_to_text( apply_filters( 'the_content', $this->post->post_content ) ), // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 			'url'              => $this->canonical,
 			'mainEntityOfPage' => array( '@id' => $this->canonical ),
@@ -115,6 +122,16 @@ class LSX_TO_Specials_Schema {
 	}
 
 	/**
+	 * Gets a post title as plain text, with texturised entities decoded.
+	 *
+	 * @param int $post_id Post ID.
+	 * @return string
+	 */
+	protected function get_plain_title( $post_id ) {
+		return Helpers::strip_to_text( get_the_title( $post_id ) );
+	}
+
+	/**
 	 * Adds a date property as an ISO 8601 date from a stored date field.
 	 *
 	 * @param array  $data     Offer data.
@@ -133,10 +150,20 @@ class LSX_TO_Specials_Schema {
 	/**
 	 * Adds the price, currency and structured price specification.
 	 *
+	 * Percentage-off specials store a percentage in the price field. An Offer
+	 * has no valid property for a percentage discount, and publishing it as
+	 * an amount in the site currency would be wrong, so no price fields are
+	 * output for them.
+	 *
 	 * @param array $data Offer data.
 	 * @return array
 	 */
 	protected function add_price( array $data ) {
+		$price_type = Helpers::get_meta( $this->post_id, 'price_type' );
+		if ( self::PERCENTAGE_PRICE_TYPE === $price_type ) {
+			return $data;
+		}
+
 		$price = Helpers::normalise_price( Helpers::get_meta( $this->post_id, 'price' ) );
 		if ( '' === $price ) {
 			return $data;
@@ -149,17 +176,46 @@ class LSX_TO_Specials_Schema {
 		$data['category']      = __( 'Special', 'to-specials' );
 		$data['availability']  = 'https://schema.org/LimitedAvailability';
 
-		$price_type = Helpers::get_meta( $this->post_id, 'price_type' );
-		if ( '' !== $price_type && 'none' !== $price_type ) {
+		$label = $this->get_price_type_label( $price_type );
+		if ( '' !== $label ) {
 			$data['priceSpecification'] = array(
 				'@type'         => 'PriceSpecification',
 				'price'         => $price,
 				'priceCurrency' => $currency,
-				'unitText'      => lsx_to_get_price_type_label( $price_type ),
+				'unitText'      => $label,
 			);
 		}
 
 		return $data;
+	}
+
+	/**
+	 * Gets the human-readable label for a price type.
+	 *
+	 * Uses the core label first, falling back to this plugin's field labels,
+	 * since core has no label for every type (for example "per_person").
+	 *
+	 * @param string $price_type Stored price type.
+	 * @return string Label, or an empty string for no or unknown type.
+	 */
+	protected function get_price_type_label( $price_type ) {
+		if ( '' === $price_type || 'none' === $price_type ) {
+			return '';
+		}
+
+		$label = function_exists( 'lsx_to_get_price_type_label' ) ? (string) lsx_to_get_price_type_label( $price_type ) : '';
+		if ( '' !== $label ) {
+			return $label;
+		}
+
+		$labels = array(
+			'per_person'                   => __( 'Per Person', 'to-specials' ),
+			'per_person_per_night'         => __( 'Per Person Per Night', 'to-specials' ),
+			'per_person_sharing'           => __( 'Per Person Sharing', 'to-specials' ),
+			'per_person_sharing_per_night' => __( 'Per Person Sharing Per Night', 'to-specials' ),
+		);
+
+		return isset( $labels[ $price_type ] ) ? $labels[ $price_type ] : '';
 	}
 
 	/**
@@ -183,7 +239,25 @@ class LSX_TO_Specials_Schema {
 	}
 
 	/**
-	 * Builds typed nodes for the posts linked through a relationship field.
+	 * Gets the published, unique post IDs linked through a relationship field.
+	 *
+	 * @param string $meta_key Relationship meta key.
+	 * @return int[]
+	 */
+	protected function get_related_ids( $meta_key ) {
+		$ids = array();
+		foreach ( Helpers::get_meta_array( $this->post_id, $meta_key ) as $related_id ) {
+			$related_id = (int) $related_id;
+			if ( $related_id > 0 && ! in_array( $related_id, $ids, true ) && 'publish' === get_post_status( $related_id ) ) {
+				$ids[] = $related_id;
+			}
+		}
+		return $ids;
+	}
+
+	/**
+	 * Builds typed nodes, with name and URL, for the published posts linked
+	 * through a relationship field.
 	 *
 	 * @param string $meta_key Relationship meta key.
 	 * @param string $type     Schema.org type for the nodes.
@@ -191,12 +265,13 @@ class LSX_TO_Specials_Schema {
 	 */
 	protected function get_related_items( $meta_key, $type ) {
 		$items = array();
-		foreach ( Helpers::get_meta_array( $this->post_id, $meta_key ) as $related_id ) {
-			$title = get_the_title( (int) $related_id );
+		foreach ( $this->get_related_ids( $meta_key ) as $related_id ) {
+			$title = $this->get_plain_title( $related_id );
 			if ( '' !== $title ) {
 				$items[] = array(
 					'@type' => $type,
 					'name'  => $title,
+					'url'   => (string) get_permalink( $related_id ),
 				);
 			}
 		}
@@ -204,20 +279,20 @@ class LSX_TO_Specials_Schema {
 	}
 
 	/**
-	 * Adds the related blog posts as subjectOf articles.
+	 * Adds the published related blog posts as subjectOf articles.
 	 *
 	 * @param array $data Offer data.
 	 * @return array
 	 */
 	protected function add_articles( array $data ) {
 		$articles = array();
-		foreach ( Helpers::get_meta_array( $this->post_id, 'post_to_special' ) as $article_id ) {
-			$title = get_the_title( (int) $article_id );
+		foreach ( $this->get_related_ids( 'post_to_special' ) as $article_id ) {
+			$title = $this->get_plain_title( $article_id );
 			if ( '' !== $title ) {
 				$articles[] = array(
 					'@type'    => 'Article',
 					'headline' => $title,
-					'url'      => (string) get_permalink( (int) $article_id ),
+					'url'      => (string) get_permalink( $article_id ),
 				);
 			}
 		}
