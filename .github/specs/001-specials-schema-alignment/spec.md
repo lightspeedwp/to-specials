@@ -4,7 +4,7 @@
 
 **Created**: 2026-10-09
 
-**Status**: Draft
+**Status**: Implemented, external QA pending (2026-10-09)
 
 **Tracking**: [TO-217](https://linear.app/lightspeedwp/issue/TO-217/align-specials-schema-with-approved-schema-20-mappings) · [lightspeedwp/to-specials#199](https://github.com/lightspeedwp/to-specials/issues/199)
 
@@ -40,6 +40,33 @@ Other gaps found during the audit:
 - **Legacy base classes removed from core** *(added 2026-10-09)*: Core commit `f62d3b5dd` deletes the legacy schema base class and utilities that the Specials piece extends. With that core build, Special pages emit **no Offer node at all**. The piece must stop depending on those classes (see FR-011 and [plan.md](./plan.md)).
 - **Percentage specials** *(added 2026-10-09)*: The "Percentage Off Your Price" price type stores a percentage in the price field. The baseline published it as a currency amount, so "20% off" became `price: 20` in the site currency.
 - **Missing price-type label** *(added 2026-10-09)*: Core's price-type label helper returns no label for "Per Person", so the price specification lost its unit text for that type.
+
+## Implementation Status (2026-10-09)
+
+The baseline table above records the starting point. Every gap marked there has been closed on this branch.
+
+### Requirements
+
+- [x] FR-001 / FR-002: one `Offer` node with string `@type`, unique `@id`, plain-text name and description, `url`, `mainEntityOfPage`
+- [x] FR-003: `offeredBy` from the site organisation
+- [x] FR-004: ISO `availabilityStarts`, `availabilityEnds`, and a single `priceValidUntil`
+- [x] FR-005: normalised numeric price and currency; no price fields for percentage specials
+- [x] FR-006: structured `priceSpecification` with a price-type label fallback
+- [x] FR-007 / FR-008: `itemOffered` merges tours and accommodation, each with a URL, published only and unique
+- [x] FR-009: `category` and `availability` only with a valid price
+- [x] FR-010: image via the Yoast primary image or the featured image
+- [x] FR-011: self-contained piece, registered only when core 2.2 helpers exist, standalone output without Yoast
+- [x] FR-012: retired legacy schema file removed
+- [x] FR-013: PHPUnit regression tests (12 tests)
+- [x] FR-015: other post types unaffected
+- [ ] FR-014: manual QA. A WP-CLI capture against QA Special 616 is done (see [quickstart.md](./quickstart.md)); rendered-page validation, the no-Yoast check and the core 2.1 check are still outstanding
+
+### Key commits
+
+- `87f4487`: remove the retired legacy schema file
+- `318fd4d`: rebuild the Offer piece without the legacy core base class
+- `ad92787`: percentage pricing, label fallback and itemOffered fixes
+- `05958df`: regression tests
 
 ## User Scenarios & Testing *(mandatory)*
 
