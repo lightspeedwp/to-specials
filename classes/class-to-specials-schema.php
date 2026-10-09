@@ -1,129 +1,248 @@
 <?php
 /**
- * The Offer Schema for Specials
+ * Specials Offer Schema Graph Piece
  *
- * @package tour-operator
+ * Outputs schema.org Offer markup for the `special` post type. When Yoast SEO
+ * is active the class is registered as a graph piece via
+ * LSX_TO_Specials::add_graph_pieces(). When Yoast is inactive
+ * LSX_TO_Specials::output_standalone_schema() calls generate() directly.
+ *
+ * The piece is self-contained and depends only on the Tour Operator core
+ * schema helpers (lsx\schema\Helpers, core 2.2+), following the same pattern
+ * as the core Trip, Accommodation and Destination pieces.
+ *
+ * @package to-specials
  */
 
+use lsx\schema\Helpers;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
- * Returns schema Offer data for Special posts.
- *
- * @since 10.2
+ * Generates schema.org Offer data for a single special.
  */
-class LSX_TO_Specials_Schema extends LSX_TO_Schema_Graph_Piece {
+class LSX_TO_Specials_Schema {
+
+	/**
+	 * Yoast schema context (null when Yoast is not active).
+	 *
+	 * @var \Yoast\WP\SEO\Context\Meta_Tags_Context|\WPSEO_Schema_Context|null
+	 */
+	protected $context;
+
+	/**
+	 * Post ID being processed.
+	 *
+	 * @var int
+	 */
+	protected $post_id;
+
+	/**
+	 * Post object being processed.
+	 *
+	 * @var \WP_Post|null
+	 */
+	protected $post;
+
+	/**
+	 * Canonical URL for the current post.
+	 *
+	 * @var string
+	 */
+	protected $canonical;
 
 	/**
 	 * Constructor.
 	 *
-	 * @param \WPSEO_Schema_Context $context A value object with context variables.
+	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context|\WPSEO_Schema_Context|null $context Yoast context, or null when Yoast is inactive.
 	 */
-	public function __construct( WPSEO_Schema_Context $context ) {
-		$this->post_type = 'special';
-		parent::__construct( $context );
+	public function __construct( $context = null ) {
+		$this->context   = $context;
+		$this->post_id   = ( null !== $context ) ? (int) $context->id : (int) get_the_ID();
+		$this->post      = get_post( $this->post_id );
+		$this->canonical = (string) get_permalink( $this->post_id );
 	}
 
 	/**
-	 * Returns Offer data.
+	 * Determines whether this piece should be added to the graph.
 	 *
-	 * @return array $data Offer data.
+	 * @return bool
+	 */
+	public function is_needed() {
+		return is_singular( 'special' );
+	}
+
+	/**
+	 * Generates and returns the Offer schema data array.
+	 *
+	 * @return array Schema.org Offer data.
 	 */
 	public function generate() {
-		$tour_list  = get_post_meta( $this->context->id, 'tour_to_special', false );
-		$accom_list = get_post_meta( $this->context->id, 'accommodation_to_special', false );
-		$data       = array(
+		if ( ! is_object( $this->post ) ) {
+			return array();
+		}
+
+		$data = array(
 			'@type'            => 'Offer',
-			'@id'              => $this->context->canonical . '#/schema/offer/' . $this->post->ID,
-			'name'             => get_the_title( $this->post->ID ),
-			'description'      => \lsx\schema\Helpers::strip_to_text( apply_filters( 'the_content', $this->post->post_content ) ), // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-			'url'              => $this->post_url,
-			'mainEntityOfPage' => array(
-				'@id' => $this->context->canonical . WPSEO_Schema_IDs::WEBPAGE_HASH,
-			),
+			'@id'              => $this->canonical . '#/schema/offer/' . $this->post_id,
+			'name'             => get_the_title( $this->post_id ),
+			'description'      => Helpers::strip_to_text( apply_filters( 'the_content', $this->post->post_content ) ), // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+			'url'              => $this->canonical,
+			'mainEntityOfPage' => array( '@id' => $this->canonical ),
 		);
 
-		if ( $this->context->site_represents_reference ) {
+		if ( null !== $this->context && ! empty( $this->context->site_represents_reference ) ) {
 			$data['offeredBy'] = $this->context->site_represents_reference;
 		}
 
-		$data = $this->add_availability( $data, 'availabilityStarts', 'booking_validity_start' );
-		$data = $this->add_availability( $data, 'availabilityEnds', 'booking_validity_end' );
-		$data = $this->add_availability( $data, 'priceValidUntil', 'booking_validity_end' );
-		$data = $this->get_price( $data );
-		$data = $this->add_items_offered( $data, $tour_list, $accom_list );
-
+		$data = $this->add_date( $data, 'availabilityStarts', 'booking_validity_start' );
+		$data = $this->add_date( $data, 'availabilityEnds', 'booking_validity_end' );
+		$data = $this->add_date( $data, 'priceValidUntil', 'booking_validity_end' );
+		$data = $this->add_price( $data );
+		$data = $this->add_items_offered( $data );
 		$data = $this->add_articles( $data );
-		$data = \lsx\legacy\Schema_Utils::add_image( $data, $this->context );
+		$data = $this->add_image( $data );
 
-		return $data;
+		/**
+		 * Filter the complete Special Offer schema data array.
+		 *
+		 * @param array $data    Offer schema data.
+		 * @param int   $post_id Current special post ID.
+		 */
+		return (array) apply_filters( 'lsx_to_schema_special_data', $data, $this->post_id );
 	}
 
 	/**
-	 * Adds a date-based field as an ISO 8601 date, converting the stored
-	 * CMB2 date field value.
+	 * Adds a date property as an ISO 8601 date from a stored date field.
 	 *
 	 * @param array  $data     Offer data.
-	 * @param string $data_key The schema property to set.
-	 * @param string $meta_key The meta key to read the raw date from.
-	 * @return array $data Offer data.
+	 * @param string $data_key Schema property.
+	 * @param string $meta_key Meta key holding the raw date or timestamp.
+	 * @return array
 	 */
-	public function add_availability( $data, $data_key, $meta_key ) {
-		$raw  = get_post_meta( $this->context->id, $meta_key, true );
-		$date = \lsx\schema\Helpers::format_iso_date( $raw );
+	protected function add_date( array $data, $data_key, $meta_key ) {
+		$date = Helpers::format_iso_date( Helpers::get_meta( $this->post_id, $meta_key ) );
 		if ( '' !== $date ) {
 			$data[ $data_key ] = $date;
 		}
+		return $data;
+	}
+
+	/**
+	 * Adds the price, currency and structured price specification.
+	 *
+	 * @param array $data Offer data.
+	 * @return array
+	 */
+	protected function add_price( array $data ) {
+		$price = Helpers::normalise_price( Helpers::get_meta( $this->post_id, 'price' ) );
+		if ( '' === $price ) {
+			return $data;
+		}
+
+		$currency = Helpers::get_currency();
+
+		$data['price']         = $price;
+		$data['priceCurrency'] = $currency;
+		$data['category']      = __( 'Special', 'to-specials' );
+		$data['availability']  = 'https://schema.org/LimitedAvailability';
+
+		$price_type = Helpers::get_meta( $this->post_id, 'price_type' );
+		if ( '' !== $price_type && 'none' !== $price_type ) {
+			$data['priceSpecification'] = array(
+				'@type'         => 'PriceSpecification',
+				'price'         => $price,
+				'priceCurrency' => $currency,
+				'unitText'      => lsx_to_get_price_type_label( $price_type ),
+			);
+		}
 
 		return $data;
 	}
 
 	/**
-	 * Gets the single special post and adds it as a special "Offer".
+	 * Merges the related tours and accommodation into a single itemOffered
+	 * value, typed appropriately, without overwriting each other.
 	 *
-	 * @param  array $data An array of offers already added.
-	 * @return array $data
+	 * @param array $data Offer data.
+	 * @return array
 	 */
-	public function get_price( $data ) {
-		$price         = get_post_meta( $this->context->id, 'price', true );
-		$currency      = \lsx\schema\Helpers::get_currency();
-		$numeric_price = \lsx\schema\Helpers::normalise_price( $price );
+	protected function add_items_offered( array $data ) {
+		$items = array_merge(
+			$this->get_related_items( 'tour_to_special', 'TouristTrip' ),
+			$this->get_related_items( 'accommodation_to_special', 'LodgingBusiness' )
+		);
 
-		if ( '' !== $numeric_price ) {
-			$data['price']         = $numeric_price;
-			$data['priceCurrency'] = $currency;
-			$data['category']      = __( 'Special', 'to-specials' );
-			$data['availability']  = 'https://schema.org/LimitedAvailability';
+		if ( ! empty( $items ) ) {
+			$data['itemOffered'] = 1 === count( $items ) ? $items[0] : $items;
+		}
 
-			$price_type = get_post_meta( $this->context->id, 'price_type', true );
-			if ( false !== $price_type && '' !== $price_type && 'none' !== $price_type ) {
-				$data['priceSpecification'] = array(
-					'@type'         => 'PriceSpecification',
-					'price'         => $numeric_price,
-					'priceCurrency' => $currency,
-					'unitText'      => lsx_to_get_price_type_label( $price_type ),
+		return $data;
+	}
+
+	/**
+	 * Builds typed nodes for the posts linked through a relationship field.
+	 *
+	 * @param string $meta_key Relationship meta key.
+	 * @param string $type     Schema.org type for the nodes.
+	 * @return array[]
+	 */
+	protected function get_related_items( $meta_key, $type ) {
+		$items = array();
+		foreach ( Helpers::get_meta_array( $this->post_id, $meta_key ) as $related_id ) {
+			$title = get_the_title( (int) $related_id );
+			if ( '' !== $title ) {
+				$items[] = array(
+					'@type' => $type,
+					'name'  => $title,
 				);
 			}
 		}
+		return $items;
+	}
+
+	/**
+	 * Adds the related blog posts as subjectOf articles.
+	 *
+	 * @param array $data Offer data.
+	 * @return array
+	 */
+	protected function add_articles( array $data ) {
+		$articles = array();
+		foreach ( Helpers::get_meta_array( $this->post_id, 'post_to_special' ) as $article_id ) {
+			$title = get_the_title( (int) $article_id );
+			if ( '' !== $title ) {
+				$articles[] = array(
+					'@type'    => 'Article',
+					'headline' => $title,
+					'url'      => (string) get_permalink( (int) $article_id ),
+				);
+			}
+		}
+
+		if ( ! empty( $articles ) ) {
+			$data['subjectOf'] = $articles;
+		}
 		return $data;
 	}
 
 	/**
-	 * Merges the related tour and accommodation posts into a single
-	 * itemOffered value, typed appropriately, without overwriting each other.
+	 * Adds the image from the Yoast context, falling back to the featured image.
 	 *
-	 * @param array $data       Offer data.
-	 * @param array $tour_list  Related tour post IDs.
-	 * @param array $accom_list Related accommodation post IDs.
-	 * @return array $data Offer data.
+	 * @param array $data Offer data.
+	 * @return array
 	 */
-	public function add_items_offered( $data, $tour_list, $accom_list ) {
-		$items_offered = array();
-		$items_offered = array_merge( $items_offered, \lsx\legacy\Schema_Utils::get_item_reviewed( $tour_list, 'TouristTrip' ) );
-		$items_offered = array_merge( $items_offered, \lsx\legacy\Schema_Utils::get_item_reviewed( $accom_list, 'LodgingBusiness' ) );
-
-		if ( ! empty( $items_offered ) ) {
-			$data['itemOffered'] = 1 === count( $items_offered ) ? $items_offered[0] : $items_offered;
+	protected function add_image( array $data ) {
+		if ( null !== $this->context && ! empty( $this->context->has_image ) ) {
+			$data['image'] = array( '@id' => $this->canonical . Helpers::primary_image_hash() );
+		} else {
+			$thumbnail_url = get_the_post_thumbnail_url( $this->post_id, 'large' );
+			if ( $thumbnail_url ) {
+				$data['image'] = esc_url( $thumbnail_url );
+			}
 		}
-
 		return $data;
 	}
 }

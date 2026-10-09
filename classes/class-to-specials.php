@@ -86,6 +86,7 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 			register_activation_hook( LSX_TO_SPECIALS_CORE, array( $this, 'register_activation_hook' ) );
 			add_action( 'admin_init', array( $this, 'register_activation_hook_check' ) );
 			add_filter( 'wpseo_schema_graph_pieces', array( $this, 'add_graph_pieces' ), 11, 2 );
+			add_action( 'wp_head', array( $this, 'output_standalone_schema' ), 5 );
 		}
 
 		/**
@@ -224,19 +225,60 @@ if (!class_exists( 'LSX_TO_Specials' ) ) {
 			flush_rewrite_rules();
 		}
 		/**
-		 * Adds Schema pieces to our output.
+		 * Whether the Tour Operator core schema helpers (core 2.2+) are loaded.
 		 *
-		 * @param array                 $pieces  Graph pieces to output.
-		 * @param \WPSEO_Schema_Context $context Object with context variables.
+		 * The Specials schema piece depends on them, so it is only registered
+		 * when they are available. Older core versions get no Specials schema,
+		 * rather than a fatal error.
+		 *
+		 * @return bool
+		 */
+		public function has_schema_support() {
+			return class_exists( '\lsx\schema\Helpers' );
+		}
+
+		/**
+		 * Adds Schema pieces to the Yoast SEO graph.
+		 *
+		 * @param array                                   $pieces  Graph pieces to output.
+		 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context Object with context variables.
 		 *
 		 * @return array $pieces Graph pieces to output.
 		 */
 		public function add_graph_pieces( $pieces, $context ) {
-			if ( class_exists( 'LSX_TO_Schema_Graph_Piece' ) ) {
+			if ( $this->has_schema_support() ) {
 				require_once LSX_TO_SPECIALS_PATH . 'classes/class-to-specials-schema.php';
 				$pieces[] = new LSX_TO_Specials_Schema( $context );
 			}
 			return $pieces;
+		}
+
+		/**
+		 * Prints a standalone JSON-LD Offer graph when Yoast SEO is not active.
+		 *
+		 * Mirrors the core Tour Operator standalone output, which only covers
+		 * the core post types.
+		 *
+		 * @return void
+		 */
+		public function output_standalone_schema() {
+			if ( defined( 'WPSEO_VERSION' ) || ! $this->has_schema_support() || ! is_singular( 'special' ) ) {
+				return;
+			}
+
+			require_once LSX_TO_SPECIALS_PATH . 'classes/class-to-specials-schema.php';
+			$piece = new LSX_TO_Specials_Schema();
+			$graph = array(
+				'@context' => 'https://schema.org',
+				'@graph'   => array( $piece->generate() ),
+			);
+
+			// JSON_HEX_TAG prevents </script> injection; JSON_HEX_AMP avoids HTML entity issues.
+			$json = wp_json_encode( $graph, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP );
+			if ( $json ) {
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<script type="application/ld+json">' . "\n" . $json . "\n</script>\n";
+			}
 		}
 	}
 	new LSX_TO_Specials();
