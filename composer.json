@@ -22,7 +22,8 @@
     "scripts": {
         "phpcs": "vendor/bin/phpcs",
         "phpcbf": "vendor/bin/phpcbf",
-        "phpcs:report": "vendor/bin/phpcs --report=json --report-file=phpcs-report.json"
+        "phpcs:report": "vendor/bin/phpcs --report=json --report-file=phpcs-report.json",
+        "test": "vendor/bin/phpunit -c phpunit.xml.dist"
     },
     "license": "GPL-3.0-or-later",
     "config": {
