@@ -1,5 +1,20 @@
 # Change log
 
+## Unreleased
+
+### Fixed
+- Schema: rebuilt the Special `Offer` schema piece as a self-contained class on the Tour Operator core 2.2 schema helpers. It no longer depends on the legacy `LSX_TO_Schema_Graph_Piece` base class, which core is removing; without this change, special pages emit no Offer schema with the new core. ([TO-217](https://linear.app/lightspeedwp/issue/TO-217))
+- Schema: the Offer schema is only registered when the core 2.2 schema helpers are available (no fatal error on older core), and a standalone JSON-LD block is printed when Yoast SEO is inactive.
+- Schema: "Percentage Off Your Price" specials no longer publish the percentage as a price in the site currency.
+- Schema: `priceSpecification` uses this plugin's price-type labels when core has none (for example "Per Person"), and is omitted for unknown types.
+- Schema: `itemOffered` and `subjectOf` include each item's URL, list published items only, and remove duplicates. The offer and item names are plain text, with HTML entities decoded.
+
+### Removed
+- The unused legacy `classes/class-specials-schema.php`, which redeclared the schema class and hard-coded a telephone number.
+
+### Added
+- PHPUnit regression tests for the Specials schema (`composer test`).
+
 ## [2.2](https://github.com/lightspeeddevelopment/to-specials/releases/tag/2.2) - 2026-07-29
 
 ### Added
