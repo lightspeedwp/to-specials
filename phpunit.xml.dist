@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         bootstrap="tests/php/bootstrap.php"
+         colors="true"
+         failOnWarning="true"
+         failOnRisky="true">
+
+    <!-- Unit tests that run without a WordPress install. WordPress functions
+         are stubbed in tests/php/bootstrap.php. The Tour Operator core schema
+         helpers are loaded from TO_CORE_PATH, or from a sibling
+         ../tour-operator checkout. -->
+    <testsuites>
+        <testsuite name="Schema">
+            <directory>./tests/php</directory>
+        </testsuite>
+    </testsuites>
+
+    <source>
+        <include>
+            <directory suffix=".php">./classes</directory>
+        </include>
+    </source>
+</phpunit>
