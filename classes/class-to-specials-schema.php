@@ -186,12 +186,12 @@ class LSX_TO_Specials_Schema {
 		$data['price']         = $price;
 		$data['priceCurrency'] = $currency;
 		$data['category']      = __( 'Special', 'to-specials' );
-		$data['availability']  = 'https://schema.org/LimitedAvailability';
+		$data['availability']  = $this->get_availability();
 
 		$label = $this->get_price_type_label( $price_type );
 		if ( '' !== $label ) {
 			$data['priceSpecification'] = array(
-				'@type'         => 'PriceSpecification',
+				'@type'         => 'UnitPriceSpecification',
 				'price'         => $price,
 				'priceCurrency' => $currency,
 				'unitText'      => $label,
@@ -199,6 +199,20 @@ class LSX_TO_Specials_Schema {
 		}
 
 		return $data;
+	}
+
+	/**
+	 * Gets the offer availability: Discontinued once the booking window has
+	 * ended, so an expired special never claims it can still be booked.
+	 *
+	 * @return string Schema.org ItemAvailability URL.
+	 */
+	protected function get_availability() {
+		$end = Helpers::format_iso_date( Helpers::get_meta( $this->post_id, 'booking_validity_end' ) );
+		if ( '' !== $end && $end < current_time( 'Y-m-d' ) ) {
+			return 'https://schema.org/Discontinued';
+		}
+		return 'https://schema.org/LimitedAvailability';
 	}
 
 	/**

@@ -106,13 +106,28 @@ class SpecialSchemaTest extends TestCase {
 		$this->assertArrayNotHasKey( 'PriceSpecification', $data );
 		$this->assertSame(
 			array(
-				'@type'         => 'PriceSpecification',
+				'@type'         => 'UnitPriceSpecification',
 				'price'         => '12500',
 				'priceCurrency' => 'ZAR',
 				'unitText'      => 'Per Person Sharing',
 			),
 			$data['priceSpecification']
 		);
+	}
+
+	public function test_ended_special_is_marked_discontinued() {
+		lsx_to_test_add_meta(
+			self::SPECIAL_ID,
+			array(
+				'booking_validity_start' => (string) gmmktime( 0, 0, 0, 6, 1, 2020 ),
+				'booking_validity_end'   => (string) gmmktime( 0, 0, 0, 9, 1, 2020 ),
+			)
+		);
+
+		$data = $this->generate();
+
+		$this->assertSame( 'https://schema.org/Discontinued', $data['availability'] );
+		$this->assertSame( '2020-09-01', $data['availabilityEnds'] );
 	}
 
 	public function test_per_person_label_falls_back_when_core_has_none() {

@@ -227,3 +227,7 @@ function get_the_excerpt( $post = null ) {
 	$post = get_post( $post );
 	return $post ? $post->post_excerpt : '';
 }
+
+function current_time( $type, $gmt = 0 ) {
+	return gmdate( 'mysql' === $type ? 'Y-m-d H:i:s' : $type );
+}
