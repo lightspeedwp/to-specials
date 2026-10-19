@@ -22,6 +22,8 @@
 - Schema: the Offer schema is only registered when the core 2.2 schema helpers are available (no fatal error on older core), and a standalone JSON-LD block is printed when Yoast SEO is inactive.
 - Schema: "Percentage Off Your Price" specials no longer publish the percentage as a price in the site currency.
 - Schema: `priceSpecification` uses this plugin's price-type labels when core has none (for example "Per Person"), and is omitted for unknown types.
+- Schema: `priceSpecification` is typed `UnitPriceSpecification`, since `unitText` is not valid on a plain `PriceSpecification`. ([TO-217](https://linear.app/lightspeedwp/issue/TO-217))
+- Schema: a special whose booking window has ended reports `availability` as `Discontinued` instead of `LimitedAvailability`. ([TO-217](https://linear.app/lightspeedwp/issue/TO-217))
 - Schema: `itemOffered` and `subjectOf` include each item's URL, list published items only, and remove duplicates. The offer and item names are plain text, with HTML entities decoded.
 
 ### Security
