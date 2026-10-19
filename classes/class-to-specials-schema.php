@@ -205,6 +205,8 @@ class LSX_TO_Specials_Schema {
 	 * Gets the offer availability: Discontinued once the booking window has
 	 * ended, so an expired special never claims it can still be booked.
 	 *
+	 * @since 2.2.1
+	 *
 	 * @return string Schema.org ItemAvailability URL.
 	 */
 	protected function get_availability() {

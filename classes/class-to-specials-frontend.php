@@ -87,6 +87,19 @@ class LSX_TO_Specials_Frontend {
 		return $html;
 	}
 
+	/**
+	 * Formats the price type label shown next to a special's price.
+	 *
+	 * Per-person types are shortened to "P/P", a percentage-off special shows
+	 * "% Off", and any other type outputs nothing.
+	 *
+	 * @param string       $html     Current output HTML.
+	 * @param string|false $meta_key Meta key being output.
+	 * @param string|false $value    Stored price type.
+	 * @param string       $before   HTML output before the value.
+	 * @param string       $after    HTML output after the value.
+	 * @return string
+	 */
 	public function price_type_filter( $html = '', $meta_key = false, $value = false, $before = '', $after = '' ) {
 
 		if ( get_post_type() === 'special' && 'price_type' === $meta_key ) {

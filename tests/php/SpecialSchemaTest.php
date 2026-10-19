@@ -17,11 +17,14 @@ class SpecialSchemaTest extends TestCase {
 	const SPECIAL_ID = 10;
 
 	/**
-	 * Sets up a published, priced special with a booking window.
+	 * Sets up a published, priced special with a booking window, and pins the
+	 * test clock to 1 October 2026, before the window ends, so availability
+	 * assertions do not depend on the date the suite runs.
 	 */
 	protected function setUp(): void {
 		lsx_to_test_reset();
 		$GLOBALS['lsx_to_test']['currency'] = 'zar';
+		$GLOBALS['lsx_to_test']['now']      = gmmktime( 0, 0, 0, 10, 1, 2026 );
 
 		lsx_to_test_add_post(
 			self::SPECIAL_ID,
@@ -60,6 +63,9 @@ class SpecialSchemaTest extends TestCase {
 		return ( new LSX_TO_Specials_Schema( $context ) )->generate();
 	}
 
+	/**
+	 * Core Offer properties are output as plain text with canonical IDs.
+	 */
 	public function test_offer_core_properties() {
 		$data = $this->generate();
 
@@ -72,6 +78,9 @@ class SpecialSchemaTest extends TestCase {
 		$this->assertSame( array( '@id' => 'https://example.test/#organization' ), $data['offeredBy'] );
 	}
 
+	/**
+	 * The booking window maps to ISO 8601 dates, with priceValidUntil output once.
+	 */
 	public function test_booking_window_maps_to_iso_dates_with_a_single_price_valid_until() {
 		$data = $this->generate();
 
@@ -81,6 +90,9 @@ class SpecialSchemaTest extends TestCase {
 		$this->assertSame( 1, substr_count( (string) json_encode( $data ), 'priceValidUntil' ) );
 	}
 
+	/**
+	 * Unparseable or empty dates are left out rather than output as invalid values.
+	 */
 	public function test_invalid_dates_are_omitted() {
 		lsx_to_test_add_meta(
 			self::SPECIAL_ID,
@@ -97,6 +109,9 @@ class SpecialSchemaTest extends TestCase {
 		$this->assertArrayNotHasKey( 'priceValidUntil', $data );
 	}
 
+	/**
+	 * The price is numeric and carries a UnitPriceSpecification while the special is bookable.
+	 */
 	public function test_price_is_numeric_with_a_structured_price_specification() {
 		$data = $this->generate();
 
@@ -115,6 +130,9 @@ class SpecialSchemaTest extends TestCase {
 		);
 	}
 
+	/**
+	 * A special whose booking window has ended is marked Discontinued.
+	 */
 	public function test_ended_special_is_marked_discontinued() {
 		lsx_to_test_add_meta(
 			self::SPECIAL_ID,
@@ -130,12 +148,29 @@ class SpecialSchemaTest extends TestCase {
 		$this->assertSame( '2020-09-01', $data['availabilityEnds'] );
 	}
 
+	/**
+	 * A special stays bookable on its last day and is Discontinued the day after.
+	 */
+	public function test_availability_changes_the_day_after_the_booking_window_ends() {
+		$GLOBALS['lsx_to_test']['now'] = gmmktime( 23, 59, 59, 2, 28, 2027 );
+		$this->assertSame( 'https://schema.org/LimitedAvailability', $this->generate()['availability'] );
+
+		$GLOBALS['lsx_to_test']['now'] = gmmktime( 0, 0, 0, 3, 1, 2027 );
+		$this->assertSame( 'https://schema.org/Discontinued', $this->generate()['availability'] );
+	}
+
+	/**
+	 * The plugin's own label is used for price types core has no label for.
+	 */
 	public function test_per_person_label_falls_back_when_core_has_none() {
 		lsx_to_test_add_meta( self::SPECIAL_ID, array( 'price_type' => 'per_person' ) );
 
 		$this->assertSame( 'Per Person', $this->generate()['priceSpecification']['unitText'] );
 	}
 
+	/**
+	 * Without a price type the price is kept but no specification is output.
+	 */
 	public function test_no_price_type_keeps_the_price_without_a_specification() {
 		lsx_to_test_add_meta( self::SPECIAL_ID, array( 'price_type' => 'none' ) );
 
@@ -145,6 +180,9 @@ class SpecialSchemaTest extends TestCase {
 		$this->assertArrayNotHasKey( 'priceSpecification', $data );
 	}
 
+	/**
+	 * Percentage-off specials output no price fields, since the price is a percentage.
+	 */
 	public function test_percentage_specials_emit_no_price_fields() {
 		lsx_to_test_add_meta(
 			self::SPECIAL_ID,
@@ -162,6 +200,9 @@ class SpecialSchemaTest extends TestCase {
 		$this->assertSame( '2027-02-28', $data['availabilityEnds'] );
 	}
 
+	/**
+	 * A price that cannot be parsed as a number outputs no price fields.
+	 */
 	public function test_unparseable_price_emits_no_price_fields() {
 		lsx_to_test_add_meta( self::SPECIAL_ID, array( 'price' => 'Price on request' ) );
 
@@ -172,6 +213,9 @@ class SpecialSchemaTest extends TestCase {
 		$this->assertArrayNotHasKey( 'availability', $data );
 	}
 
+	/**
+	 * Tours and accommodation are merged into itemOffered, de-duplicated and published only.
+	 */
 	public function test_tours_and_accommodation_are_merged_without_overwriting() {
 		lsx_to_test_add_post( 20, array( 'post_title' => 'Cape &#8211; Safari', 'post_type' => 'tour' ) );
 		lsx_to_test_add_post( 21, array( 'post_title' => 'Draft Tour', 'post_type' => 'tour', 'post_status' => 'draft' ) );
@@ -201,6 +245,9 @@ class SpecialSchemaTest extends TestCase {
 		);
 	}
 
+	/**
+	 * A single offered item is an object, and no items omits itemOffered.
+	 */
 	public function test_single_offered_item_is_an_object_and_none_is_omitted() {
 		$this->assertArrayNotHasKey( 'itemOffered', $this->generate() );
 
@@ -210,6 +257,9 @@ class SpecialSchemaTest extends TestCase {
 		$this->assertSame( 'LodgingBusiness', $this->generate()['itemOffered']['@type'] );
 	}
 
+	/**
+	 * Published related posts are output as subjectOf articles.
+	 */
 	public function test_related_posts_are_published_subject_of_articles() {
 		lsx_to_test_add_post( 40, array( 'post_title' => 'Packing tips' ) );
 		lsx_to_test_add_post( 41, array( 'post_title' => 'Unpublished', 'post_status' => 'draft' ) );
@@ -252,10 +302,16 @@ class SpecialSchemaTest extends TestCase {
 		$this->assertSame( array(), $this->generate() );
 	}
 
+	/**
+	 * A missing post outputs no Offer.
+	 */
 	public function test_missing_post_emits_nothing() {
 		$this->assertSame( array(), $this->generate( array( 'id' => 999 ) ) );
 	}
 
+	/**
+	 * Without a Yoast context the queried special is used, not the loop post.
+	 */
 	public function test_without_context_the_queried_special_is_used_not_the_loop_post() {
 		lsx_to_test_add_post( 50, array( 'post_title' => 'Some other post' ) );
 		$GLOBALS['lsx_to_test']['queried'] = self::SPECIAL_ID;
@@ -266,6 +322,9 @@ class SpecialSchemaTest extends TestCase {
 		$this->assertSame( 'https://example.test/special/10/#/schema/offer/10', $data['@id'] );
 	}
 
+	/**
+	 * Without a Yoast context or queried object the loop post is used.
+	 */
 	public function test_without_context_falls_back_to_the_loop_post() {
 		$GLOBALS['lsx_to_test']['loop_id'] = self::SPECIAL_ID;
 
@@ -274,6 +333,9 @@ class SpecialSchemaTest extends TestCase {
 		$this->assertSame( 'https://example.test/special/10/#/schema/offer/10', $data['@id'] );
 	}
 
+	/**
+	 * offeredBy is left out when the site has no organisation reference.
+	 */
 	public function test_offered_by_is_omitted_without_a_site_organisation() {
 		$this->assertArrayNotHasKey( 'offeredBy', $this->generate( array( 'site_represents_reference' => false ) ) );
 	}
