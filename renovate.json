@@ -1,0 +1,63 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "timezone": "Africa/Johannesburg",
+  "schedule": [
+    "before 6am on monday"
+  ],
+  "labels": [
+    "area:dependencies"
+  ],
+  "prConcurrentLimit": 10,
+  "enabledManagers": [
+    "github-actions",
+    "npm",
+    "composer"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [
+      "before 6am on monday"
+    ]
+  },
+  "packageRules": [
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "addLabels": [
+        "github_actions"
+      ]
+    },
+    {
+      "groupName": "wordpress",
+      "matchPackageNames": [
+        "@wordpress/**"
+      ]
+    },
+    {
+      "groupName": "playwright",
+      "matchPackageNames": [
+        "@playwright/**"
+      ]
+    },
+    {
+      "groupName": "phpcs",
+      "matchPackageNames": [
+        "wp-coding-standards/wpcs",
+        "dealerdirect/phpcodesniffer-composer-installer",
+        "phpcompatibility/phpcompatibility-wp"
+      ]
+    },
+    {
+      "description": "Mergify auto-merges every renovate[bot] PR without waiting for CI. Draft PRs cannot be merged, so major updates and lock-file refreshes wait for a person to mark them ready for review.",
+      "matchUpdateTypes": [
+        "major",
+        "lockFileMaintenance"
+      ],
+      "draftPR": true
+    }
+  ]
+}
